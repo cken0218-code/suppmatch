@@ -2,9 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { LocaleProvider, useLocale, type Locale } from '@/contexts/LocaleContext';
-import symptomsData from '@/data/symptoms.json';
-
-type Symptom = typeof symptomsData.symptoms[0];
+import { symptoms, type Symptom } from '@/data/symptoms';
 
 // Group symptoms by first letter for easier display
 function groupSymptomsByCategory(symptoms: Symptom[]) {
@@ -133,7 +131,7 @@ function MainContent() {
   const [view, setView] = useState<'select' | 'recommend'>('select');
 
   const groupedSymptoms = useMemo(() => 
-    groupSymptomsByCategory(symptomsData.symptoms), 
+    groupSymptomsByCategory(symptoms), 
   []);
 
   const handleSymptomClick = (symptom: Symptom) => {
@@ -158,7 +156,7 @@ function MainContent() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        {symptomsData.symptoms.map((symptom) => (
+        {symptoms.map((symptom) => (
           <SymptomCard
             key={symptom.id}
             symptom={symptom}
