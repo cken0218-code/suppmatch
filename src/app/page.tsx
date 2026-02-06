@@ -202,7 +202,7 @@ function AppContent() {
         </main>
 
         <footer className="text-center py-6 text-gray-500 text-sm">
-          <p>© 2025 SuppMatch. {useLocale().t('disclaimer')}</p>
+          <p>© 2025 SuppMatch. ⚠️ 本網站提供資訊僅供參考，不構成醫療建議。使用前請諮詢醫生。</p>
         </footer>
       </div>
     </LocaleProvider>
