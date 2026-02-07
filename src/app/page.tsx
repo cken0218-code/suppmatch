@@ -1,4 +1,5 @@
 'use client';
+// Updated: 2026-02-08 - Added search functionality
 
 import { useState, useMemo } from 'react';
 import { LocaleProvider, useLocale, type Locale } from '@/contexts/LocaleContext';
@@ -55,7 +56,7 @@ function SymptomCard({
   isSelected: boolean; 
   onClick: () => void;
 }) {
-  const { locale, t } = useLocale();
+  const { locale } = useLocale();
   const name = symptom.names[locale];
 
   return (
@@ -72,6 +73,31 @@ function SymptomCard({
   );
 }
 
+function SearchBar({ 
+  onSearch 
+}: { 
+  onSearch: (query: string) => void 
+}) {
+  return (
+    <div className="relative">
+      <input
+        type="text"
+        placeholder="搜尋症狀..."
+        onChange={(e) => onSearch(e.target.value)}
+        className="w-full px-4 py-3 pl-10 border-2 border-gray-200 rounded-lg focus:border-emerald-500 focus:outline-none text-lg"
+      />
+      <svg 
+        className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+  );
+}
+
 function RecommendationView({ 
   symptom, 
   onBack 
@@ -79,7 +105,7 @@ function RecommendationView({
   symptom: Symptom; 
   onBack: () => void;
 }) {
-  const { locale, t } = useLocale();
+  const { locale } = useLocale();
 
   return (
     <div className="space-y-6">
@@ -87,14 +113,14 @@ function RecommendationView({
         onClick={onBack}
         className="text-emerald-600 hover:text-emerald-700 font-medium"
       >
-        ← {t('button.back')}
+        ← 返回
       </button>
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
         <h2 className="text-xl font-semibold mb-2">
           {symptom.names[locale]}
         </h2>
-        <p className="text-gray-600 mb-4">{t('recommendation.description')}</p>
+        <p className="text-gray-600 mb-4">推薦補充品</p>
 
         <div className="space-y-3">
           {symptom.recommendations.map((rec, idx) => (
@@ -114,25 +140,34 @@ function RecommendationView({
           rel="noopener noreferrer"
           className="block mt-6 text-center py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-colors"
         >
-          {t('iherb.link')} → 
+          去iHerb睇 →
         </a>
       </div>
 
       <p className="text-sm text-gray-500 bg-yellow-50 p-3 rounded-lg">
-        {t('disclaimer')}
+        ⚠️ 本網站提供資訊僅供參考，不構成醫療建議。使用前請諮詢醫生。
       </p>
     </div>
   );
 }
 
 function MainContent() {
-  const { locale, t } = useLocale();
+  const { locale } = useLocale();
   const [selectedSymptoms, setSelectedSymptoms] = useState<Symptom[]>([]);
   const [view, setView] = useState<'select' | 'recommend'>('select');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const groupedSymptoms = useMemo(() => 
-    groupSymptomsByCategory(symptoms), 
-  []);
+  const filteredSymptoms = useMemo(() => {
+    if (!searchQuery.trim()) return symptoms;
+    const query = searchQuery.toLowerCase();
+    return symptoms.filter(s => 
+      s.names[locale]?.toLowerCase().includes(query) ||
+      s.names['zh-HK']?.toLowerCase().includes(query) ||
+      s.names['zh-CN']?.toLowerCase().includes(query) ||
+      s.names['en']?.toLowerCase().includes(query) ||
+      s.id.toLowerCase().includes(query)
+    );
+  }, [searchQuery, locale]);
 
   const handleSymptomClick = (symptom: Symptom) => {
     setSelectedSymptoms([symptom]);
@@ -155,8 +190,16 @@ function MainContent() {
 
   return (
     <div className="space-y-6">
+      <SearchBar onSearch={setSearchQuery} />
+      
+      {searchQuery && (
+        <p className="text-sm text-gray-500">
+          搵到 {filteredSymptoms.length} 個症狀
+        </p>
+      )}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        {symptoms.map((symptom) => (
+        {filteredSymptoms.map((symptom) => (
           <SymptomCard
             key={symptom.id}
             symptom={symptom}
@@ -166,8 +209,14 @@ function MainContent() {
         ))}
       </div>
 
+      {filteredSymptoms.length === 0 && (
+        <p className="text-center text-gray-500 py-8">
+          搵唔到相關症狀
+        </p>
+      )}
+
       <p className="text-sm text-gray-500 bg-yellow-50 p-3 rounded-lg">
-        {t('disclaimer')}
+        ⚠️ 本網站提供資訊僅供參考，不構成醫療建議。使用前請諮詢醫生。
       </p>
     </div>
   );
