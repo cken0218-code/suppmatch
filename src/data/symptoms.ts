@@ -1290,3 +1290,221 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name
+  },
+  {
+    id: "hair-thinning",
+    category_id: "hair-skin-nails",
+    names: {
+      "zh-HK": "頭髮稀疏",
+      "zh-CN": "头发稀疏",
+      "en": "Hair Thinning"
+    },
+    iherb_category: {
+      name: "Hair, Skin and Nails",
+      "url": "https://www.iherb.com/c/hair-skin-nails"
+    },
+    recommendations: [
+      { name: { "zh-HK": "生物素(Biotin)", "zh-CN": "生物素(Biotin)", "en": "Biotin" } },
+      { name: { "zh-HK": "角蛋白(Keratin)", "zh-CN": "角蛋白(Keratin)", "en": "Keratin" } },
+      { name: { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } }
+    ]
+  },
+  {
+    id: "hyperlipidemia",
+    category_id: "heart-health",
+    names: {
+      "zh-HK": "高血脂/膽固醇高",
+      "zh-CN": "高血脂/胆固醇高",
+      "en": "High Cholesterol"
+    },
+    iherb_category: {
+      name: "Heart Health",
+      "url": "https://www.iherb.com/c/heart-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil" } },
+      { name: { "zh-HK": "紅麴米", "zh-CN": "红曲米", "en": "Red Yeast Rice" } },
+      { name: { "zh-HK": "植物固醇", "zh-CN": "植物固醇", "en": "Plant Sterols" } }
+    ]
+  },
+  {
+    id: "high-blood-pressure",
+    category_id: "heart-health",
+    names: {
+      "zh-HK": "高血壓",
+      "zh-CN": "高血压",
+      "en": "High Blood Pressure"
+    },
+    iherb_category: {
+      name: "Heart Health",
+      "url": "https://www.iherb.com/c/heart-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil" } },
+      { name: { "zh-HK": "輔酶Q10", "zh-CN": "辅酶Q10", "en": "CoQ10" } },
+      { name: { "zh-HK": "大蒜精華", "zh-CN": "大蒜精华", "en": "Garlic Extract" } }
+    ]
+  },
+  {
+    id: "high-blood-sugar",
+    category_id: "heart-health",
+    names: {
+      "zh-HK": "高血糖/糖尿病前期",
+      "zh-CN": "高血糖/糖尿病前期",
+      "en": "High Blood Sugar"
+    },
+    iherb_category: {
+      name: "Heart Health",
+      "url": "https://www.iherb.com/c/heart-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "肉桂", "zh-CN": "肉桂", "en": "Cinnamon" } },
+      { name: { "zh-HK": "鉻", "zh-CN": "铬", "en": "Chromium" } },
+      { name: { "zh-HK": "苦瓜勝肽", "zh-CN": "苦瓜胜肽", "en": "Bitter Melon" } }
+    ]
+  },
+  {
+    id: "liver-detox",
+    category_id: "digestive-support",
+    names: {
+      "zh-HK": "肝臟排毒/護肝",
+      "zh-CN": "肝脏排毒/护肝",
+      "en": "Liver Detox"
+    },
+    iherb_category: {
+      name: "Digestive Support",
+      "url": "https://www.iherb.com/c/digestive-support"
+    },
+    recommendations: [
+      { name: { "zh-HK": "奶薊", "zh-CN": "奶蓟", "en": "Milk Thistle" } },
+      { name: { "zh-HK": "薑黃", "zh-CN": "姜黄", "en": "Curcumin" } },
+      { name: { "zh-HK": "NAC", "zh-CN": "NAC", "en": "NAC" } }
+    ]
+  },
+  {
+    id: "thyroid-support",
+    category_id: "heart-health",
+    names: {
+      "zh-HK": "甲狀腺支持",
+      "zh-CN": "甲状腺支持",
+      "en": "Thyroid Support"
+    },
+    iherb_category: {
+      name: "Heart Health",
+      "url": "https://www.iherb.com/c/heart-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "碘", "zh-CN": "碘", "en": "Iodine" } },
+      { name: { "zh-HK": "硒", "zh-CN": "硒", "en": "Selenium" } },
+      { name: { "zh-HK": "鋅", "zh-CN": "锌", "en": "Zinc" } }
+    ]
+  },
+  {
+    id: "prostate-health",
+    category_id: "heart-health",
+    names: {
+      "zh-HK": "前列腺健康",
+      "zh-CN": "前列腺健康",
+      "en": "Prostate Health"
+    },
+    iherb_category: {
+      name: "Heart Health",
+      "url": "https://www.iherb.com/c/heart-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "鋸棕櫚", "zh-CN": "锯棕榈", "en": "Saw Palmetto" } },
+      { name: { "zh-HK": "南瓜籽", "zh-CN": "南瓜籽", "en": "Pumpkin Seed" } },
+      { name: { "zh-HK": "番茄紅素", "zh-CN": "番茄红素", "en": "Lycopene" } }
+    ]
+  },
+  {
+    id: "athletic-performance",
+    category_id: "bone-joint",
+    names: {
+      "zh-HK": "運動表現/體能提升",
+      "zh-CN": "运动表现/体能提升",
+      "en": "Athletic Performance"
+    },
+    iherb_category: {
+      name: "Bone, Joint and Cartilage",
+      "url": "https://www.iherb.com/c/bone-joint"
+    },
+    recommendations: [
+      { name: { "zh-HK": "乳清蛋白", "zh-CN": "乳清蛋白", "en": "Whey Protein" } },
+      { name: { "zh-HK": "BCAA", "zh-CN": "BCAA", "en": "BCAA" } },
+      { name: { "zh-HK": "Beta-丙氨酸", "zh-CN": "Beta-丙氨酸", "en": "Beta-Alanine" } }
+    ]
+  },
+  {
+    id: "muscle-building",
+    category_id: "bone-joint",
+    names: {
+      "zh-HK": "肌肉增長/增肌",
+      "zh-CN": "肌肉增长/增肌",
+      "en": "Muscle Building"
+    },
+    iherb_category: {
+      name: "Bone, Joint and Cartilage",
+      "url": "https://www.iherb.com/c/bone-joint"
+    },
+    recommendations: [
+      { name: { "zh-HK": "乳清蛋白", "zh-CN": "乳清蛋白", "en": "Whey Protein" } },
+      { name: { "zh-HK": "肌酸", "zh-CN": "肌酸", "en": "Creatine" } },
+      { name: { "zh-HK": "HMB", "zh-CN": "HMB", "en": "HMB" } }
+    ]
+  },
+  {
+    id: "cognitive-decline",
+    category_id: "brain-cognitive",
+    names: {
+      "zh-HK": "認知衰退/腦退化",
+      "zh-CN": "认知衰退/脑退化",
+      "en": "Cognitive Decline"
+    },
+    iherb_category: {
+      name: "Brain and Cognitive",
+      "url": "https://www.iherb.com/c/brain-cognitive"
+    },
+    recommendations: [
+      { name: { "zh-HK": "磷脂酰絲氨酸(PS)", "zh-CN": "磷脂酰丝氨酸(PS)", "en": "Phosphatidylserine" } },
+      { name: { "zh-HK": "銀杏", "zh-CN": "银杏", "en": "Ginkgo Biloba" } },
+      { name: { "zh-HK": "Omega-3", "zh-CN": "Omega-3", "en": "Omega-3" } }
+    ]
+  },
+  {
+    id: "anxiety-relief",
+    category_id: "sleep-mood",
+    names: {
+      "zh-HK": "焦慮緩解/舒壓",
+      "zh-CN": "焦虑缓解/舒压",
+      "en": "Anxiety Relief"
+    },
+    iherb_category: {
+      name: "Sleep and Mood",
+      "url": "https://www.iherb.com/c/sleep-mood"
+    },
+    recommendations: [
+      { name: { "zh-HK": "南非醉茄", "zh-CN": "南非醉茄", "en": "Ashwagandha" } },
+      { name: { "zh-HK": "L-茶氨酸", "zh-CN": "L-茶氨酸", "en": "L-Theanine" } },
+      { name: { "zh-HK": "CBD油", "zh-CN": "CBD油", "en": "CBD Oil" } }
+    ]
+  },
+  {
+    id: "pregnancy-support",
+    category_id: "womens-health",
+    names: {
+      "zh-HK": "懷孕營養支持",
+      "zh-CN": "怀孕营养支持",
+      "en": "Pregnancy Support"
+    },
+    iherb_category: {
+      name: "Women Health",
+      "url": "https://www.iherb.com/c/womens-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "孕婦維他命", "zh-CN": "孕妇维生素", "en": "Prenatal Vitamin" } },
+      { name: { "zh-HK": "DHA/Omega-3", "zh-CN": "DHA/Omega-3", "en": "DHA/Omega-3" } },
+      { name: { "zh-HK": "鐵", "zh-CN": "铁", "en": "Iron" } }
+    ]
+  }
+];
