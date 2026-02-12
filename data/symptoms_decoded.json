@@ -1,0 +1,688 @@
+{
+  "symptoms": [
+    {
+      "id": "dull-hair",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "暗啞頭髮/缺乏光澤",
+        "zh-CN": "暗哑头发/缺乏光泽",
+        "en": "Dull Hair / Lack of Shine"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "生物素(Biotin)", "zh-CN": "生物素(Biotin)", "en": "Biotin" } },
+        { "name": { "zh-HK": "角蛋白(Keratin)", "zh-CN": "角蛋白(Keratin)", "en": "Keratin" } },
+        { "name": { "zh-HK": "維生素E", "zh-CN": "维生素E", "en": "Vitamin E" } }
+      ]
+    },
+    {
+      "id": "brittle-nails",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "脆弱指甲/易斷裂",
+        "zh-CN": "脆弱指甲/易断裂",
+        "en": "Brittle Nails"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "生物素(Biotin)", "zh-CN": "生物素(Biotin)", "en": "Biotin" } },
+        { "name": { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } },
+        { "name": { "zh-HK": "矽(Silica)", "zh-CN": "硅(Silica)", "en": "Silica" } }
+      ]
+    },
+    {
+      "id": "muscle-pain",
+      "category_id": "bone-joint",
+      "names": {
+        "zh-HK": "肌肉酸痛/疼痛",
+        "zh-CN": "肌肉酸痛/疼痛",
+        "en": "Muscle Soreness / Pain"
+      },
+      "iherb_category": {
+        "name": "Bone, Joint & Cartilage",
+        "url": "https://www.iherb.com/c/bone-joint"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "鎂(Magnesium)", "zh-CN": "镁(Magnesium)", "en": "Magnesium" } },
+        { "name": { "zh-HK": "薑黃素(Curcumin)", "zh-CN": "姜黄素(Curcumin)", "en": "Curcumin" } },
+        { "name": { "zh-HK": "蛋白質(Protein)", "zh-CN": "蛋白质(Protein)", "en": "Protein Powder" } }
+      ]
+    },
+    {
+      "id": "bloating",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "腹脹/胃氣",
+        "zh-CN": "腹胀/胃气",
+        "en": "Bloating / Gas"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "益生菌(Probiotics)", "zh-CN": "益生菌(Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "消化酶(Digestive Enzymes)", "zh-CN": "消化酶(Digestive Enzymes)", "en": "Digestive Enzymes" } },
+        { "name": { "zh-HK": "洋車前子殼(Psyllium Husk)", "zh-CN": "洋车前子壳(Psyllium Husk)", "en": "Psyllium Husk" } }
+      ]
+    },
+    {
+      "id": "constipation",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "便秘",
+        "zh-CN": "便秘",
+        "en": "Constipation"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "洋車前子殼(Psyllium Husk)", "zh-CN": "洋车前子壳(Psyllium Husk)", "en": "Psyllium Husk" } },
+        { "name": { "zh-HK": "益生菌(Probiotics)", "zh-CN": "益生菌(Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "鎂(Magnesium)", "zh-CN": "镁(Magnesium)", "en": "Magnesium" } }
+      ]
+    },
+    {
+      "id": "diarrhea",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "腹瀉/腸胃不適",
+        "zh-CN": "腹泻/肠胃不适",
+        "en": "Diarrhea / Upset Stomach"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "益生菌(Probiotics)", "zh-CN": "益生菌(Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "洋車前子殼(Psyllium Husk)", "zh-CN": "洋车前子壳(Psyllium Husk)", "en": "Psyllium Husk" } },
+        { "name": { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } }
+      ]
+    },
+    {
+      "id": "low-metabolism",
+      "category_id": "weight-management",
+      "names": {
+        "zh-HK": "新陈代谢慢",
+        "zh-CN": "新陈代谢慢",
+        "en": "Slow Metabolism"
+      },
+      "iherb_category": {
+        "name": "Weight Management",
+        "url": "https://www.iherb.com/c/weight-management"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "碘(Iodine)", "zh-CN": "碘(Iodine)", "en": "Iodine" } },
+        { "name": { "zh-HK": "維生素B群", "zh-CN": "维生素B群", "en": "Vitamin B Complex" } },
+        { "name": { "zh-HK": "綠茶提取物(Green Tea)", "zh-CN": "绿茶提取物(Green Tea)", "en": "Green Tea Extract" } }
+      ]
+    },
+    {
+      "id": "menopause",
+      "category_id": "womens-health",
+      "names": {
+        "zh-HK": "更年期症狀",
+        "zh-CN": "更年期症状",
+        "en": "Menopause Symptoms"
+      },
+      "iherb_category": {
+        "name": "Women's Health",
+        "url": "https://www.iherb.com/c/womens-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "大豆異黃酮(Soy Isoflavones)", "zh-CN": "大豆异黄酮(Soy Isoflavones)", "en": "Soy Isoflavones" } },
+        { "name": { "zh-HK": "黑升麻(Black Cohosh)", "zh-CN": "黑升麻(Black Cohosh)", "en": "Black Cohosh" } },
+        { "name": { "zh-HK": "維生素E", "zh-CN": "维生素E", "en": "Vitamin E" } }
+      ]
+    },
+    {
+      "id": "pms",
+      "category_id": "womens-health",
+      "names": {
+        "zh-HK": "經前綜合症(PMS)",
+        "zh-CN": "经前综合征(PMS)",
+        "en": "Premenstrual Syndrome (PMS)"
+      },
+      "iherb_category": {
+        "name": "Women's Health",
+        "url": "https://www.iherb.com/c/womens-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "月見草油(EPO)", "zh-CN": "月见草油(EPO)", "en": "Evening Primrose Oil" } },
+        { "name": { "zh-HK": "聖潔莓(Vitex)", "zh-CN": "圣洁莓(Vitex)", "en": "Vitex (Chasteberry)" } },
+        { "name": { "zh-HK": "維生素B6", "zh-CN": "维生素B6", "en": "Vitamin B6" } }
+      ]
+    },
+    {
+      "id": "arthritis",
+      "category_id": "bone-joint",
+      "names": {
+        "zh-HK": "關節炎",
+        "zh-CN": "关节炎",
+        "en": "Arthritis"
+      },
+      "iherb_category": {
+        "name": "Bone, Joint & Cartilage",
+        "url": "https://www.iherb.com/c/bone-joint"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "葡萄糖胺(Glucosamine)", "zh-CN": "葡萄糖胺(Glucosamine)", "en": "Glucosamine" } },
+        { "name": { "zh-HK": "軟骨素(Chondroitin)", "zh-CN": "软骨素(Chondroitin)", "en": "Chondroitin" } },
+        { "name": { "zh-HK": "薑黃素(Curcumin)", "zh-CN": "姜黄素(Curcumin)", "en": "Curcumin" } }
+      ]
+    },
+    {
+      "id": "brain-fog",
+      "category_id": "brain-cognitive",
+      "names": {
+        "zh-HK": "腦霧/專注力差",
+        "zh-CN": "脑雾/专注力差",
+        "en": "Brain Fog / Poor Focus"
+      },
+      "iherb_category": {
+        "name": "Brain & Cognitive",
+        "url": "https://www.iherb.com/c/brain-cognitive"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "Omega-3", "zh-CN": "Omega-3", "en": "Omega-3" } },
+        { "name": { "zh-HK": "磷脂酰絲氨酸(PS)", "zh-CN": "磷脂酰丝氨酸(PS)", "en": "Phosphatidylserine (PS)" } },
+        { "name": { "zh-HK": "銀杏(Ginkgo Biloba)", "zh-CN": "银杏(Ginkgo Biloba)", "en": "Ginkgo Biloba" } }
+      ]
+    },
+    {
+      "id": "depression",
+      "category_id": "sleep-mood",
+      "names": {
+        "zh-HK": "情緒低落/抑鬱",
+        "zh-CN": "情绪低落/抑郁",
+        "en": "Low Mood / Depression"
+      },
+      "iherb_category": {
+        "name": "Sleep & Mood",
+        "url": "https://www.iherb.com/c/sleep-mood"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "維生素D3", "zh-CN": "维生素D3", "en": "Vitamin D3" } },
+        { "name": { "zh-HK": "Omega-3", "zh-CN": "Omega-3", "en": "Omega-3" } },
+        { "name": { "zh-HK": "印度人參(Ashwagandha)", "zh-CN": "印度人参(Ashwagandha)", "en": "Ashwagandha" } }
+      ]
+    },
+    {
+      "id": "eczema",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "濕疹/皮膚癢",
+        "zh-CN": "湿疹/皮肤痒",
+        "en": "Eczema / Itchy Skin"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "維生素D3", "zh-CN": "维生素D3", "en": "Vitamin D3" } },
+        { "name": { "zh-HK": "益生菌(Probiotics)", "zh-CN": "益生菌(Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil (Omega-3)" } }
+      ]
+    },
+    {
+      "id": "psoriasis",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "牛皮癬",
+        "zh-CN": "牛皮癣",
+        "en": "Psoriasis"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil (Omega-3)" } },
+        { "name": { "zh-HK": "維生素D3", "zh-CN": "维生素D3", "en": "Vitamin D3" } },
+        { "name": { "zh-HK": "薑黃素(Curcumin)", "zh-CN": "姜黄素(Curcumin)", "en": "Curcumin" } }
+      ]
+    },
+    {
+      "id": "premature-gray-hair",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "過早白髮/頭髮早白",
+        "zh-CN": "过早白发/头发早白",
+        "en": "Premature Gray Hair"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "生物素(Biotin)", "zh-CN": "生物素(Biotin)", "en": "Biotin" } },
+        { "name": { "zh-HK": "銅(Copper)", "zh-CN": "铜(Copper)", "en": "Copper" } },
+        { "name": { "zh-HK": "維生素B12", "zh-CN": "维生素B12", "en": "Vitamin B12" } }
+      ]
+    },
+    {
+      "id": "headache",
+      "category_id": "brain-cognitive",
+      "names": {
+        "zh-HK": "頭痛",
+        "zh-CN": "头痛",
+        "en": "Headache"
+      },
+      "iherb_category": {
+        "name": "Brain & Cognitive",
+        "url": "https://www.iherb.com/c/brain-cognitive"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "維生素B群", "zh-CN": "维生素B群", "en": "Vitamin B Complex" } },
+        { "name": { "zh-HK": "鎂(Magnesium)", "zh-CN": "镁(Magnesium)", "en": "Magnesium" } },
+        { "name": { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil (Omega-3)" } }
+      ]
+    },
+    {
+      "id": "insomnia",
+      "category_id": "sleep-mood",
+      "names": {
+        "zh-HK": "失眠/睡眠質量差",
+        "zh-CN": "失眠/睡眠质量差",
+        "en": "Insomnia / Poor Sleep"
+      },
+      "iherb_category": {
+        "name": "Sleep & Mood",
+        "url": "https://www.iherb.com/c/sleep-mood"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "褪黑激素(Melatonin)", "zh-CN": "褪黑激素(Melatonin)", "en": "Melatonin" } },
+        { "name": { "zh-HK": "纈草根(Valerian Root)", "zh-CN": "缬草根(Valerian Root)", "en": "Valerian Root" } },
+        { "name": { "zh-HK": "鎂(Magnesium)", "zh-CN": "镁(Magnesium)", "en": "Magnesium" } }
+      ]
+    },
+    {
+      "id": "fatigue",
+      "category_id": "heart-health",
+      "names": {
+        "zh-HK": "疲勞/精力不足",
+        "zh-CN": "疲劳/精力不足",
+        "en": "Fatigue / Low Energy"
+      },
+      "iherb_category": {
+        "name": "Heart Health",
+        "url": "https://www.iherb.com/c/heart-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "維生素B群", "zh-CN": "维生素B群", "en": "Vitamin B Complex" } },
+        { "name": { "zh-HK": "鐵(Iron)", "zh-CN": "铁(Iron)", "en": "Iron" } },
+        { "name": { "zh-HK": "CoQ10", "zh-CN": "CoQ10", "en": "CoQ10" } }
+      ]
+    },
+    {
+      "id": "hair-loss",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "脫髮/頭髮稀疏",
+        "zh-CN": "脱发/头发稀疏",
+        "en": "Hair Loss / Brittle Hair"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "生物素(Biotin)", "zh-CN": "生物素(Biotin)", "en": "Biotin" } },
+        { "name": { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } },
+        { "name": { "zh-HK": "角蛋白(Keratin)", "zh-CN": "角蛋白(Keratin)", "en": "Keratin" } }
+      ]
+    },
+    {
+      "id": "digestive-issues",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "消化不良/腸胃不適",
+        "zh-CN": "消化不良/肠胃不适",
+        "en": "Digestive Issues"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "益生菌(Probiotics)", "zh-CN": "益生菌(Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "消化酶(Digestive Enzymes)", "zh-CN": "消化酶(Digestive Enzymes)", "en": "Digestive Enzymes" } },
+        { "name": { "zh-HK": "蘆薈(Aloe Vera)", "zh-CN": "芦荟(Aloe Vera)", "en": "Aloe Vera" } }
+      ]
+    },
+    {
+      "id": "stress-anxiety",
+      "category_id": "sleep-mood",
+      "names": {
+        "zh-HK": "壓力/焦慮",
+        "zh-CN": "压力/焦虑",
+        "en": "Stress / Anxiety"
+      },
+      "iherb_category": {
+        "name": "Sleep & Mood",
+        "url": "https://www.iherb.com/c/sleep-mood"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "印度人參(Ashwagandha)", "zh-CN": "印度人参(Ashwagandha)", "en": "Ashwagandha" } },
+        { "name": { "zh-HK": "鎂(Magnesium)", "zh-CN": "镁(Magnesium)", "en": "Magnesium" } },
+        { "name": { "zh-HK": "維生素B群", "zh-CN": "维生素B群", "en": "Vitamin B Complex" } }
+      ]
+    },
+    {
+      "id": "eye-strain",
+      "category_id": "eye-vision",
+      "names": {
+        "zh-HK": "眼睛疲勞/視力問題",
+        "zh-CN": "眼睛疲劳/视力问题",
+        "en": "Eye Strain / Vision Issues"
+      },
+      "iherb_category": {
+        "name": "Eye Vision",
+        "url": "https://www.iherb.com/c/eye-vision"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "葉黃素(Lutein)", "zh-CN": "叶黄素(Lutein)", "en": "Lutein" } },
+        { "name": { "zh-HK": "越橘(Bilberry)", "zh-CN": "越橘(Bilberry)", "en": "Bilberry" } },
+        { "name": { "zh-HK": "維生素A", "zh-CN": "维生素A", "en": "Vitamin A" } }
+      ]
+    },
+    {
+      "id": "bone-joint-pain",
+      "category_id": "bone-joint",
+      "names": {
+        "zh-HK": "骨骼/關節疼痛",
+        "zh-CN": "骨骼/关节疼痛",
+        "en": "Bone / Joint Pain"
+      },
+      "iherb_category": {
+        "name": "Bone, Joint & Cartilage",
+        "url": "https://www.iherb.com/c/bone-joint"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "葡萄糖胺(Glucosamine)", "zh-CN": "葡萄糖胺(Glucosamine)", "en": "Glucosamine" } },
+        { "name": { "zh-HK": "軟骨素(Chondroitin)", "zh-CN": "软骨素(Chondroitin)", "en": "Chondroitin" } },
+        { "name": { "zh-HK": "維生素D3", "zh-CN": "维生素D3", "en": "Vitamin D3" } }
+      ]
+    },
+    {
+      "id": "skin-problems",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "皮膚問題(暗瘡/乾燥)",
+        "zh-CN": "皮肤问题(暗疮/干燥)",
+        "en": "Skin Problems (Acne/Dryness)"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "維生素C", "zh-CN": "维生素C", "en": "Vitamin C" } },
+        { "name": { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } },
+        { "name": { "zh-HK": "椰子油(Coconut Oil)", "zh-CN": "椰子油(Coconut Oil)", "en": "Coconut Oil" } }
+      ]
+    },
+    {
+      "id": "weak-immunity",
+      "category_id": "immune",
+      "names": {
+        "zh-HK": "免疫力弱/容易生病",
+        "zh-CN": "免疫力弱/容易生病",
+        "en": "Weak Immunity / Get Sick Easily"
+      },
+      "iherb_category": {
+        "name": "Immune Support",
+        "url": "https://www.iherb.com/c/immune-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "維生素C", "zh-CN": "维生素C", "en": "Vitamin C" } },
+        { "name": { "zh-HK": "維生素D3", "zh-CN": "维生素D3", "en": "Vitamin D3" } },
+        { "name": { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } }
+      ]
+    },
+    {
+      "id": "memory-issues",
+      "category_id": "brain-cognitive",
+      "names": {
+        "zh-HK": "記憶力差/專注力不足",
+        "zh-CN": "记忆力差/专注力不足",
+        "en": "Poor Memory / Focus Issues"
+      },
+      "iherb_category": {
+        "name": "Brain & Cognitive",
+        "url": "https://www.iherb.com/c/brain-cognitive"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "磷脂酰絲氨酸(PS)", "zh-CN": "磷脂酰丝氨酸(PS)", "en": "Phosphatidylserine (PS)" } },
+        { "name": { "zh-HK": "銀杏(Ginkgo Biloba)", "zh-CN": "银杏(Ginkgo Biloba)", "en": "Ginkgo Biloba" } },
+        { "name": { "zh-HK": "Omega-3", "zh-CN": "Omega-3", "en": "Omega-3" } }
+      ]
+    },
+    {
+      "id": "menstrual-issues",
+      "category_id": "womens-health",
+      "names": {
+        "zh-HK": "月經問題",
+        "zh-CN": "月经问题",
+        "en": "Menstrual Issues"
+      },
+      "iherb_category": {
+        "name": "Women's Health",
+        "url": "https://www.iherb.com/c/womens-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "鐵(Iron)", "zh-CN": "铁(Iron)", "en": "Iron" } },
+        { "name": { "zh-HK": "月見草油(EPO)", "zh-CN": "月见草油(EPO)", "en": "Evening Primrose Oil" } },
+        { "name": { "zh-HK": "維生素B6", "zh-CN": "维生素B6", "en": "Vitamin B6" } }
+      ]
+    },
+    {
+      "id": "allergies",
+      "category_id": "seasonal-allergies",
+      "names": {
+        "zh-HK": "過敏/季節性敏感",
+        "zh-CN": "过敏/季节性敏感",
+        "en": "Allergies / Seasonal Sensitivities"
+      },
+      "iherb_category": {
+        "name": "Seasonal Allergies",
+        "url": "https://www.iherb.com/c/seasonal-allergies"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "維生素C", "zh-CN": "维生素C", "en": "Vitamin C" } },
+        { "name": { "zh-HK": "槲皮素(Quercetin)", "zh-CN": "槲皮素(Quercetin)", "en": "Quercetin" } },
+        { "name": { "zh-HK": "益生菌(Probiotics)", "zh-CN": "益生菌(Probiotics)", "en": "Probiotics" } }
+      ]
+    },
+    {
+      "id": "weight-management",
+      "category_id": "weight-management",
+      "names": {
+        "zh-HK": "體重管理",
+        "zh-CN": "体重管理",
+        "en": "Weight Management"
+      },
+      "iherb_category": {
+        "name": "Weight Management",
+        "url": "https://www.iherb.com/c/weight-management"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "綠茶提取物(Green Tea Extract)", "zh-CN": "绿茶提取物(Green Tea Extract)", "en": "Green Tea Extract" } },
+        { "name": { "zh-HK": "蛋白質(Protein Powder)", "zh-CN": "蛋白质(Protein Powder)", "en": "Protein Powder" } },
+        { "name": { "zh-HK": "CLA", "zh-CN": "CLA", "en": "CLA" } }
+      ]
+    },
+    {
+      "id": "heart-health",
+      "category_id": "heart-health",
+      "names": {
+        "zh-HK": "心臟健康",
+        "zh-CN": "心脏健康",
+        "en": "Heart Health"
+      },
+      "iherb_category": {
+        "name": "Heart Health",
+        "url": "https://www.iherb.com/c/heart-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil (Omega-3)" } },
+        { "name": { "zh-HK": "CoQ10", "zh-CN": "CoQ10", "en": "CoQ10" } },
+        { "name": { "zh-HK": "植物甾醇(Plant Sterols)", "zh-CN": "植物甾醇(Plant Sterols)", "en": "Plant Sterols" } }
+      ]
+    },
+    {
+      "id": "dandruff",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "頭屑/头皮屑",
+        "zh-CN": "头皮屑",
+        "en": "Dandruff / Scalp Issues"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "茶樹油(Tea Tree Oil)", "zh-CN": "茶树油(Tea Tree Oil)", "en": "Tea Tree Oil" } },
+        { "name": { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } },
+        { "name": { "zh-HK": "生物素(Biotin)", "zh-CN": "生物素(Biotin)", "en": "Biotin" } }
+      ]
+    },
+    {
+      "id": "dry-eyes",
+      "category_id": "eye-vision",
+      "names": {
+        "zh-HK": "眼睛乾澀",
+        "zh-CN": "眼睛干涩",
+        "en": "Dry Eyes"
+      },
+      "iherb_category": {
+        "name": "Eye Vision",
+        "url": "https://www.iherb.com/c/eye-vision"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil (Omega-3)" } },
+        { "name": { "zh-HK": "維生素A", "zh-CN": "维生素A", "en": "Vitamin A" } },
+        { "name": { "zh-HK": "葉黃素(Lutein)", "zh-CN": "叶黄素(Lutein)", "en": "Lutein" } }
+      ]
+    },
+    {
+      "id": "poor-circulation",
+      "category_id": "heart-health",
+      "names": {
+        "zh-HK": "血液循環差/手腳冰冷",
+        "zh-CN": "血液循环差/手脚冰冷",
+        "en": "Poor Circulation / Cold Hands & Feet"
+      },
+      "iherb_category": {
+        "name": "Heart Health",
+        "url": "https://www.iherb.com/c/heart-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil (Omega-3)" } },
+        { "name": { "zh-HK": "生薑(Ginger)", "zh-CN": "生姜(Ginger)", "en": "Ginger" } },
+        { "name": { "zh-HK": "辣椒素(Capsaicin)", "zh-CN": "辣椒素(Capsaicin)", "en": "Capsaicin" } }
+      ]
+    },
+    {
+      "id": "canker-sores",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "口腔潰瘍/嘴破",
+        "zh-CN": "口腔溃疡/嘴破",
+        "en": "Canker Sores / Mouth Ulcers"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "維生素B12", "zh-CN": "维生素B12", "en": "Vitamin B12" } },
+        { "name": { "zh-HK": "鐵(Iron)", "zh-CN": "铁(Iron)", "en": "Iron" } },
+        { "name": { "zh-HK": "維生素C", "zh-CN": "维生素C", "en": "Vitamin C" } }
+      ]
+    },
+    {
+      "id": "tinnitus",
+      "category_id": "ear-health",
+      "names": {
+        "zh-HK": "耳鳴/耳內嗡嗡聲",
+        "zh-CN": "耳鸣/耳内嗡嗡声",
+        "en": "Tinnitus / Ringing in Ears"
+      },
+      "iherb_category": {
+        "name": "Ear Health",
+        "url": "https://www.iherb.com/c/ear-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "銀杏(Ginkgo Biloba)", "zh-CN": "银杏(Ginkgo Biloba)", "en": "Ginkgo Biloba" } },
+        { "name": { "zh-HK": "鎂(Magnesium)", "zh-CN": "镁(Magnesium)", "en": "Magnesium" } },
+        { "name": { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } }
+      ]
+    },
+    {
+      "id": "bad-breath",
+      "category_id": "oral-health",
+      "names": {
+        "zh-HK": "口臭/口氣不佳",
+        "zh-CN": "口臭/口气不佳",
+        "en": "Bad Breath / Halitosis"
+      },
+      "iherb_category": {
+        "name": "Oral Health",
+        "url": "https://www.iherb.com/c/oral-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "益生菌(Probiotics)", "zh-CN": "益生菌(Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "鋅(Zinc)", "zh-CN": "锌(Zinc)", "en": "Zinc" } },
+        { "name": { "zh-HK": "綠茶提取物(Green Tea Extract)", "zh-CN": "绿茶提取物(Green Tea Extract)", "en": "Green Tea Extract" } }
+      ]
+    },
+    {
+      "id": "leg-cramps",
+      "category_id": "bone-joint",
+      "names": {
+        "zh-HK": "腿部抽筋/肌肉痙攣",
+        "zh-CN": "腿部抽筋/肌肉痉挛",
+        "en": "Leg Cramps / Muscle Spasms"
+      },
+      "iherb_category": {
+        "name": "Bone, Joint & Cartilage",
+        "url": "https://www.iherb.com/c/bone-joint"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "鎂(Magnesium)", "zh-CN": "镁(Magnesium)", "en": "Magnesium" } },
+        { "name": { "zh-HK": "鉀(Potassium)", "zh-CN": "钾(Potassium)", "en": "Potassium" } },
+        { "name": { "zh-HK": "維生素E", "zh-CN": "维生素E", "en": "Vitamin E" } }
+      ]
+    },
+    {
+      "id": "sugar-cravings",
+      "category_id": "blood-sugar",
+      "names": {
+        "zh-HK": "嗜甜/血糖問題",
+        "zh-CN": "嗜甜/血糖问题",
+        "en": "Sugar Cravings / Blood Sugar Issues"
+      },
+      "iherb_category": {
+        "name": "Blood Sugar Support",
+        "url": "https://www.iherb.com/c/blood-sugar"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "鉻(Chromium)", "zh-CN": "铬(Chromium)", "en": "Chromium" } },
+        { "name": { "zh-HK": "肉桂(Cinnamon)", "zh-CN": "肉桂(Cinnamon)", "en": "Cinnamon" } },
+        { "name": { "zh-HK": "Alpha-硫辛酸(Alpha Lipoic Acid)", "zh-CN": "Alpha-硫辛酸(Alpha Lipoic Acid)", "en": "Alpha Lipoic Acid" } }
+      ]
+    }
+  ]
+}

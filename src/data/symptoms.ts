@@ -588,7 +588,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Digestive Support",
-      "url": "https://www.iherb.com/c/digestive-support"
+      url: "https://www.iherb.com/c/digestive-support"
     },
     recommendations: [
       { name: { "zh-HK": "益生菌", "zh-CN": "益生菌", "en": "Probiotics" } },
@@ -606,7 +606,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Immune Support",
-      "url": "https://www.iherb.com/c/immune-support"
+      url: "https://www.iherb.com/c/immune-support"
     },
     recommendations: [
       { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
@@ -624,7 +624,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Immune Support",
-      "url": "https://www.iherb.com/c/immune-support"
+      url: "https://www.iherb.com/c/immune-support"
     },
     recommendations: [
       { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
@@ -642,7 +642,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Eye Vision",
-      "url": "https://www.iherb.com/c/eye-vision"
+      url: "https://www.iherb.com/c/eye-vision"
     },
     recommendations: [
       { name: { "zh-HK": "葉黃素", "zh-CN": "叶黄素", "en": "Lutein" } },
@@ -660,7 +660,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Eye Vision",
-      "url": "https://www.iherb.com/c/eye-vision"
+      url: "https://www.iherb.com/c/eye-vision"
     },
     recommendations: [
       { name: { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil" } },
@@ -678,7 +678,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Brain & Cognitive",
-      "url": "https://www.iherb.com/c/brain-cognitive"
+      url: "https://www.iherb.com/c/brain-cognitive"
     },
     recommendations: [
       { name: { "zh-HK": "銀杏", "zh-CN": "银杏", "en": "Ginkgo Biloba" } },
@@ -696,7 +696,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Brain & Cognitive",
-      "url": "https://www.iherb.com/c/brain-cognitive"
+      url: "https://www.iherb.com/c/brain-cognitive"
     },
     recommendations: [
       { name: { "zh-HK": "維他命B12", "zh-CN": "维生素B12", "en": "Vitamin B12" } },
@@ -714,7 +714,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      url: "https://www.iherb.com/c/heart-health"
     },
     recommendations: [
       { name: { "zh-HK": "鐵", "zh-CN": "铁", "en": "Iron" } },
@@ -732,7 +732,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      url: "https://www.iherb.com/c/heart-health"
     },
     recommendations: [
       { name: { "zh-HK": "鐵", "zh-CN": "铁", "en": "Iron" } },
@@ -750,7 +750,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Digestive Support",
-      "url": "https://www.iherb.com/c/digestive-support"
+      url: "https://www.iherb.com/c/digestive-support"
     },
     recommendations: [
       { name: { "zh-HK": "南瓜籽", "zh-CN": "南瓜籽", "en": "Pumpkin Seeds" } },
@@ -768,7 +768,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Digestive Support",
-      "url": "https://www.iherb.com/c/digestive-support"
+      url: "https://www.iherb.com/c/digestive-support"
     },
     recommendations: [
       { name: { "zh-HK": "洋車前子", "zh-CN": "洋车前子", "en": "Psyllium Husk" } },
@@ -786,7 +786,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      url: "https://www.iherb.com/c/heart-health"
     },
     recommendations: [
       { name: { "zh-HK": "七葉樹萃取", "zh-CN": "七叶树萃取", "en": "Horse Chestnut Extract" } },
@@ -804,7 +804,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint & Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "維他命D3", "zh-CN": "维生素D3", "en": "Vitamin D3" } },
@@ -822,7 +822,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Immune Support",
-      "url": "https://www.iherb.com/c/immune-support"
+      url: "https://www.iherb.com/c/immune-support"
     },
     recommendations: [
       { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
@@ -840,7 +840,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint & Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "鎂", "zh-CN": "镁", "en": "Magnesium" } },
@@ -858,7 +858,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint & Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "薑黃素", "zh-CN": "姜黄素", "en": "Curcumin" } },
@@ -876,7 +876,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint & Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "葡萄糖胺", "zh-CN": "葡萄糖胺", "en": "Glucosamine" } },
@@ -894,7 +894,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint & Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "葡萄糖胺", "zh-CN": "葡萄糖胺", "en": "Glucosamine" } },
@@ -912,7 +912,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint & Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "維他命B6", "zh-CN": "维生素B6", "en": "Vitamin B6" } },
@@ -930,7 +930,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint & Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "薑黃素", "zh-CN": "姜黄素", "en": "Curcumin" } },
@@ -948,7 +948,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil" } },
@@ -966,7 +966,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "鋅", "zh-CN": "锌", "en": "Zinc" } },
@@ -984,7 +984,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "鋅", "zh-CN": "锌", "en": "Zinc" } },
@@ -1002,7 +1002,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
@@ -1020,7 +1020,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "維他命E", "zh-CN": "维生素E", "en": "Vitamin E" } },
@@ -1037,8 +1037,8 @@ export const symptoms: Symptom[] = [
       "en": "Skin Aging"
     },
     iherb_category: {
-      name": "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      name: "Hair, Skin & Nails",
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "輔酶Q10", "zh-CN": "辅酶Q10", "en": "CoQ10" } },
@@ -1055,8 +1055,8 @@ export const symptoms: Symptom[] = [
       "en": "Wrinkles"
     },
     iherb_category: {
-      name": "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      name: "Hair, Skin & Nails",
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "輔酶Q10", "zh-CN": "辅酶Q10", "en": "CoQ10" } },
@@ -1073,8 +1073,8 @@ export const symptoms: Symptom[] = [
       "en": "Dark Circles"
     },
     iherb_category: {
-      name": "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      name: "Hair, Skin & Nails",
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "維他命K", "zh-CN": "维生素K", "en": "Vitamin K" } },
@@ -1091,8 +1091,8 @@ export const symptoms: Symptom[] = [
       "en": "Eye Bags"
     },
     iherb_category: {
-      name": "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      name: "Hair, Skin & Nails",
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "咖啡因", "zh-CN": "咖啡因", "en": "Caffeine" } },
@@ -1109,8 +1109,8 @@ export const symptoms: Symptom[] = [
       "en": "Chapped Lips"
     },
     iherb_category: {
-      name": "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      name: "Hair, Skin & Nails",
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "維他命B2", "zh-CN": "维生素B2", "en": "Vitamin B2" } },
@@ -1127,10 +1127,10 @@ export const symptoms: Symptom[] = [
       "en": "Mouth Ulcers"
     },
     iherb_category: {
-      name": "Digestive Support",
-      "url": "https://www.iherb.com/c/digestive-support"
+      name: "Digestive Support",
+      url: "https://www.iherb.com/c/digestive-support"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "維他命B12", "zh-CN": "维生素B12", "en": "Vitamin B12" } },
       { name: { "zh-HK": "鐵", "zh-CN": "铁", "en": "Iron" } },
       { name: { "zh-HK": "益生菌", "zh-CN": "益生菌", "en": "Probiotics" } }
@@ -1145,10 +1145,10 @@ export const symptoms: Symptom[] = [
       "en": "Sensitive Teeth"
     },
     iherb_category: {
-      name": "Hair, Skin & Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      name: "Hair, Skin & Nails",
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "鈣", "zh-CN": "钙", "en": "Calcium" } },
       { name: { "zh-HK": "維他命D3", "zh-CN": "维生素D3", "en": "Vitamin D3" } },
       { name: { "zh-HK": "氟", "zh-CN": "氟", "en": "Fluoride" } }
@@ -1163,10 +1163,10 @@ export const symptoms: Symptom[] = [
       "en": "Hoarseness"
     },
     iherb_category: {
-      name": "Immune Support",
-      "url": "https://www.iherb.com/c/immune-support"
+      name: "Immune Support",
+      url: "https://www.iherb.com/c/immune-support"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "蜂蜜", "zh-CN": "蜂蜜", "en": "Honey" } },
       { name: { "zh-HK": "生薑", "zh-CN": "生姜", "en": "Ginger" } },
       { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } }
@@ -1181,10 +1181,10 @@ export const symptoms: Symptom[] = [
       "en": "Sinusitis"
     },
     iherb_category: {
-      name": "Immune Support",
-      "url": "https://www.iherb.com/c/immune-support"
+      name: "Immune Support",
+      url: "https://www.iherb.com/c/immune-support"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
       { name: { "zh-HK": "槲皮素", "zh-CN": "槲皮素", "en": "Quercetin" } },
       { name: { "zh-HK": "益生菌", "zh-CN": "益生菌", "en": "Probiotics" } }
@@ -1199,10 +1199,10 @@ export const symptoms: Symptom[] = [
       "en": "Allergic Rhinitis"
     },
     iherb_category: {
-      name": "Seasonal Allergies",
-      "url": "https://www.iherb.com/c/seasonal-allergies"
+      name: "Seasonal Allergies",
+      url: "https://www.iherb.com/c/seasonal-allergies"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "槲皮素", "zh-CN": "槲皮素", "en": "Quercetin" } },
       { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
       { name: { "zh-HK": "益生菌", "zh-CN": "益生菌", "en": "Probiotics" } }
@@ -1217,10 +1217,10 @@ export const symptoms: Symptom[] = [
       "en": "Asthma"
     },
     iherb_category: {
-      name": "Immune Support",
-      "url": "https://www.iherb.com/c/immune-support"
+      name: "Immune Support",
+      url: "https://www.iherb.com/c/immune-support"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil" } },
       { name: { "zh-HK": "維他命D3", "zh-CN": "维生素D3", "en": "Vitamin D3" } },
       { name: { "zh-HK": "鎂", "zh-CN": "镁", "en": "Magnesium" } }
@@ -1235,10 +1235,10 @@ export const symptoms: Symptom[] = [
       "en": "Bronchitis"
     },
     iherb_category: {
-      name": "Immune Support",
-      "url": "https://www.iherb.com/c/immune-support"
+      name: "Immune Support",
+      url: "https://www.iherb.com/c/immune-support"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
       { name: { "zh-HK": "紫錐花", "zh-CN": "紫锥花", "en": "Echinacea" } },
       { name: { "zh-HK": "蜂膠", "zh-CN": "蜂胶", "en": "Propolis" } }
@@ -1253,10 +1253,10 @@ export const symptoms: Symptom[] = [
       "en": "Weak Lung Function"
     },
     iherb_category: {
-      name": "Immune Support",
-      "url": "https://www.iherb.com/c/immune-support"
+      name: "Immune Support",
+      url: "https://www.iherb.com/c/immune-support"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil" } },
       { name: { "zh-HK": "維他命E", "zh-CN": "维生素E", "en": "Vitamin E" } },
       { name: { "zh-HK": "人參", "zh-CN": "人参", "en": "Ginseng" } }
@@ -1264,17 +1264,17 @@ export const symptoms: Symptom[] = [
   },
   {
     id: "shortness-breath",
-    category_id": "heart-health",
+    category_id: "heart-health",
     names: {
       "zh-HK": "氣短/呼吸急促",
       "zh-CN": "气短/呼吸急促",
       "en": "Shortness of Breath"
     },
     iherb_category: {
-      name": "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      name: "Heart Health",
+      url: "https://www.iherb.com/c/heart-health"
     },
-    recommendations": [
+    recommendations: [
       { name: { "zh-HK": "鐵", "zh-CN": "铁", "en": "Iron" } },
       { name: { "zh-HK": "CoQ10", "zh-CN": "CoQ10", "en": "CoQ10" } },
       { name: { "zh-HK": "維他命B12", "zh-CN": "维生素B12", "en": "Vitamin B12" } }
@@ -1282,14 +1282,21 @@ export const symptoms: Symptom[] = [
   },
   {
     id: "post-surgery-recovery",
-    category_id": "immune",
+    category_id: "immune",
     names: {
       "zh-HK": "手術後恢復",
       "zh-CN": "手术后恢复",
       "en": "Post-Surgery Recovery"
     },
     iherb_category: {
-      name
+      name: "Immune Support",
+      url: "https://www.iherb.com/c/immune"
+    },
+    recommendations: [
+      { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
+      { name: { "zh-HK": "鋅", "zh-CN": "锌", "en": "Zinc" } },
+      { name: { "zh-HK": "益生菌", "zh-CN": "益生菌", "en": "Probiotics" } }
+    ]
   },
   {
     id: "hair-thinning",
@@ -1301,7 +1308,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Hair, Skin and Nails",
-      "url": "https://www.iherb.com/c/hair-skin-nails"
+      url: "https://www.iherb.com/c/hair-skin-nails"
     },
     recommendations: [
       { name: { "zh-HK": "生物素(Biotin)", "zh-CN": "生物素(Biotin)", "en": "Biotin" } },
@@ -1319,7 +1326,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      url: "https://www.iherb.com/c/heart-health"
     },
     recommendations: [
       { name: { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil" } },
@@ -1337,7 +1344,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      url: "https://www.iherb.com/c/heart-health"
     },
     recommendations: [
       { name: { "zh-HK": "魚油(Omega-3)", "zh-CN": "鱼油(Omega-3)", "en": "Fish Oil" } },
@@ -1355,7 +1362,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      url: "https://www.iherb.com/c/heart-health"
     },
     recommendations: [
       { name: { "zh-HK": "肉桂", "zh-CN": "肉桂", "en": "Cinnamon" } },
@@ -1373,7 +1380,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Digestive Support",
-      "url": "https://www.iherb.com/c/digestive-support"
+      url: "https://www.iherb.com/c/digestive-support"
     },
     recommendations: [
       { name: { "zh-HK": "奶薊", "zh-CN": "奶蓟", "en": "Milk Thistle" } },
@@ -1391,7 +1398,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      url: "https://www.iherb.com/c/heart-health"
     },
     recommendations: [
       { name: { "zh-HK": "碘", "zh-CN": "碘", "en": "Iodine" } },
@@ -1409,7 +1416,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Heart Health",
-      "url": "https://www.iherb.com/c/heart-health"
+      url: "https://www.iherb.com/c/heart-health"
     },
     recommendations: [
       { name: { "zh-HK": "鋸棕櫚", "zh-CN": "锯棕榈", "en": "Saw Palmetto" } },
@@ -1427,7 +1434,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint and Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "乳清蛋白", "zh-CN": "乳清蛋白", "en": "Whey Protein" } },
@@ -1445,7 +1452,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Bone, Joint and Cartilage",
-      "url": "https://www.iherb.com/c/bone-joint"
+      url: "https://www.iherb.com/c/bone-joint"
     },
     recommendations: [
       { name: { "zh-HK": "乳清蛋白", "zh-CN": "乳清蛋白", "en": "Whey Protein" } },
@@ -1463,7 +1470,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Brain and Cognitive",
-      "url": "https://www.iherb.com/c/brain-cognitive"
+      url: "https://www.iherb.com/c/brain-cognitive"
     },
     recommendations: [
       { name: { "zh-HK": "磷脂酰絲氨酸(PS)", "zh-CN": "磷脂酰丝氨酸(PS)", "en": "Phosphatidylserine" } },
@@ -1481,7 +1488,7 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Sleep and Mood",
-      "url": "https://www.iherb.com/c/sleep-mood"
+      url: "https://www.iherb.com/c/sleep-mood"
     },
     recommendations: [
       { name: { "zh-HK": "南非醉茄", "zh-CN": "南非醉茄", "en": "Ashwagandha" } },
@@ -1499,12 +1506,84 @@ export const symptoms: Symptom[] = [
     },
     iherb_category: {
       name: "Women Health",
-      "url": "https://www.iherb.com/c/womens-health"
+      url: "https://www.iherb.com/c/womens-health"
     },
     recommendations: [
       { name: { "zh-HK": "孕婦維他命", "zh-CN": "孕妇维生素", "en": "Prenatal Vitamin" } },
       { name: { "zh-HK": "DHA/Omega-3", "zh-CN": "DHA/Omega-3", "en": "DHA/Omega-3" } },
       { name: { "zh-HK": "鐵", "zh-CN": "铁", "en": "Iron" } }
+    ]
+  },
+  {
+    id: "menstrual-cramps",
+    category_id: "womens-health",
+    names: {
+      "zh-HK": "經痛/PMS",
+      "zh-CN": "经痛/PMS",
+      "en": "Menstrual Cramps / PMS"
+    },
+    iherb_category: {
+      name: "Women Health",
+      "url": "https://www.iherb.com/c/womens-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "鎂(Magnesium)", "zh-CN": "镁(Magnesium)", "en": "Magnesium" } },
+      { name: { "zh-HK": "維他命B群", "zh-CN": "维生素B群", "en": "Vitamin B Complex" } },
+      { name: { "zh-HK": "月見草油", "zh-CN": "月见草油", "en": "Evening Primrose Oil" } }
+    ]
+  },
+  {
+    id: "menopause",
+    category_id: "womens-health",
+    names: {
+      "zh-HK": "更年期症狀",
+      "zh-CN": "更年期症状",
+      "en": "Menopause Symptoms"
+    },
+    iherb_category: {
+      name: "Women Health",
+      "url": "https://www.iherb.com/c/womens-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "大豆異黃酮", "zh-CN": "大豆异黄酮", "en": "Soy Isoflavones" } },
+      { name: { "zh-HK": "黑升麻", "zh-CN": "黑升麻", "en": "Black Cohosh" } },
+      { name: { "zh-HK": "維他命E", "zh-CN": "维生素E", "en": "Vitamin E" } }
+    ]
+  },
+  {
+    id: "weight-management",
+    category_id: "heart-health",
+    names: {
+      "zh-HK": "體重管理/代謝",
+      "zh-CN": "体重管理/代谢",
+      "en": "Weight Management / Metabolism"
+    },
+    iherb_category: {
+      name: "Heart Health",
+      "url": "https://www.iherb.com/c/heart-health"
+    },
+    recommendations: [
+      { name: { "zh-HK": "綠茶提取物", "zh-CN": "绿茶提取物", "en": "Green Tea Extract" } },
+      { name: { "zh-HK": "共軛亞油酸", "zh-CN": "共轭亚油酸", "en": "CLA" } },
+      { name: { "zh-HK": "非洲芒果", "zh-CN": "非洲芒果", "en": "African Mango" } }
+    ]
+  },
+  {
+    id: "allergies",
+    category_id: "immune",
+    names: {
+      "zh-HK": "過敏/鼻敏感",
+      "zh-CN": "过敏/鼻敏感",
+      "en": "Allergies / Hay Fever"
+    },
+    iherb_category: {
+      name: "Immune Support",
+      "url": "https://www.iherb.com/c/immune-support"
+    },
+    recommendations: [
+      { name: { "zh-HK": "維他命C", "zh-CN": "维生素C", "en": "Vitamin C" } },
+      { name: { "zh-HK": "槲皮素", "zh-CN": "槲皮素", "en": "Quercetin" } },
+      { name: { "zh-HK": "蕁麻葉", "zh-CN": "荨麻叶", "en": "Stinging Nettle" } }
     ]
   }
 ];

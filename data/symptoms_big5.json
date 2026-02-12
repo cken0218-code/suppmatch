@@ -1,0 +1,545 @@
+﻿{
+  "symptoms": [
+    {
+      "id": "dull-hair",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "?剝垣?楚/?∪?瞉?,
+        "zh-CN": "憭游??楚/??瘜?,
+        "en": "Dull Hair / Lack of Shine"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "?蝝?Biotin)", "zh-CN": "?蝝?Biotin)", "en": "Biotin" } },
+        { "name": { "zh-HK": "閫???Keratin)", "zh-CN": "閫???Keratin)", "en": "Keratin" } },
+        { "name": { "zh-HK": "蝬凋??瘟", "zh-CN": "蝏渡?蝝", "en": "Vitamin E" } }
+      ]
+    },
+    {
+      "id": "brittle-nails",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "??摹/?",
+        "zh-CN": "??摹/?",
+        "en": "Brittle Nails"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "?蝝?Biotin)", "zh-CN": "?蝝?Biotin)", "en": "Biotin" } },
+        { "name": { "zh-HK": "??Zinc)", "zh-CN": "??Zinc)", "en": "Zinc" } },
+        { "name": { "zh-HK": "??Silica)", "zh-CN": "??Silica)", "en": "Silica" } }
+      ]
+    },
+    {
+      "id": "muscle-pain",
+      "category_id": "bone-joint",
+      "names": {
+        "zh-HK": "???貊?",
+        "zh-CN": "???貊?",
+        "en": "Muscle Soreness / Pain"
+      },
+      "iherb_category": {
+        "name": "Bone, Joint & Cartilage",
+        "url": "https://www.iherb.com/c/bone-joint"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "??Magnesium)", "zh-CN": "??Magnesium)", "en": "Magnesium" } },
+        { "name": { "zh-HK": "??蝝?Curcumin)", "zh-CN": "憪?蝝?Curcumin)", "en": "Curcumin" } },
+        { "name": { "zh-HK": "?鞈芰?(Protein)", "zh-CN": "?韐函?(Protein)", "en": "Protein Powder" } }
+      ]
+    },
+    {
+      "id": "bloating",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "?寡/?除",
+        "zh-CN": "?寡?/??",
+        "en": "Bloating / Gas"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "????Probiotics)", "zh-CN": "????Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "瘨???Digestive Enzymes)", "zh-CN": "瘨???Digestive Enzymes)", "en": "Digestive Enzymes" } },
+        { "name": { "zh-HK": "瘣???(Psyllium Husk)", "zh-CN": "瘣膠??(Psyllium Husk)", "en": "Psyllium Husk" } }
+      ]
+    },
+    {
+      "id": "constipation",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "靘輻?",
+        "zh-CN": "靘輻?",
+        "en": "Constipation"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "瘣???(Psyllium Husk)", "zh-CN": "瘣膠??(Psyllium Husk)", "en": "Psyllium Husk" } },
+        { "name": { "zh-HK": "????Probiotics)", "zh-CN": "????Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "??Magnesium)", "zh-CN": "??Magnesium)", "en": "Magnesium" } }
+      ]
+    },
+    {
+      "id": "diarrhea",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "?寧??",
+        "zh-CN": "?寞頂/?頂",
+        "en": "Diarrhea / Upset Stomach"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "????Probiotics)", "zh-CN": "????Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "瘣???(Psyllium Husk)", "zh-CN": "瘣膠??(Psyllium Husk)", "en": "Psyllium Husk" } },
+        { "name": { "zh-HK": "??Zinc)", "zh-CN": "??Zinc)", "en": "Zinc" } }
+      ]
+    },
+    {
+      "id": "low-metabolism",
+      "category_id": "weight-management",
+      "names": {
+        "zh-HK": "?圈隞????,
+        "zh-CN": "?圈?隞?陝??,
+        "en": "Slow Metabolism"
+      },
+      "iherb_category": {
+        "name": "Weight Management",
+        "url": "https://www.iherb.com/c/weight-management"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝣?Iodine)", "zh-CN": "蝣?Iodine)", "en": "Iodine" } },
+        { "name": { "zh-HK": "蝬凋??畿蝢?, "zh-CN": "蝏渡?蝝蝢?, "en": "Vitamin B Complex" } },
+        { "name": { "zh-HK": "蝬??(Green Tea)", "zh-CN": "蝏輯??(Green Tea)", "en": "Green Tea Extract" } }
+      ]
+    },
+    {
+      "id": "menopause",
+      "category_id": "womens-health",
+      "names": {
+        "zh-HK": "?游僑???",
+        "zh-CN": "?游僑????,
+        "en": "Menopause Symptoms"
+      },
+      "iherb_category": {
+        "name": "Women's Health",
+        "url": "https://www.iherb.com/c/womens-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "憭扯??圈???Soy Isoflavones)", "zh-CN": "憭扯?撘???Soy Isoflavones)", "en": "Soy Isoflavones" } },
+        { "name": { "zh-HK": "暺?暻?Black Cohosh)", "zh-CN": "暺?暻?Black Cohosh)", "en": "Black Cohosh" } },
+        { "name": { "zh-HK": "蝬凋??瘟", "zh-CN": "蝏渡?蝝", "en": "Vitamin E" } }
+      ]
+    },
+    {
+      "id": "pms",
+      "category_id": "womens-health",
+      "names": {
+        "zh-HK": "蝬??黎(PMS)",
+        "zh-CN": "蝏??黎(PMS)",
+        "en": "Premenstrual Syndrome (PMS)"
+      },
+      "iherb_category": {
+        "name": "Women's Health",
+        "url": "https://www.iherb.com/c/womens-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "???硃(EPO)", "zh-CN": "???硃(EPO)", "en": "Evening Primrose Oil" } },
+        { "name": { "zh-HK": "????Vitex)", "zh-CN": "?????Vitex)", "en": "Vitex (Chasteberry)" } },
+        { "name": { "zh-HK": "蝬凋??畿6", "zh-CN": "蝏渡?蝝6", "en": "Vitamin B6" } }
+      ]
+    },
+    {
+      "id": "arthritis",
+      "category_id": "bone-joint",
+      "names": {
+        "zh-HK": "????,
+        "zh-CN": "?唾???,
+        "en": "Arthritis"
+      },
+      "iherb_category": {
+        "name": "Bone, Joint & Cartilage",
+        "url": "https://www.iherb.com/c/bone-joint"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "?∟?蝟(Glucosamine)", "zh-CN": "?∟?蝟(Glucosamine)", "en": "Glucosamine" } },
+        { "name": { "zh-HK": "頠爸蝝?Chondroitin)", "zh-CN": "頧舫爸蝝?Chondroitin)", "en": "Chondroitin" } },
+        { "name": { "zh-HK": "??蝝?Curcumin)", "zh-CN": "憪?蝝?Curcumin)", "en": "Curcumin" } }
+      ]
+    },
+    {
+      "id": "brain-fog",
+      "category_id": "brain-cognitive",
+      "names": {
+        "zh-HK": "?阡/撠釣?榆",
+        "zh-CN": "?/銝釣?榆",
+        "en": "Brain Fog / Poor Focus"
+      },
+      "iherb_category": {
+        "name": "Brain & Cognitive",
+        "url": "https://www.iherb.com/c/brain-cognitive"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "Omega-3", "zh-CN": "Omega-3", "en": "Omega-3" } },
+        { "name": { "zh-HK": "蝤瑁??啁結瘞券(PS)", "zh-CN": "蝤瑁??唬?瘞券(PS)", "en": "Phosphatidylserine (PS)" } },
+        { "name": { "zh-HK": "???Ginkgo Biloba)", "zh-CN": "?嗆?(Ginkgo Biloba)", "en": "Ginkgo Biloba" } }
+      ]
+    },
+    {
+      "id": "depression",
+      "category_id": "sleep-mood",
+      "names": {
+        "zh-HK": "??雿/?炳",
+        "zh-CN": "?貌雿/??",
+        "en": "Low Mood / Depression"
+      },
+      "iherb_category": {
+        "name": "Sleep & Mood",
+        "url": "https://www.iherb.com/c/sleep-mood"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝬凋??瘩3", "zh-CN": "蝏渡?蝝3", "en": "Vitamin D3" } },
+        { "name": { "zh-HK": "Omega-3", "zh-CN": "Omega-3", "en": "Omega-3" } },
+        { "name": { "zh-HK": "????(Ashwagandha)", "zh-CN": "????(Ashwagandha)", "en": "Ashwagandha" } }
+      ]
+    },
+    {
+      "id": "eczema",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "瞈/?株???,
+        "zh-CN": "皝輻/?株??,
+        "en": "Eczema / Itchy Skin"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝬凋??瘩3", "zh-CN": "蝏渡?蝝3", "en": "Vitamin D3" } },
+        { "name": { "zh-HK": "????Probiotics)", "zh-CN": "????Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "擳硃(Omega-3)", "zh-CN": "敼潭硃(Omega-3)", "en": "Fish Oil (Omega-3)" } }
+      ]
+    },
+    {
+      "id": "psoriasis",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "???,
+        "zh-CN": "???,
+        "en": "Psoriasis"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "擳硃(Omega-3)", "zh-CN": "敼潭硃(Omega-3)", "en": "Fish Oil (Omega-3)" } },
+        { "name": { "zh-HK": "蝬凋??瘩3", "zh-CN": "蝏渡?蝝3", "en": "Vitamin D3" } },
+        { "name": { "zh-HK": "??蝝?Curcumin)", "zh-CN": "憪?蝝?Curcumin)", "en": "Curcumin" } }
+      ]
+    },
+    {
+      "id": "premature-gray-hair",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "?賡擃?撠僑??,
+        "zh-CN": "?賢仍??撠僑??,
+        "en": "Premature Gray Hair"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "?蝝?Biotin)", "zh-CN": "?蝝?Biotin)", "en": "Biotin" } },
+        { "name": { "zh-HK": "??Copper)", "zh-CN": "??Copper)", "en": "Copper" } },
+        { "name": { "zh-HK": "蝬凋??畿12", "zh-CN": "蝏渡?蝝12", "en": "Vitamin B12" } }
+      ]
+    },
+    {
+      "id": "headache",
+      "category_id": "brain-cognitive",
+      "names": {
+        "zh-HK": "?剔?",
+        "zh-CN": "憭渡?",
+        "en": "Headache"
+      },
+      "iherb_category": {
+        "name": "Brain & Cognitive",
+        "url": "https://www.iherb.com/c/brain-cognitive"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝬凋??畿蝢?, "zh-CN": "蝏渡?蝝蝢?, "en": "Vitamin B Complex" } },
+        { "name": { "zh-HK": "??Magnesium)", "zh-CN": "??Magnesium)", "en": "Magnesium" } },
+        { "name": { "zh-HK": "擳硃(Omega-3)", "zh-CN": "敼潭硃(Omega-3)", "en": "Fish Oil (Omega-3)" } }
+      ]
+    },
+    {
+      "id": "insomnia",
+      "category_id": "sleep-mood",
+      "names": {
+        "zh-HK": "憭梁?/?∠?鞈芰?撌?,
+        "zh-CN": "憭梁?/?∠?韐券?撌?,
+        "en": "Insomnia / Poor Sleep"
+      },
+      "iherb_category": {
+        "name": "Sleep & Mood",
+        "url": "https://www.iherb.com/c/sleep-mood"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "銴芷?瞈蝝?Melatonin)", "zh-CN": "銴芷?瞈蝝?Melatonin)", "en": "Melatonin" } },
+        { "name": { "zh-HK": "蝥?(Valerian Root)", "zh-CN": "蝻祈?(Valerian Root)", "en": "Valerian Root" } },
+        { "name": { "zh-HK": "??Magnesium)", "zh-CN": "??Magnesium)", "en": "Magnesium" } }
+      ]
+    },
+    {
+      "id": "fatigue",
+      "category_id": "heart-health",
+      "names": {
+        "zh-HK": "?脣?/?移蟡?,
+        "zh-CN": "?脣/瘝∠移蟡?,
+        "en": "Fatigue / Low Energy"
+      },
+      "iherb_category": {
+        "name": "Heart Health",
+        "url": "https://www.iherb.com/c/heart-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝬凋??畿蝢?, "zh-CN": "蝏渡?蝝蝢?, "en": "Vitamin B Complex" } },
+        { "name": { "zh-HK": "??Iron)", "zh-CN": "??Iron)", "en": "Iron" } },
+        { "name": { "zh-HK": "CoQ10", "zh-CN": "CoQ10", "en": "CoQ10" } }
+      ]
+    },
+    {
+      "id": "hair-loss",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "?拚擃??剝垣?摹",
+        "zh-CN": "??/憭游??摹",
+        "en": "Hair Loss / Brittle Hair"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "?蝝?Biotin)", "zh-CN": "?蝝?Biotin)", "en": "Biotin" } },
+        { "name": { "zh-HK": "??Zinc)", "zh-CN": "??Zinc)", "en": "Zinc" } },
+        { "name": { "zh-HK": "閫???Keratin)", "zh-CN": "閫???Keratin)", "en": "Keratin" } }
+      ]
+    },
+    {
+      "id": "digestive-issues",
+      "category_id": "digestive-support",
+      "names": {
+        "zh-HK": "瘨?銝/?貉???",
+        "zh-CN": "瘨?銝/???桅?",
+        "en": "Digestive Issues"
+      },
+      "iherb_category": {
+        "name": "Digestive Support",
+        "url": "https://www.iherb.com/c/digestive-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "????Probiotics)", "zh-CN": "????Probiotics)", "en": "Probiotics" } },
+        { "name": { "zh-HK": "瘨???Digestive Enzymes)", "zh-CN": "瘨???Digestive Enzymes)", "en": "Digestive Enzymes" } },
+        { "name": { "zh-HK": "??(Aloe Vera)", "zh-CN": "?西?(Aloe Vera)", "en": "Aloe Vera" } }
+      ]
+    },
+    {
+      "id": "stress-anxiety",
+      "category_id": "sleep-mood",
+      "names": {
+        "zh-HK": "憯?憭??行",
+        "zh-CN": "??憭??西?",
+        "en": "Stress / Anxiety"
+      },
+      "iherb_category": {
+        "name": "Sleep & Mood",
+        "url": "https://www.iherb.com/c/sleep-mood"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "????(Ashwagandha)", "zh-CN": "????(Ashwagandha)", "en": "Ashwagandha" } },
+        { "name": { "zh-HK": "??Magnesium)", "zh-CN": "??Magnesium)", "en": "Magnesium" } },
+        { "name": { "zh-HK": "蝬凋??畿蝢?, "zh-CN": "蝏渡?蝝蝢?, "en": "Vitamin B Complex" } }
+      ]
+    },
+    {
+      "id": "eye-strain",
+      "category_id": "eye-vision",
+      "names": {
+        "zh-HK": "?潛??脣?/閬???",
+        "zh-CN": "?潛??脣/閫??桅?",
+        "en": "Eye Strain / Vision Issues"
+      },
+      "iherb_category": {
+        "name": "Eye Vision",
+        "url": "https://www.iherb.com/c/eye-vision"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "??蝝?Lutein)", "zh-CN": "?園?蝝?Lutein)", "en": "Lutein" } },
+        { "name": { "zh-HK": "撅望?摮?Bilberry)", "zh-CN": "撅望?摮?Bilberry)", "en": "Bilberry" } },
+        { "name": { "zh-HK": "蝬凋??璀", "zh-CN": "蝏渡?蝝", "en": "Vitamin A" } }
+      ]
+    },
+    {
+      "id": "bone-joint-pain",
+      "category_id": "bone-joint",
+      "names": {
+        "zh-HK": "撉券/????,
+        "zh-CN": "撉典仍/?唾???,
+        "en": "Bone / Joint Pain"
+      },
+      "iherb_category": {
+        "name": "Bone, Joint & Cartilage",
+        "url": "https://www.iherb.com/c/bone-joint"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "?∟?蝟(Glucosamine)", "zh-CN": "?∟?蝟(Glucosamine)", "en": "Glucosamine" } },
+        { "name": { "zh-HK": "頠爸蝝?Chondroitin)", "zh-CN": "頧舫爸蝝?Chondroitin)", "en": "Chondroitin" } },
+        { "name": { "zh-HK": "蝬凋??瘩3", "zh-CN": "蝏渡?蝝3", "en": "Vitamin D3" } }
+      ]
+    },
+    {
+      "id": "skin-problems",
+      "category_id": "hair-skin-nails",
+      "names": {
+        "zh-HK": "?株???(?/銋曄)",
+        "zh-CN": "?株?桅?(?/撟脩)",
+        "en": "Skin Problems (Acne/Dryness)"
+      },
+      "iherb_category": {
+        "name": "Hair, Skin & Nails",
+        "url": "https://www.iherb.com/c/hair-skin-nails"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝬凋??瘠", "zh-CN": "蝏渡?蝝", "en": "Vitamin C" } },
+        { "name": { "zh-HK": "??Zinc)", "zh-CN": "??Zinc)", "en": "Zinc" } },
+        { "name": { "zh-HK": "璊啣?瘝?Coconut Oil)", "zh-CN": "璊啣?瘝?Coconut Oil)", "en": "Coconut Oil" } }
+      ]
+    },
+    {
+      "id": "weak-immunity",
+      "category_id": "immune",
+      "names": {
+        "zh-HK": "???/???,
+        "zh-CN": "???/???,
+        "en": "Weak Immunity / Get Sick Easily"
+      },
+      "iherb_category": {
+        "name": "Immune Support",
+        "url": "https://www.iherb.com/c/immune-support"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝬凋??瘠", "zh-CN": "蝏渡?蝝", "en": "Vitamin C" } },
+        { "name": { "zh-HK": "蝬凋??瘩3", "zh-CN": "蝏渡?蝝3", "en": "Vitamin D3" } },
+        { "name": { "zh-HK": "??Zinc)", "zh-CN": "??Zinc)", "en": "Zinc" } }
+      ]
+    },
+    {
+      "id": "memory-issues",
+      "category_id": "brain-cognitive",
+      "names": {
+        "zh-HK": "閮?榆/撠釣??頞?,
+        "zh-CN": "霈啣??榆/銝釣??頞?,
+        "en": "Poor Memory / Focus Issues"
+      },
+      "iherb_category": {
+        "name": "Brain & Cognitive",
+        "url": "https://www.iherb.com/c/brain-cognitive"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝤瑁??啁結瘞券(PS)", "zh-CN": "蝤瑁??唬?瘞券(PS)", "en": "Phosphatidylserine (PS)" } },
+        { "name": { "zh-HK": "???Ginkgo Biloba)", "zh-CN": "?嗆?(Ginkgo Biloba)", "en": "Ginkgo Biloba" } },
+        { "name": { "zh-HK": "Omega-3", "zh-CN": "Omega-3", "en": "Omega-3" } }
+      ]
+    },
+    {
+      "id": "menstrual-issues",
+      "category_id": "womens-health",
+      "names": {
+        "zh-HK": "蝬???",
+        "zh-CN": "蝏??桅?",
+        "en": "Menstrual Issues"
+      },
+      "iherb_category": {
+        "name": "Women's Health",
+        "url": "https://www.iherb.com/c/womens-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "??Iron)", "zh-CN": "??Iron)", "en": "Iron" } },
+        { "name": { "zh-HK": "???硃(EPO)", "zh-CN": "???硃(EPO)", "en": "Evening Primrose Oil" } },
+        { "name": { "zh-HK": "蝬凋??畿6", "zh-CN": "蝏渡?蝝6", "en": "Vitamin B6" } }
+      ]
+    },
+    {
+      "id": "allergies",
+      "category_id": "seasonal-allergies",
+      "names": {
+        "zh-HK": "??/摮???扳???,
+        "zh-CN": "餈?/摮???扳???,
+        "en": "Allergies / Seasonal Sensitivities"
+      },
+      "iherb_category": {
+        "name": "Seasonal Allergies",
+        "url": "https://www.iherb.com/c/seasonal-allergies"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝬凋??瘠", "zh-CN": "蝏渡?蝝", "en": "Vitamin C" } },
+        { "name": { "zh-HK": "瑽脩蝝?Quercetin)", "zh-CN": "瑽脩蝝?Quercetin)", "en": "Quercetin" } },
+        { "name": { "zh-HK": "????Probiotics)", "zh-CN": "????Probiotics)", "en": "Probiotics" } }
+      ]
+    },
+    {
+      "id": "weight-management",
+      "category_id": "weight-management",
+      "names": {
+        "zh-HK": "擃?蝞∠?",
+        "zh-CN": "雿?蝞∠?",
+        "en": "Weight Management"
+      },
+      "iherb_category": {
+        "name": "Weight Management",
+        "url": "https://www.iherb.com/c/weight-management"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "蝬??(Green Tea Extract)", "zh-CN": "蝏輯??(Green Tea Extract)", "en": "Green Tea Extract" } },
+        { "name": { "zh-HK": "?鞈芰?(Protein Powder)", "zh-CN": "?韐函?(Protein Powder)", "en": "Protein Powder" } },
+        { "name": { "zh-HK": "CLA", "zh-CN": "CLA", "en": "CLA" } }
+      ]
+    },
+    {
+      "id": "heart-health",
+      "category_id": "heart-health",
+      "names": {
+        "zh-HK": "敹?蝞∪摨?,
+        "zh-CN": "敹?蝞∪摨?,
+        "en": "Heart Health"
+      },
+      "iherb_category": {
+        "name": "Heart Health",
+        "url": "https://www.iherb.com/c/heart-health"
+      },
+      "recommendations": [
+        { "name": { "zh-HK": "擳硃(Omega-3)", "zh-CN": "敼潭硃(Omega-3)", "en": "Fish Oil (Omega-3)" } },
+        { "name": { "zh-HK": "CoQ10", "zh-CN": "CoQ10", "en": "CoQ10" } },
+        { "name": { "zh-HK": "璊?粹?(Plant Sterols)", "zh-CN": "璊?粹?(Plant Sterols)", "en": "Plant Sterols" } }
+      ]
+    }
+  ]
+}
+
