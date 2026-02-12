@@ -1,7 +1,8 @@
 'use client';
-// Updated: 2026-02-08 - Added search functionality
+// Updated: 2026-02-12 - Added fuzzy search with Fuse.js
 
 import { useState, useMemo } from 'react';
+import Fuse from 'fuse.js';
 import { LocaleProvider, useLocale, type Locale } from '@/contexts/LocaleContext';
 import { symptoms, type Symptom } from '@/data/symptoms';
 
@@ -159,15 +160,22 @@ function MainContent() {
 
   const filteredSymptoms = useMemo(() => {
     if (!searchQuery.trim()) return symptoms;
-    const query = searchQuery.toLowerCase();
-    return symptoms.filter(s => 
-      s.names[locale]?.toLowerCase().includes(query) ||
-      s.names['zh-HK']?.toLowerCase().includes(query) ||
-      s.names['zh-CN']?.toLowerCase().includes(query) ||
-      s.names['en']?.toLowerCase().includes(query) ||
-      s.id.toLowerCase().includes(query)
-    );
-  }, [searchQuery, locale]);
+    
+    const fuse = new Fuse(symptoms, {
+      keys: [
+        { name: 'names.zh-HK', weight: 2 },
+        { name: 'names.zh-CN', weight: 2 },
+        { name: 'names.en', weight: 1 },
+        { name: 'id', weight: 0.5 }
+      ],
+      threshold: 0.4, // 0.0 = exact match, 1.0 = match anything
+      includeScore: true,
+      minMatchCharLength: 1,
+    });
+    
+    const results = fuse.search(searchQuery);
+    return results.map(r => r.item);
+  }, [searchQuery]);
 
   const handleSymptomClick = (symptom: Symptom) => {
     setSelectedSymptoms([symptom]);
