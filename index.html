@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuppMatch - 症狀揀選 → 營養補充品推薦</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0"></script>
+  <style>
+    .dark { color-scheme: dark; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 min-h-screen">
+  <div id="app"></div>
+  
+  <script>
+    // Symptoms data (simplified - load from JSON)
+    let symptoms = [];
+    
+    // Theme
+    let dark = localStorage.getItem('suppmatch_dark') === 'dark' || 
+               window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    function toggleDark() {
+      dark = !dark;
+      localStorage.setItem('suppmatch_dark', dark ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', dark);
+      render();
+    }
+    
+    // Popular symptoms
+    function getPopular() {
+      try {
+        return JSON.parse(localStorage.getItem('suppmatch_popular') || '{}');
+      } catch { return {}; }
+    }
+    
+    function incrementPopular(id) {
+      const pop = getPopular();
+      pop[id] = (pop[id] || 0) + 1;
+      localStorage.setItem('suppmatch_popular', JSON.stringify(pop));
+    }
+    
+    // Search history
+    function getHistory() {
+      try { return JSON.parse(localStorage.getItem('suppmatch_history') || '[]'); } 
+      catch { return []; }
+    }
+    
+    function addHistory(query) {
+      if (!query.trim()) return;
+      const h = getHistory();
+      const nh = [query, ...h.filter(x => x !== query)].slice(0, 10);
+      localStorage.setItem('suppmatch_history', JSON.stringify(nh));
+    }
+    
+    // Fuse.js search
+    let fuse;
+    
+    function search(query) {
+      if (!query.trim()) return symptoms;
+      if (!fuse) {
+        fuse = new Fuse(symptoms, {
+          keys: ['names.zh-HK', 'names.zh-CN', 'names.en', 'id'],
+          threshold: 0.4
+        });
+      }
+      addHistory(query);
+      return fuse.search(query).map(r => r.item);
+    }
+    
+    let currentView = 'select';
+    let selectedSymptom = null;
+    let searchQuery = '';
+    
+    function render() {
+      const app = document.getElementById('app');
+      const locale = 'zh-HK';
+      
+      const filtered = search(searchQuery);
+      const popular = Object.entries(getPopular())
+        .map(([id, count]) => ({id, count}))
+        .sort((a,b) => b.count - a.count)
+        .slice(0, 5);
+      const history = getHistory();
+      
+      let html = `
+        <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-10">
+          <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-emerald-700 dark:text-emerald-400">SuppMatch</h1>
+            <div class="flex gap-2">
+              <button onclick="toggleDark()" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300">
+                ${dark ? '☀️' : '🌙'}
+              </button>
+            </div>
+          </div>
+        </header>
+        
+        <main class="max-w-4xl mx-auto px-4 py-8">
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-2">SuppMatch</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">症狀揀選 → 營養補充品推薦</p>
+      `;
+      
+      if (currentView === 'select') {
+        html += `
+          <div class="relative">
+            <input type="text" placeholder="搜尋症狀... (輸入關鍵字)"
+              value="${searchQuery}"
+              oninput="searchQuery=this.value; render()"
+              class="w-full px-4 py-3 pl-10 border-2 border-gray-200 dark:border-gray-600 rounded-lg 
+                     focus:border-emerald-500 text-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          
+          ${!searchQuery && popular.length > 0 ? `
+            <div class="mb-4 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+              <h3 class="text-sm font-medium text-amber-800 dark:text-amber-300 mb-2">🔥 熱門症狀</h3>
+              <div class="flex flex-wrap gap-2">
+                ${popular.map(p => {
+                  const s = symptoms.find(x => x.id === p.id);
+                  return s ? `<button onclick="selectSymptom('${p.id}')" class="px-3 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 rounded-full text-sm">${s.names[locale]}</button>` : '';
+                }).join('')}
+              </div>
+            </div>
+          ` : ''}
+          
+          ${searchQuery ? `<p class="text-sm text-gray-500">搵到 ${filtered.length} 個症狀</p>` : ''}
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+            ${filtered.map(s => `
+              <button onclick="selectSymptom('${s.id}')"
+                class="p-4 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-emerald-300 text-left">
+                <span class="text-lg font-medium text-gray-800 dark:text-gray-200">${s.names[locale]}</span>
+              </button>
+            `).join('')}
+          </div>
+          
+          ${filtered.length === 0 ? '<p class="text-center text-gray-500 py-8">搵唔到相關症狀</p>' : ''}
+        `;
+      } else if (currentView === 'recommend' && selectedSymptom) {
+        html += `
+          <button onclick="currentView='select'; selectedSymptom=null; render()" class="text-emerald-600 dark:text-emerald-400 font-medium mb-4">← 返回</button>
+          
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <h2 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">${selectedSymptom.names[locale]}</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">推薦補充品</p>
+            
+            <div class="space-y-3">
+              ${selectedSymptom.recommendations.map(r => `
+                <div class="flex items-center gap-3 p-3 bg-emerald-50 dark:bg-emerald-900/30 rounded-lg">
+                  <span class="text-emerald-600 dark:text-emerald-400">✓</span>
+                  <span class="font-medium text-gray-800 dark:text-gray-200">${r.name[locale]}</span>
+                </div>
+              `).join('')}
+            </div>
+            
+            <a href="${selectedSymptom.iherb_category.url}" target="_blank"
+              class="block mt-6 text-center py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700">
+              去iHerb睇 →
+            </a>
+          </div>
+        `;
+      }
+      
+      html += `
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-6 bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
+            ⚠️ 本網站提供資訊僅供參考，不構成醫療建議。使用前請諮詢醫生。
+          </p>
+        </div>
+      </main>
+      
+      <footer class="text-center py-6 text-gray-500 dark:text-gray-400 text-sm">
+        <p>© 2025 SuppMatch</p>
+      </footer>
+      `;
+      
+      app.innerHTML = html;
+    }
+    
+    window.selectSymptom = function(id) {
+      const s = symptoms.find(x => x.id === id);
+      if (s) {
+        incrementPopular(id);
+        selectedSymptom = s;
+        currentView = 'recommend';
+        render();
+      }
+    };
+    
+    // Load symptoms from JSON
+    fetch('data/symptoms.json')
+      .then(r => r.json())
+      .then(data => {
+        symptoms = data.symptoms || [];
+        render();
+      })
+      .catch(() => {
+        // Fallback with minimal data
+        symptoms = [
+          {id:'headache', names:{zh-HK:'頭痛',zh-CN:'头痛',en:'Headache'}, iherb_category:{name:'Brain',url:'#'}, recommendations:[{name:{zh-HK:'維他命B群',zh-CN:'维生素B群',en:'B Complex'}}]},
+          {id:'insomnia', names:{zh-HK:'失眠',zh-CN:'失眠',en:'Insomnia'}, iherb_category:{name:'Sleep',url:'#'}, recommendations:[{name:{zh-HK:'褪黑激素',zh-CN:'褪黑激素',en:'Melatonin'}}]},
+          {id:'fatigue', names:{zh-HK:'疲勞',zh-CN:'疲劳',en:'Fatigue'}, iherb_category:{name:'Energy',url:'#'}, recommendations:[{name:{zh-HK:'維他命B群',zh-CN:'维生素B群',en:'B Complex'}}]}
+        ];
+        render();
+      });
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && currentView === 'recommend') {
+        currentView = 'select';
+        selectedSymptom = null;
+        render();
+      }
+    });
+  </script>
+</body>
+</html>
