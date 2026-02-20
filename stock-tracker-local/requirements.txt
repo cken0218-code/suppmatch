@@ -1,0 +1,11 @@
+# stock-tracker-local dependencies
+# 本土化股票追蹤程式依賴項
+
+# Core dependencies
+yfinance>=0.2.36
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Optional for enhanced features
+# colorama>=0.4.6  # Terminal colors (if needed)
+# tabulate>=0.9.0   # Table formatting (if needed)

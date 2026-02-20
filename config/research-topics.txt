@@ -1,0 +1,21 @@
+# AI Trends Research Topics
+# 自動研究主題清單 - 會根據時間自動更新優先級
+
+## Core Research Topics
+YouTube Automation
+AI Tools 2026
+Content Trends
+Multi-agent Systems
+Niche Opportunities
+
+## Extended Research Topics (Rotating)
+Automation Workflows 2026
+AI Video Generation
+LLM Performance Benchmarks
+AI Coding Assistants
+Voice AI Trends
+AI in Content Creation
+Emerging AI Startups
+AI Integration Strategies
+Prompt Engineering Best Practices
+AI Ethics and Regulation

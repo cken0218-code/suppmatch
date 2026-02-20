@@ -1,0 +1,8 @@
+symbol,name,exchange,current_price,signal,last_updated
+AAPL,Apple Inc.,NASDAQ,185.92,HOLD,2024-02-19
+GOOGL,Alphabet Inc.,NASDAQ,141.80,BUY,2024-02-19
+MSFT,Microsoft Corporation,NASDAQ,378.91,HOLD,2024-02-19
+TSLA,Tesla Inc.,NASDAQ,198.48,SELL,2024-02-19
+AMZN,Amazon.com Inc.,NASDAQ,155.34,HOLD,2024-02-19
+NVDA,NVIDIA Corporation,NASDAQ,721.33,BUY,2024-02-19
+META,Meta Platforms Inc.,NASDAQ,474.99,HOLD,2024-02-19

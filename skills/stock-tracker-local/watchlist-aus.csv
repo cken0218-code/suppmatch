@@ -1,0 +1,20 @@
+# 澳洲股票觀察名單
+# Australian Stocks Watchlist
+# 使用 --aus 參數追蹤
+
+symbol,name,current_price,signal,last_updated
+CBA,Commonwealth Bank of Australia,105.50,HOLD,2024-02-19
+BHP,BHP Group Limited,45.20,BUY,2024-02-19
+RIO,Rio Tinto,125.80,HOLD,2024-02-19
+CSL,CSL Limited,280.50,BUY,2024-02-19
+ANZ,Australia and New Zealand Banking,28.90,HOLD,2024-02-19
+NAB,National Australia Bank,32.40,SELL,2024-02-19
+WBC,Westpac Banking Corp,26.80,HOLD,2024-02-19
+MQG,Macquarie Group,185.20,BUY,2024-02-19
+FMG,Fortescue Metals Group,22.50,HOLD,2024-02-19
+WDS,Woodside Energy,28.30,SELL,2024-02-19
+STO,Santos Limited,7.20,HOLD,2024-02-19
+TLS,Telstra Corporation,4.10,HOLD,2024-02-19
+GMG,Goodman Group,28.80,BUY,2024-02-19
+QBE,QBE Insurance Group,14.50,HOLD,2024-02-19
+IAG,Insurance Australia Group,7.80,HOLD,2024-02-19

@@ -1,0 +1,15 @@
+{
+  "lastChecks": {
+    "youtube_trending": 1703276100,
+    "ai_trends": null
+  },
+  "apiStatus": {
+    "brave": {
+      "quota_current": 307,
+      "quota_limit": 2000,
+      "percentage": 15.35,
+      "lastError": "rate_limit_exceeded",
+      "timestamp": "2026-02-18T20:55:00+08:00"
+    }
+  }
+}

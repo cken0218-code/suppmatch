@@ -1,0 +1,34 @@
+{
+  "name": "multi-agent-orchestrator-local",
+  "version": "1.0.0",
+  "description": "多Agent智能調度中心 - 參考 SATOSHI'S SQUAD COMMAND 架構",
+  "author": "local",
+  "license": "MIT",
+  "tags": ["orchestration", "multi-agent", "routing", "coordination", "planner", "artificer", "scout", "inquisitor"],
+  "category": "system",
+  "dependencies": [
+    "youtube-analytics-local",
+    "content-creator-local",
+    "github",
+    "skill-scanner",
+    "automation-workflows",
+    "system-monitor",
+    "security-audit",
+    "backup-manager"
+  ],
+  "capabilities": [
+    "task-routing",
+    "multi-agent-coordination",
+    "pipeline-execution",
+    "parallel-execution",
+    "cost-optimization"
+  ],
+  "models": {
+    "default": "minimax/m2.1",
+    "complex": "zai/glm-5",
+    "ratio": "90:10"
+  },
+  "channels": ["discord", "slack", "terminal", "api"],
+  "created": "2026-02-19",
+  "updated": "2026-02-19"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "multi-agent-orchestrator-local",
+  "version": "1.0.0",
+  "description": "本地化多代理編排系統 - 參考 SATOSHI'S SQUAD COMMAND 架構",
+  "author": "local",
+  "license": "MIT",
+  "skills": [],
+  "requires": [],
+  "scripts": {
+    "orchestrator": "./orchestrator.sh",
+    "research": "./examples/research_flow.sh",
+    "publish": "./examples/publish_flow.sh",
+    "audit": "./examples/audit_flow.sh"
+  },
+  "categories": [
+    "automation",
+    "orchestration",
+    "productivity"
+  ],
+  "keywords": [
+    "multi-agent",
+    "orchestrator",
+    "workflow",
+    "automation",
+    "local",
+    "no-api"
+  ],
+  "pills": {
+    "PLANNER": ["youtube-analytics-local", "income-tracker-local", "content-creator-local"],
+    "ARTIFICER": ["github", "git-automation", "app-scaffold-local", "video-script-writer-local", "thumbnail-generator-local"],
+    "SCOUT": ["ddg-web-search", "skill-scanner", "data-analyzer-local"],
+    "INQUISITOR": ["security-audit", "api-security-check", "system-monitor"],
+    "LOGISTICS": ["cron-manager", "backup-manager", "workflow-trigger-local"]
+  }
+}

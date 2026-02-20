@@ -1,0 +1,29 @@
+{
+  "name": "stock-tracker-local",
+  "version": "1.0.0",
+  "description": "本土化股票追蹤程式 - 基於技術指標的買賣信號分析",
+  "author": "local",
+  "license": "MIT",
+  "main": "tracker.py",
+  "scripts": {
+    "start": "python3 tracker.py",
+    "demo": "./examples/demo.sh",
+    "install": "pip install -r requirements.txt"
+  },
+  "requires": {
+    "python": ">=3.8",
+    "packages": ["yfinance", "pandas", "numpy"]
+  },
+  "categories": [
+    "finance",
+    "tracking",
+    "analysis"
+  ],
+  "keywords": [
+    "stock",
+    "tracker",
+    "technical-analysis",
+    "trading",
+    "local"
+  ]
+}

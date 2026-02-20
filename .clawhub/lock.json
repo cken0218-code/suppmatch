@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "skills": {
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1771383374972
+    },
+    "agent-audit": {
+      "version": "1.0.0",
+      "installedAt": 1771427061171
+    },
+    "openclaw-token-save": {
+      "version": "1.0.0",
+      "installedAt": 1771427090341
+    },
+    "ddg-web-search": {
+      "version": "1.0.0",
+      "installedAt": 1771427107730
+    },
+    "automation-workflows": {
+      "version": "0.1.0",
+      "installedAt": 1771506616950
+    },
+    "xiaohongshu": {
+      "version": "1.0.1",
+      "installedAt": 1771513339998
+    },
+    "daily-trending": {
+      "version": "1.0.0",
+      "installedAt": 1771549518911
+    },
+    "productivity": {
+      "version": "1.0.3",
+      "installedAt": 1771549550971
+    },
+    "github-ai-trends": {
+      "version": "1.1.0",
+      "installedAt": 1771549553627
+    },
+    "ai-automation-workflows": {
+      "version": "0.1.5",
+      "installedAt": 1771549578201
+    },
+    "news-aggregator-skill": {
+      "version": "0.1.0",
+      "installedAt": 1771549579828
+    },
+    "x-post-automation": {
+      "version": "1.0.0",
+      "installedAt": 1771549581376
+    },
+    "coingecko": {
+      "version": "1.0.0",
+      "installedAt": 1771549583411
+    }
+  }
+}

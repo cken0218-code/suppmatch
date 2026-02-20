@@ -1,0 +1,23 @@
+{
+  "name": "automation-workflows",
+  "version": "1.0.0",
+  "description": "本地工作流自動化工具 - File operations, Git 整合, 系統命令",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "status": "node index.js status",
+    "cleanup": "node index.js cleanup"
+  },
+  "keywords": [
+    "automation",
+    "workflow",
+    "git",
+    "file-operations",
+    "local"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^11.0.0"
+  }
+}
