@@ -81688,6 +81688,915 @@
           }
         }
       ]
+    },
+    {
+      "id": "stress-anxiety",
+      "category_id": "stress",
+      "names": {
+        "zh-HK": "壓力/焦慮",
+        "zh-CN": "压力/焦虑",
+        "en": "Stress/Anxiety"
+      },
+      "iherb_category": {
+        "name": "Stress & Mood",
+        "url": "https://www.iherb.com/c/stress-mood"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "南非醉茄(Ashwagandha)",
+            "zh-CN": "南非醉茄(Ashwagandha)",
+            "en": "Ashwagandha"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命B群",
+            "zh-CN": "维生素B群",
+            "en": "Vitamin B Complex"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "魚油(Omega-3)",
+            "zh-CN": "鱼油(Omega-3)",
+            "en": "Fish Oil (Omega-3)"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鎂(Magnesium)",
+            "zh-CN": "镁(Magnesium)",
+            "en": "Magnesium"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "L-茶氨酸(L-Theanine)",
+            "zh-CN": "L-茶氨酸(L-Theanine)",
+            "en": "L-Theanine"
+          }
+        }
+      ]
+    },
+    {
+      "id": "chronic-fatigue",
+      "category_id": "energy",
+      "names": {
+        "zh-HK": "慢性疲勞/精力不足",
+        "zh-CN": "慢性疲劳/精力不足",
+        "en": "Chronic Fatigue/Low Energy"
+      },
+      "iherb_category": {
+        "name": "Energy & Fatigue",
+        "url": "https://www.iherb.com/c/energy"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "維他命B12",
+            "zh-CN": "维生素B12",
+            "en": "Vitamin B12"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "輔酶Q10(CoQ10)",
+            "zh-CN": "辅酶Q10(CoQ10)",
+            "en": "CoQ10"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鐵(Iron)",
+            "zh-CN": "铁(Iron)",
+            "en": "Iron"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "人參(Ginseng)",
+            "zh-CN": "人参(Ginseng)",
+            "en": "Ginseng"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命D",
+            "zh-CN": "维生素D",
+            "en": "Vitamin D"
+          }
+        }
+      ]
+    },
+    {
+      "id": "prostate-health",
+      "category_id": "mens-health",
+      "names": {
+        "zh-HK": "前列腺健康",
+        "zh-CN": "前列腺健康",
+        "en": "Prostate Health"
+      },
+      "iherb_category": {
+        "name": "Men's Health",
+        "url": "https://www.iherb.com/c/mens-health"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "鋸棕櫚(Saw Palmetto)",
+            "zh-CN": "锯棕榈(Saw Palmetto)",
+            "en": "Saw Palmetto"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "南瓜子",
+            "zh-CN": "南瓜子",
+            "en": "Pumpkin Seed Extract"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "番茄紅素(Lycopene)",
+            "zh-CN": "番茄红素(Lycopene)",
+            "en": "Lycopene"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鋅(Zinc)",
+            "zh-CN": "锌(Zinc)",
+            "en": "Zinc"
+          }
+        }
+      ]
+    },
+    {
+      "id": "testosterone-support",
+      "category_id": "mens-health",
+      "names": {
+        "zh-HK": "睪酮素/男士活力",
+        "zh-CN": "睾酮素/男士活力",
+        "en": "Testosterone Support"
+      },
+      "iherb_category": {
+        "name": "Men's Health",
+        "url": "https://www.iherb.com/c/mens-health"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "D-天冬氨酸(D-Aspartic Acid)",
+            "zh-CN": "D-天冬氨酸(D-Aspartic Acid)",
+            "en": "D-Aspartic Acid"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鋅(Zinc)",
+            "zh-CN": "锌(Zinc)",
+            "en": "Zinc"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命D3",
+            "zh-CN": "维生素D3",
+            "en": "Vitamin D3"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "Fenugreek",
+            "zh-CN": "Fenugreek",
+            "en": "Fenugreek"
+          }
+        }
+      ]
+    },
+    {
+      "id": "thyroid-support",
+      "category_id": "thyroid",
+      "names": {
+        "zh-HK": "甲狀腺功能",
+        "zh-CN": "甲状腺功能",
+        "en": "Thyroid Support"
+      },
+      "iherb_category": {
+        "name": "Thyroid",
+        "url": "https://www.iherb.com/c/thyroid"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "碘(Iodine)",
+            "zh-CN": "碘(Iodine)",
+            "en": "Iodine"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "硒(Selenium)",
+            "zh-CN": "硒(Selenium)",
+            "en": "Selenium"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鋅(Zinc)",
+            "zh-CN": "锌(Zinc)",
+            "en": "Zinc"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命D",
+            "zh-CN": "维生素D",
+            "en": "Vitamin D"
+          }
+        }
+      ]
+    },
+    {
+      "id": "liver-detox",
+      "category_id": "liver-detox",
+      "names": {
+        "zh-HK": "肝臟排毒/脂肪肝",
+        "zh-CN": "肝脏排毒/脂肪肝",
+        "en": "Liver Detox/Fatty Liver"
+      },
+      "iherb_category": {
+        "name": "Liver Support",
+        "url": "https://www.iherb.com/c/liver-support"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "奶薊(Milk Thistle)",
+            "zh-CN": "奶蓟(Milk Thistle)",
+            "en": "Milk Thistle"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "N-乙酰半胱氨酸(NAC)",
+            "zh-CN": "N-乙酰半胱氨酸(NAC)",
+            "en": "NAC"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "薑黃(Turmeric)",
+            "zh-CN": "姜黄(Turmeric)",
+            "en": "Turmeric"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "穀胱甘肽(Glutathione)",
+            "zh-CN": "谷胱甘肽(Glutathione)",
+            "en": "Glutathione"
+          }
+        }
+      ]
+    },
+    {
+      "id": "anti-aging",
+      "category_id": "anti-aging",
+      "names": {
+        "zh-HK": "抗衰老/細胞健康",
+        "zh-CN": "抗衰老/细胞健康",
+        "en": "Anti-Aging/Cellular Health"
+      },
+      "iherb_category": {
+        "name": "Anti-Aging",
+        "url": "https://www.iherb.com/c/anti-aging"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "穀胱甘肽(Glutathione)",
+            "zh-CN": "谷胱甘肽(Glutathione)",
+            "en": "Glutathione"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "NR/NAD+",
+            "zh-CN": "NR/NAD+",
+            "en": "NR/NAD+"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "白藜蘆醇(Resveratrol)",
+            "zh-CN": "白藜芦醇(Resveratrol)",
+            "en": "Resveratrol"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "輔酶Q10(CoQ10)",
+            "zh-CN": "辅酶Q10(CoQ10)",
+            "en": "CoQ10"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "奧米加3",
+            "zh-CN": "奥米加3",
+            "en": "Omega-3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bloating-water-retention",
+      "category_id": "weight-management",
+      "names": {
+        "zh-HK": "水肿/浮腫",
+        "zh-CN": "水肿/浮肿",
+        "en": "Bloating/Water Retention"
+      },
+      "iherb_category": {
+        "name": "Weight Management",
+        "url": "https://www.iherb.com/c/weight-management"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "維他命B6",
+            "zh-CN": "维生素B6",
+            "en": "Vitamin B6"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鉀(Potassium)",
+            "zh-CN": "钾(Potassium)",
+            "en": "Potassium"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "蒲公英根(Dandelion Root)",
+            "zh-CN": "蒲公英根(Dandelion Root)",
+            "en": "Dandelion Root"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "HCA/Garcinia",
+            "zh-CN": "HCA/Garcinia",
+            "en": "Garcinia Cambogia"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eye-strain-fatigue",
+      "category_id": "eye-vision",
+      "names": {
+        "zh-HK": "眼乾/眼疲勞",
+        "zh-CN": "眼干/眼疲劳",
+        "en": "Dry Eyes/Eye Strain"
+      },
+      "iherb_category": {
+        "name": "Eye Vision",
+        "url": "https://www.iherb.com/c/eye-vision"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "葉黃素(Lutein)",
+            "zh-CN": "叶黄素(Lutein)",
+            "en": "Lutein"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "玉米黃素(Zeaxanthin)",
+            "zh-CN": "玉米黄素(Zeaxanthin)",
+            "en": "Zeaxanthin"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "魚油(Omega-3)",
+            "zh-CN": "鱼油(Omega-3)",
+            "en": "Fish Oil"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命A",
+            "zh-CN": "维生素A",
+            "en": "Vitamin A"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "越橘(Bilberry)",
+            "zh-CN": "越橘(Bilberry)",
+            "en": "Bilberry"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sleep-onset",
+      "category_id": "sleep-mood",
+      "names": {
+        "zh-HK": "難入睡/失眠",
+        "zh-CN": "难入睡/失眠",
+        "en": "Difficulty Falling Asleep"
+      },
+      "iherb_category": {
+        "name": "Sleep & Mood",
+        "url": "https://www.iherb.com/c/sleep-mood"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "褪黑激素(Melatonin)",
+            "zh-CN": "褪黑激素(Melatonin)",
+            "en": "Melatonin"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "纈草根(Valerian)",
+            "zh-CN": "缬草根(Valerian)",
+            "en": "Valerian Root"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "洋甘菊(Chamomile)",
+            "zh-CN": "洋甘菊(Chamomile)",
+            "en": "Chamomile"
+          }
+        },
+        {
+          "name": {
+            "name": "L-Theanine",
+            "zh-CN": "L-茶氨酸",
+            "zh-HK": "L-茶氨酸"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鎂(Magnesium)",
+            "zh-CN": "镁(Magnesium)",
+            "en": "Magnesium"
+          }
+        }
+      ]
+    },
+    {
+      "id": "adrenal-fatigue",
+      "category_id": "stress",
+      "names": {
+        "zh-HK": "腎上腺疲勞",
+        "zh-CN": "肾上腺疲劳",
+        "en": "Adrenal Fatigue"
+      },
+      "iherb_category": {
+        "name": "Stress & Mood",
+        "url": "https://www.iherb.com/c/stress-mood"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "南非醉茄",
+            "zh-CN": "南非醉茄",
+            "en": "Ashwagandha"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "甘草根",
+            "zh-CN": "甘草根",
+            "en": "Licorice Root"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命B5",
+            "zh-CN": "维生素B5",
+            "en": "Vitamin B5"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "魚油",
+            "zh-CN": "鱼油",
+            "en": "Fish Oil"
+          }
+        }
+      ]
+    },
+    {
+      "id": "irritability-mood",
+      "category_id": "stress",
+      "names": {
+        "zh-HK": "脾氣暴躁/情緒波動",
+        "zh-CN": "脾气暴躁/情绪波动",
+        "en": "Irritability/Mood Swings"
+      },
+      "iherb_category": {
+        "name": "Stress & Mood",
+        "url": "https://www.iherb.com/c/stress-mood"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "聖羅勒(Tulsi)",
+            "zh-CN": "圣罗勒(Tulsi)",
+            "en": "Holy Basil"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "魚油",
+            "zh-CN": "鱼油",
+            "en": "Fish Oil"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命B群",
+            "zh-CN": "维生素B群",
+            "en": "Vitamin B Complex"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鎂",
+            "zh-CN": "镁",
+            "en": "Magnesium"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mitochondrial-support",
+      "category_id": "energy",
+      "names": {
+        "zh-HK": "線粒體能量",
+        "zh-CN": "线粒体能量",
+        "en": "Mitochondrial Support"
+      },
+      "iherb_category": {
+        "name": "Energy",
+        "url": "https://www.iherb.com/c/energy"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "輔酶Q10",
+            "zh-CN": "辅酶Q10",
+            "en": "CoQ10"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "PQQ",
+            "zh-CN": "PQQ",
+            "en": "PQQ"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "左旋肉鹼",
+            "zh-CN": "左旋肉碱",
+            "en": "L-Carnitine"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命B群",
+            "zh-CN": "维生素B群",
+            "en": "B Vitamins"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hair-loss-male",
+      "category_id": "mens-health",
+      "names": {
+        "zh-HK": "脫髮/男士禿頭",
+        "zh-CN": "脱发/男士秃头",
+        "en": "Hair Loss (Male)"
+      },
+      "iherb_category": {
+        "name": "Men's Health",
+        "url": "https://www.iherb.com/c/mens-health"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "鋸棕櫚",
+            "zh-CN": "锯棕榈",
+            "en": "Saw Palmetto"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "生物素(Biotin)",
+            "zh-CN": "生物素(Biotin)",
+            "en": "Biotin"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鋅",
+            "zh-CN": "锌",
+            "en": "Zinc"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "瞿麥",
+            "zh-CN": "瞿麦",
+            "en": "Saw Palmetto Extract"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sexual-health",
+      "category_id": "mens-health",
+      "names": {
+        "zh-HK": "性功能/活力",
+        "zh-CN": "性功能/活力",
+        "en": "Sexual Health/Vitality"
+      },
+      "iherb_category": {
+        "name": "Men's Health",
+        "url": "https://www.iherb.com/c/mens-health"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "L-精氨酸",
+            "zh-CN": "L-精氨酸",
+            "en": "L-Arginine"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "瑪卡(Maca)",
+            "zh-CN": "玛卡(Maca)",
+            "en": "Maca"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鋅",
+            "zh-CN": "锌",
+            "en": "Zinc"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "人參",
+            "zh-CN": "人参",
+            "en": "Ginseng"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hypothyroidism",
+      "category_id": "thyroid",
+      "names": {
+        "zh-HK": "甲狀腺功能減退",
+        "zh-CN": "甲状腺功能减退",
+        "en": "Hypothyroidism Support"
+      },
+      "iherb_category": {
+        "name": "Thyroid",
+        "url": "https://www.iherb.com/c/thyroid"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "碘",
+            "zh-CN": "碘",
+            "en": "Iodine"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "硒",
+            "zh-CN": "硒",
+            "en": "Selenium"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鋅",
+            "zh-CN": "锌",
+            "en": "Zinc"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命D",
+            "zh-CN": "维生素D",
+            "en": "Vitamin D"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鐵",
+            "zh-CN": "铁",
+            "en": "Iron"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fatty-liver",
+      "category_id": "liver-detox",
+      "names": {
+        "zh-HK": "脂肪肝",
+        "zh-CN": "脂肪肝",
+        "en": "Fatty Liver"
+      },
+      "iherb_category": {
+        "name": "Liver Support",
+        "url": "https://www.iherb.com/c/liver-support"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "奶薊",
+            "zh-CN": "奶蓟",
+            "en": "Milk Thistle"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "NAC",
+            "zh-CN": "NAC",
+            "en": "NAC"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "膽鹼",
+            "zh-CN": "胆碱",
+            "en": "Choline"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "魚油",
+            "zh-CN": "鱼油",
+            "en": "Fish Oil"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cognitive-decline",
+      "category_id": "anti-aging",
+      "names": {
+        "zh-HK": "認知衰退/記憶力",
+        "zh-CN": "认知衰退/记忆力",
+        "en": "Cognitive Decline/Memory"
+      },
+      "iherb_category": {
+        "name": "Brain",
+        "url": "https://www.iherb.com/c/brain-cognitive"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "磷脂酰絲氨酸(PS)",
+            "zh-CN": "磷脂酰丝氨酸(PS)",
+            "en": "Phosphatidylserine"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "銀杏",
+            "zh-CN": "银杏",
+            "en": "Ginkgo Biloba"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "魚油",
+            "zh-CN": "鱼油",
+            "en": "Fish Oil"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命E",
+            "zh-CN": "维生素E",
+            "en": "Vitamin E"
+          }
+        }
+      ]
+    },
+    {
+      "id": "metabolism-slow",
+      "category_id": "weight-management",
+      "names": {
+        "zh-HK": "新陈代谢慢",
+        "zh-CN": "新陈代谢慢",
+        "en": "Slow Metabolism"
+      },
+      "iherb_category": {
+        "name": "Weight Management",
+        "url": "https://www.iherb.com/c/weight-management"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "咖啱(Green Coffee)",
+            "zh-CN": "咖啡因(Green Coffee)",
+            "en": "Green Coffee Extract"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "左旋肉鹼",
+            "zh-CN": "左旋肉碱",
+            "en": "L-Carnitine"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "B群",
+            "zh-CN": "B群",
+            "en": "B Vitamins"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "碘",
+            "zh-CN": "碘",
+            "en": "Iodine"
+          }
+        }
+      ]
+    },
+    {
+      "id": "macular-degeneration",
+      "category_id": "eye-vision",
+      "names": {
+        "zh-HK": "黃斑病變/視力退化",
+        "zh-CN": "黄斑病变/视力退化",
+        "en": "Macular Degeneration"
+      },
+      "iherb_category": {
+        "name": "Eye Vision",
+        "url": "https://www.iherb.com/c/eye-vision"
+      },
+      "recommendations": [
+        {
+          "name": {
+            "zh-HK": "葉黃素",
+            "zh-CN": "叶黄素",
+            "en": "Lutein"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "玉米黃素",
+            "zh-CN": "玉米黄素",
+            "en": "Zeaxanthin"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命C",
+            "zh-CN": "维生素C",
+            "en": "Vitamin C"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "維他命E",
+            "zh-CN": "维生素E",
+            "en": "Vitamin E"
+          }
+        },
+        {
+          "name": {
+            "zh-HK": "鋅",
+            "zh-CN": "锌",
+            "en": "Zinc"
+          }
+        }
+      ]
     }
   ]
 }
