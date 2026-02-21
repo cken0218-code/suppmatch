@@ -294,14 +294,21 @@ function MainContent() {
     
     const fuse = new Fuse(symptoms, {
       keys: [
-        { name: 'names.zh-HK', weight: 2 },
-        { name: 'names.zh-CN', weight: 2 },
-        { name: 'names.en', weight: 1 },
-        { name: 'id', weight: 0.5 }
+        { name: 'names.zh-HK', weight: 3 },
+        { name: 'names.zh-CN', weight: 3 },
+        { name: 'names.en', weight: 2 },
+        { name: 'id', weight: 1 },
+        { name: 'recommendations.name.zh-HK', weight: 0.5 },
+        { name: 'recommendations.name.zh-CN', weight: 0.5 },
+        { name: 'recommendations.name.en', weight: 0.5 },
+        { name: 'iherb_category.name', weight: 0.3 }
       ],
-      threshold: 0.4,
+      threshold: 0.3,
       includeScore: true,
+      includeMatches: true,
       minMatchCharLength: 1,
+      ignoreLocation: true,
+      useExtendedSearch: true,
     });
     
     const results = fuse.search(searchQuery);
@@ -396,7 +403,16 @@ function AppContent() {
     document.documentElement.classList.toggle('dark', isDarkMode());
   }, []);
 
-  const [locale] = useState<Locale>('zh-HK');
+  // Initialize from localStorage if available
+  const [locale] = useState<Locale>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('suppmatch-locale') as Locale;
+      if (saved && ['zh-HK', 'zh-CN', 'en'].includes(saved)) {
+        return saved;
+      }
+    }
+    return 'zh-HK';
+  });
 
   return (
     <LocaleProvider locale={locale}>

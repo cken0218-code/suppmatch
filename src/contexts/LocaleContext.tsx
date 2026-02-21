@@ -1,6 +1,8 @@
-import { useState, createContext, useContext, ReactNode } from 'react';
+import { useState, createContext, useContext, ReactNode, useEffect } from 'react';
 
 export type Locale = 'zh-HK' | 'zh-CN' | 'en';
+
+const LOCALE_STORAGE_KEY = 'suppmatch-locale';
 
 interface LocaleContextType {
   locale: Locale;
@@ -84,7 +86,27 @@ const translations: Record<string, Record<Locale, string>> = {
 const LocaleContext = createContext<LocaleContextType | null>(null);
 
 export function LocaleProvider({ children, locale: initialLocale }: { children: ReactNode; locale: Locale }) {
-  const [locale, setLocale] = useState<Locale>(initialLocale);
+  // Try to get locale from localStorage first, fallback to initialLocale
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale;
+      if (saved && ['zh-HK', 'zh-CN', 'en'].includes(saved)) {
+        return saved;
+      }
+    }
+    return initialLocale;
+  });
+
+  // Persist to localStorage when locale changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+    }
+  }, [locale]);
+
+  const setLocale = (newLocale: Locale) => {
+    setLocaleState(newLocale);
+  };
 
   const t = (key: string): string => {
     return translations[key]?.[locale] || key;
