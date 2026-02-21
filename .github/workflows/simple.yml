@@ -15,12 +15,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
       
-      - name: Create output directory
-        run: |
-          mkdir -p out
-          cp index.html out/
-          cp -r data out/
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build Next.js
+        run: npm run build
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
