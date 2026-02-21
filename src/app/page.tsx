@@ -1,5 +1,5 @@
 'use client';
-// Updated: 2026-02-22 - Force rebuild for cache fix
+// Updated: 2026-02-22 - Google AI Studio style redesign v2
 
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import Fuse from 'fuse.js';
@@ -11,6 +11,26 @@ import { getProductsForSupplement, type Product } from '@/data/supplementProduct
 const POPULAR_KEY = 'suppmatch_popular';
 const HISTORY_KEY = 'suppmatch_history';
 const THEME_KEY = 'suppmatch_dark';
+const PROFILE_KEY = 'suppmatch_profile';
+
+// User profile for personalization
+interface UserProfile {
+  age?: string;
+  gender?: string;
+}
+
+function getUserProfile(): UserProfile {
+  if (typeof window === 'undefined') return {};
+  try {
+    return JSON.parse(localStorage.getItem(PROFILE_KEY) || '{}');
+  } catch {
+    return {};
+  }
+}
+
+function saveUserProfile(profile: UserProfile) {
+  localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+}
 
 // Icons as simple SVG components
 const SearchIcon = () => (
@@ -111,10 +131,10 @@ function LanguageSelector() {
         <button
           key={l}
           onClick={() => setLocale(l)}
-          className={`px-2 py-1 rounded-lg text-xs font-medium transition-all ${
+          className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
             locale === l 
-              ? 'bg-emerald-500 text-white shadow-md' 
-              : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+              ? 'bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white shadow-lg shadow-purple-500/25' 
+              : 'bg-[#1a1a1f] text-zinc-400 hover:text-white hover:bg-[#2d2d35] border border-[#2d2d35]'
           }`}
         >
           {flags[l]}
@@ -451,10 +471,20 @@ function MainContent() {
   const [view, setView] = useState<'select' | 'recommend'>('select');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchHistory, setSearchHistory] = useState<string[]>([]);
+  const [userProfile, setUserProfile] = useState<UserProfile>({});
+  const [showProfileSetup, setShowProfileSetup] = useState(false);
 
   useEffect(() => {
     setSearchHistory(getSearchHistory());
+    setUserProfile(getUserProfile());
   }, []);
+
+  // Show profile setup on first visit
+  useEffect(() => {
+    if (!userProfile.age && !userProfile.gender) {
+      setShowProfileSetup(true);
+    }
+  }, [userProfile]);
 
   const filteredSymptoms = useMemo(() => {
     if (!searchQuery.trim()) return symptoms;
@@ -538,6 +568,70 @@ function MainContent() {
 
   return (
     <div className="space-y-6">
+      {/* Personalization Setup - Google AI Studio Style */}
+      {showProfileSetup && (
+        <div className="bg-[#1a1a1f] border border-[#2d2d35] rounded-2xl p-5 animate-in slide-in-from-top-4">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+              <span className="w-8 h-8 bg-gradient-to-br from-[#8b5cf6] to-[#3b82f6] rounded-xl flex items-center justify-center text-white text-sm">✨</span>
+              個人化設定
+            </h3>
+            <button 
+              onClick={() => setShowProfileSetup(false)}
+              className="text-zinc-400 hover:text-white transition-colors"
+            >
+              ✕
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm text-zinc-400 mb-2">年齡</label>
+              <select
+                value={userProfile.age || ''}
+                onChange={(e) => {
+                  const newProfile = { ...userProfile, age: e.target.value };
+                  setUserProfile(newProfile);
+                  saveUserProfile(newProfile);
+                }}
+                className="w-full bg-[#0f0f12] border border-[#2d2d35] rounded-xl px-4 py-3 text-white focus:border-[#8b5cf6] focus:outline-none"
+              >
+                <option value="">選擇年齡</option>
+                <option value="18-25">18-25歲</option>
+                <option value="26-35">26-35歲</option>
+                <option value="36-45">36-45歲</option>
+                <option value="46-55">46-55歲</option>
+                <option value="55+">55歲以上</option>
+              </select>
+            </div>
+            
+            <div>
+              <label className="block text-sm text-zinc-400 mb-2">性別</label>
+              <select
+                value={userProfile.gender || ''}
+                onChange={(e) => {
+                  const newProfile = { ...userProfile, gender: e.target.value };
+                  setUserProfile(newProfile);
+                  saveUserProfile(newProfile);
+                }}
+                className="w-full bg-[#0f0f12] border border-[#2d2d35] rounded-xl px-4 py-3 text-white focus:border-[#8b5cf6] focus:outline-none"
+              >
+                <option value="">選擇性別</option>
+                <option value="male">男性</option>
+                <option value="female">女性</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+          </div>
+          
+          {userProfile.age && userProfile.gender && (
+            <p className="text-sm text-[#8b5cf6] mt-3">
+              ✅ 已保存！我地會根據你既設定推薦最適合既補充品
+            </p>
+          )}
+        </div>
+      )}
+
       <SearchBar 
         onSearch={setSearchQuery} 
         showHistory={searchHistory}
@@ -574,7 +668,7 @@ function MainContent() {
         <div className="sticky bottom-4 z-10 animate-in slide-in-from-bottom-4">
           <button
             onClick={handleGetRecommendations}
-            className="w-full py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-2xl font-bold text-lg shadow-xl shadow-emerald-500/30 hover:shadow-2xl hover:shadow-emerald-500/40 transition-all flex items-center justify-center gap-2"
+            className="w-full py-4 bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] text-white rounded-2xl font-bold text-lg shadow-xl shadow-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/40 transition-all flex items-center justify-center gap-2"
           >
             <SparklesIcon />
             <span>獲取推薦 ({selectedSymptoms.length} 個症狀)</span>
@@ -609,17 +703,20 @@ function AppContent() {
 
   return (
     <LocaleProvider locale={locale}>
-      <div className="min-h-screen bg-zinc-50 dark:bg-zinc-900 transition-colors">
+      <div className="min-h-screen bg-[#0f0f12]">
         {/* Navigation */}
-        <header className="sticky top-0 z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
+        <header className="sticky top-0 z-50 bg-[#0f0f12]/90 backdrop-blur-xl border-b border-[#2d2d35]">
           <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-emerald-500/30">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#8b5cf6] to-[#3b82f6] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-purple-500/30">
                 <SparklesIcon />
               </div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                SuppMatch
-              </h1>
+              <div>
+                <h1 className="text-xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                  SuppMatch
+                </h1>
+                <p className="text-xs text-zinc-500">AI 營養補充品推薦</p>
+              </div>
             </div>
             <div className="flex gap-2 items-center">
               <ThemeToggle />
@@ -631,8 +728,8 @@ function AppContent() {
         <main className="max-w-4xl mx-auto px-4 py-8">
           {/* Hero Section */}
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-800 dark:text-zinc-200 mb-3">
-              症狀揀選 → <span className="text-emerald-500">營養補充品推薦</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              症狀揀選 → <span className="bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] bg-clip-text text-transparent">營養補充品推薦</span>
             </h2>
             <p className="text-zinc-500 dark:text-zinc-400">
               揀選你嘅症狀，獲取個性化 supplement 建議
