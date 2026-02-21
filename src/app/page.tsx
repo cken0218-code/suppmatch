@@ -1,5 +1,5 @@
 'use client';
-// Updated: 2026-02-21 - Google AI Studio style redesign + multi-symptom selection + affiliate links
+// Updated: 2026-02-22 - Force rebuild for cache fix
 
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import Fuse from 'fuse.js';
