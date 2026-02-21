@@ -125,7 +125,7 @@ export function generateMedicalWebPageSchema(locale: string = 'zh-HK') {
     },
     medicalSpecialty: ['Nutrition', 'Dietary Supplements'],
     url: siteConfig.url,
-    description: siteConfig.description[locale] || siteConfig.description['zh-HK']
+    description: siteConfig.description[locale as keyof typeof siteConfig.description] || siteConfig.description['zh-HK']
   };
 }
 
@@ -173,4 +173,4 @@ export function generateAllSchemaScripts(): string {
 }
 
 // Export site config for use in components
-export { siteConfig };
+// (already exported at line 7)

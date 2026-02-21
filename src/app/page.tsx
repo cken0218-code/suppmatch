@@ -5,6 +5,7 @@ import { useState, useMemo, useEffect, useCallback } from 'react';
 import Fuse from 'fuse.js';
 import { LocaleProvider, useLocale, type Locale } from '@/contexts/LocaleContext';
 import { symptoms, type Symptom } from '@/data/symptoms';
+import { supplementProducts, getProductsForSupplement, type Product } from '@/data/supplementProducts';
 
 // Stats storage
 const POPULAR_KEY = 'suppmatch_popular';
@@ -189,7 +190,7 @@ function SearchBar({
 
 function PopularSymptoms({ onSelect }: { onSelect: (id: string) => void }) {
   const [popular, setPopular] = useState<{id: string, count: number}[]>([]);
-  const [locale] = useLocale();
+  const { locale } = useLocale();
 
   useEffect(() => {
     const pop = getPopularSymptoms();
@@ -224,14 +225,73 @@ function PopularSymptoms({ onSelect }: { onSelect: (id: string) => void }) {
   );
 }
 
+// Product Card Component
+function ProductCard({ product }: { product: Product }) {
+  const [showAmazon, setShowAmazon] = useState(false);
+
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4">
+      <div className="flex justify-between items-start mb-2">
+        <div>
+          <h4 className="font-semibold text-gray-800 dark:text-gray-200">{product.nameZh}</h4>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{product.brand}</p>
+        </div>
+        <span className="text-lg font-bold text-emerald-600 dark:text-emerald-400">
+          {product.priceRange}
+        </span>
+      </div>
+
+      <div className="flex gap-2 mt-4">
+        <a
+          href={product.iherbUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 text-center py-2 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-colors text-sm"
+        >
+          🌿 iHerb
+        </a>
+        <a
+          href={product.amazonUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 text-center py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors text-sm"
+        >
+          📦 Amazon
+        </a>
+      </div>
+      
+      <p className="text-xs text-gray-400 dark:text-gray-500 mt-2 text-center">
+        佣金: {product.commission}
+      </p>
+    </div>
+  );
+}
+
+// Multi-symptom Recommendation View
 function RecommendationView({ 
-  symptom, 
+  symptoms: selectedSymptoms, 
   onBack 
 }: { 
-  symptom: Symptom; 
+  symptoms: Symptom[]; 
   onBack: () => void;
 }) {
   const { locale } = useLocale();
+
+  // Get all unique recommendations from selected symptoms
+  const allRecommendations = useMemo(() => {
+    const recs = new Map<string, { name: { [key: string]: string }; products: Product[] }>();
+    
+    for (const symptom of selectedSymptoms) {
+      for (const rec of symptom.recommendations) {
+        const key = rec.name.en.toLowerCase();
+        if (!recs.has(key)) {
+          const products = getProductsForSupplement(rec.name.en);
+          recs.set(key, { name: rec.name, products });
+        }
+      }
+    }
+    return Array.from(recs.values());
+  }, [selectedSymptoms]);
 
   return (
     <div className="space-y-6">
@@ -239,40 +299,64 @@ function RecommendationView({
         onClick={onBack}
         className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium"
       >
-        ← 返回
+        ← 返回揀症狀
       </button>
 
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-        <h2 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
-          {symptom.names[locale]}
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">推薦補充品</p>
-
-        <div className="space-y-3">
-          {symptom.recommendations.map((rec, idx) => (
-            <div 
-              key={idx}
-              className="flex items-center gap-3 p-3 bg-emerald-50 dark:bg-emerald-900/30 rounded-lg"
+      {/* Selected Symptoms Summary */}
+      <div className="bg-emerald-50 dark:bg-emerald-900/30 rounded-xl p-4">
+        <h3 className="font-semibold text-emerald-800 dark:text-emerald-200 mb-2">
+          你揀咗 {selectedSymptoms.length} 個症狀:
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {selectedSymptoms.map(s => (
+            <span 
+              key={s.id}
+              className="px-3 py-1 bg-white dark:bg-gray-800 text-emerald-700 dark:text-emerald-300 rounded-full text-sm"
             >
-              <span className="text-emerald-600 dark:text-emerald-400">✓</span>
-              <span className="font-medium text-gray-800 dark:text-gray-200">{rec.name[locale]}</span>
-            </div>
+              {s.names[locale]}
+            </span>
           ))}
         </div>
-
-        <a
-          href={symptom.iherb_category.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block mt-6 text-center py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition-colors"
-        >
-          去iHerb睇 →
-        </a>
       </div>
 
-      <p className="text-sm text-gray-500 dark:text-gray-400 bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
-        ⚠️ 本網站提供資訊僅供參考，不構成醫療建議。使用前請諮詢醫生。
-      </p>
+      {/* Recommendations with Products */}
+      {allRecommendations.map((rec, idx) => (
+        <div key={idx} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">
+            💊 {rec.name[locale]}
+          </h3>
+          
+          {rec.products.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {rec.products.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-500 dark:text-gray-400 text-sm">
+              暫時未有產品資料
+            </p>
+          )}
+        </div>
+      ))}
+
+      {/* General iHerb Link */}
+      <a
+        href={selectedSymptoms[0]?.iherb_category.url || 'https://www.iherb.com/c/supplements'}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block text-center py-4 bg-emerald-600 text-white rounded-xl font-medium hover:bg-emerald-700 transition-colors text-lg"
+      >
+        🌿 去 iHerb 睇更多 →
+      </a>
+
+      {/* Disclaimer */}
+      <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-xl">
+        <p className="text-sm text-yellow-800 dark:text-yellow-200">
+          ⚠️ <strong>聲明：</strong>本網站提供資訊僅供參考，不構成醫療建議。使用任何補充品前請諮詢醫生。
+          本網站包含附屬連結，透過購買我們可能獲得佣金。
+        </p>
+      </div>
     </div>
   );
 }
@@ -317,11 +401,24 @@ function MainContent() {
     return results.map(r => r.item);
   }, [searchQuery]);
 
+  // Toggle symptom selection (for multi-select mode)
   const handleSymptomClick = useCallback((symptom: Symptom) => {
     incrementPopular(symptom.id);
-    setSelectedSymptoms([symptom]);
-    setView('recommend');
+    setSelectedSymptoms(prev => {
+      const exists = prev.find(s => s.id === symptom.id);
+      if (exists) {
+        return prev.filter(s => s.id !== symptom.id);
+      }
+      return [...prev, symptom];
+    });
   }, []);
+
+  // Get recommendations for selected symptoms
+  const handleGetRecommendations = useCallback(() => {
+    if (selectedSymptoms.length > 0) {
+      setView('recommend');
+    }
+  }, [selectedSymptoms]);
 
   const handleBack = useCallback(() => {
     setView('select');
@@ -354,7 +451,7 @@ function MainContent() {
   }, [view, handleBack]);
 
   if (view === 'recommend' && selectedSymptoms.length > 0) {
-    return <RecommendationView symptom={selectedSymptoms[0]} onBack={handleBack} />;
+    return <RecommendationView symptoms={selectedSymptoms} onBack={handleBack} />;
   }
 
   return (
@@ -388,6 +485,19 @@ function MainContent() {
         <p className="text-center text-gray-500 dark:text-gray-400 py-8">
           搵唔到相關症狀
         </p>
+      )}
+
+      {/* Multi-select floating button */}
+      {selectedSymptoms.length > 0 && (
+        <div className="sticky bottom-4 z-10">
+          <button
+            onClick={handleGetRecommendations}
+            className="w-full py-4 bg-emerald-600 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2"
+          >
+            <span>獲取推薦 ({selectedSymptoms.length} 個症狀)</span>
+            <span>→</span>
+          </button>
+        </div>
       )}
 
       <p className="text-sm text-gray-500 dark:text-gray-400 bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
