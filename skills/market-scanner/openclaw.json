@@ -1,0 +1,15 @@
+name: market-scanner
+description: Stock & crypto scanner with ASX watchlist, crypto tracking, and breakthrough pattern detection
+commands:
+  - pattern: python3 main.py --mode daily
+    description: Run complete daily market scan
+  - pattern: python3 main.py --mode crypto
+    description: Get crypto prices (BTC/SOL)
+  - pattern: python3 main.py --mode asx --watchlist
+    description: View AS  - pattern: python3 main.py --mode breakthrough
+X watchlist
+    description: Scan for breakout patterns
+  - pattern: python3 main.py --mode daily --discord
+    description: Daily scan with Discord alerts
+  - pattern: python3 cron_setup.py --setup
+    description: Setup daily CRON job

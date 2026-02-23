@@ -1,0 +1,57 @@
+{
+  "name": "自動化設定",
+  "description": "各平台登入資料同API設定",
+  "created": "2026-02-23",
+  "security": "敏感資料，切勿外洩",
+  "platforms": {
+    "youtube": {
+      "api_key": "AIzaSyBL5Zfxqkn5C-U8PhvZTp83q0APEK2ID5Q",
+      "status": "已設定"
+    },
+    "twitter": {
+      "username": "kenlau1039076",
+      "status": "已登入"
+    },
+    "threads": {
+      "username": "cken0218",
+      "status": "已登入"
+    },
+    "xiaohongshu": {
+      "status": "未登入，需要手動登入"
+    },
+    "github": {
+      "status": "有權限"
+    },
+    "openclaw": {
+      "status": "正常運作"
+    }
+  },
+  "automation": {
+    "cron_jobs": [
+      {
+        "name": "澳洲股票報告",
+        "time": "09:00 (禮拜一至五)",
+        "status": "運作中"
+      },
+      {
+        "name": "健康檢查",
+        "time": "每小時",
+        "status": "運作中"
+      },
+      {
+        "name": "全方位學習",
+        "time": "12:00, 18:00",
+        "status": "運作中"
+      }
+    ],
+    "workflows": [
+      {
+        "name": "Trending監控",
+        "keywords": ["AI", "automation", "YouTube", "網上賺錢"],
+        "frequency": "每日2次 (9:00, 18:00)",
+        "status": "已設定"
+      }
+    ]
+  },
+  "notes": "記錄低所有自動化設定，等有問題既時候可以快速查閱"
+}

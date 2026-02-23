@@ -1,0 +1,68 @@
+{
+  "name": "全部庫",
+  "description": "所有數碼資產同工具庫存",
+  "created": "2026-02-23",
+  "categories": {
+    "skills": [
+      {
+        "name": "youtube-agent",
+        "description": "YouTube內容創作助手",
+        "status": "已安裝"
+      },
+      {
+        "name": "stock-agent",
+        "description": "澳洲股票分析",
+        "status": "已安裝"
+      },
+      {
+        "name": "research-agent",
+        "description": "研究Agent",
+        "status": "已安裝"
+      },
+      {
+        "name": "content-creator-local",
+        "description": "YouTube標題、描述、標籤生成",
+        "status": "已安裝"
+      },
+      {
+        "name": "thumbnail-generator-local",
+        "description": "縮圖文字建議",
+        "status": "已安裝"
+      },
+      {
+        "name": "video-script-writer-local",
+        "description": "AI影片脚本编写",
+        "status": "已安裝"
+      }
+    ],
+    "tools": [
+      {
+        "name": "OpenClaw",
+        "description": "AI助手平台",
+        "status": "使用緊"
+      },
+      {
+        "name": "Claude",
+        "description": "最強AI模型",
+        "status": "有帳戶"
+      },
+      {
+        "name": "ChatGPT",
+        "description": "OpenAI既AI",
+        "status": "有帳戶"
+      }
+    ],
+    "accounts": {
+      "youtube": "未登入",
+      "twitter": "kenlau1039076",
+      "threads": "cken0218",
+      "xiaohongshu": "未登入"
+    },
+    "apis": {
+      "youtube_data_api": "AIzaSyBL5Zfxqkn5C-U8PhvZTp83q0APEK2ID5Q",
+      "brave_search": "BSAqZAIljSm2Tayq2ubNz_hyrcU-FHy",
+      "composio": "ak_x3qztZT62u54lI2Lztfs"
+    }
+  },
+  "notes": "持續更新中..."
+}

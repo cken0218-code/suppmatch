@@ -1,0 +1,106 @@
+{
+  "scan_time": "2026-02-20T22:34:11.299315",
+  "tickers_scanned": 40,
+  "results_count": 2,
+  "results": [
+    {
+      "ticker": "RHC",
+      "name": "Ramsay Health Care Limited",
+      "sector": "Healthcare",
+      "current_price": 38.619998931884766,
+      "breakout_score": 50,
+      "patterns": {
+        "consolidation_breakout": {
+          "detected": false,
+          "breakout_price": 38.619998931884766,
+          "consolidation_range": "35.56 - 38.62",
+          "range_pct": 8.605167155286171,
+          "breakout_strength": 0
+        },
+        "volume_spike": {
+          "detected": true,
+          "volume_ratio": 2.16,
+          "current_volume": 1428368,
+          "avg_volume": 660948
+        },
+        "rsi_recovery": {
+          "detected": false,
+          "current_rsi": 67.19,
+          "direction": "recovering",
+          "was_oversold": false
+        },
+        "golden_cross": {
+          "detected": false,
+          "signal": "insufficient_data"
+        },
+        "gap_up": {
+          "detected": true,
+          "gap_pct": 2.99,
+          "prev_close": 37.5,
+          "current_price": 38.619998931884766
+        },
+        "week_high": {
+          "detected": true,
+          "current_price": 38.619998931884766,
+          "week_52_high": 38.619998931884766,
+          "distance_from_high": 0.0
+        }
+      },
+      "breakout_signals": [
+        "volume_spike",
+        "gap_up",
+        "week_high"
+      ],
+      "scan_time": "2026-02-20T22:33:59.731723"
+    },
+    {
+      "ticker": "SHL",
+      "name": "Sonic Healthcare Limited",
+      "sector": "Healthcare",
+      "current_price": 23.3700008392334,
+      "breakout_score": 35,
+      "patterns": {
+        "consolidation_breakout": {
+          "detected": false,
+          "breakout_price": 23.3700008392334,
+          "consolidation_range": "21.20 - 23.37",
+          "range_pct": 10.235849048116107,
+          "breakout_strength": 0
+        },
+        "volume_spike": {
+          "detected": false,
+          "volume_ratio": 1.45,
+          "current_volume": 2652248,
+          "avg_volume": 1834472
+        },
+        "rsi_recovery": {
+          "detected": true,
+          "current_rsi": 62.38,
+          "direction": "recovering",
+          "was_oversold": true
+        },
+        "golden_cross": {
+          "detected": false,
+          "signal": "insufficient_data"
+        },
+        "gap_up": {
+          "detected": false,
+          "gap_pct": 0.13,
+          "prev_close": 23.34000015258789,
+          "current_price": 23.3700008392334
+        },
+        "week_high": {
+          "detected": true,
+          "current_price": 23.3700008392334,
+          "week_52_high": 23.579999923706055,
+          "distance_from_high": -0.890581361968261
+        }
+      },
+      "breakout_signals": [
+        "rsi_recovery",
+        "week_high"
+      ],
+      "scan_time": "2026-02-20T22:34:00.482119"
+    }
+  ]
+}

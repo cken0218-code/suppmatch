@@ -1,0 +1,38 @@
+# Full Template Configuration
+# Copy to config.yaml and customize
+
+version: "1.0"
+settings:
+  api_key_env: "COMPOSIO_API_KEY"
+  debug: false
+  timeout: 60
+
+github:
+  enabled: true
+  default_owner: ""
+  default_repo: ""
+  max_results: 100
+
+sheets:
+  enabled: true
+  default_spreadsheet_id: ""
+  default_range: "Sheet1"
+
+slack:
+  enabled: true
+  default_channel: ""
+  mention_users: []
+
+search:
+  enabled: true
+  default_engine: "web"
+  safe_search: true
+
+file_operations:
+  enabled: true
+  base_directory: "."
+  allowed_extensions:
+    - ".txt"
+    - ".json"
+    - ".yaml"
+    - ".csv"

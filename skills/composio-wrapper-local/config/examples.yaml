@@ -1,0 +1,23 @@
+# Composio Wrapper Configuration Examples
+
+# GitHub Settings
+github:
+  default_owner: "my-org"
+  default_repo: "my-repo"
+  default_state: "open"
+  default_limit: 20
+
+# Google Sheets Settings
+sheets:
+  default_range: "Sheet1!A:Z"
+  batch_size: 100
+
+# Slack Settings
+slack:
+  default_channel: "#general"
+  message_format: "text"
+
+# Search Settings
+search:
+  default_num_results: 10
+  timeout_seconds: 30

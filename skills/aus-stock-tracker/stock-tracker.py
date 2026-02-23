@@ -17,7 +17,7 @@ except ImportError:
     sys.exit(1)
 
 # Default ASX stocks
-DEFAULT_ASX_STOCKS = ["CBA", "BHP", "CSL", "ANZ", "NAB", "WBC", "4DX", "AD8", "ARU", "BGL", "ELD", "KMD", "VR1"]
+DEFAULT_ASX_STOCKS = ["CBA", "BHP", "CSL", "ANZ", "NAB", "WBC", "4DX", "AD8", "ARU", "BGL", "ELD", "KMD", "VR1", "AVH", "AX1", "BAP", "CTT", "FANG"]
 
 def get_stock_data(ticker, period="6mo"):
     """Get stock data from yfinance"""
@@ -530,11 +530,95 @@ def verify_signals(days=7):
     
     print("="*80)
 
+def get_trend(sma20, sma50, ema20, current_price):
+    """Determine stock trend based on moving averages"""
+    if not sma20 or not sma50:
+        return "橫盤"
+    
+    # Uptrend: price > sma20 > sma50
+    if current_price > sma20 > sma50:
+        return "上升"
+    # Downtrend: price < sma20 < sma50
+    elif current_price < sma20 < sma50:
+        return "下降"
+    # Sideways
+    else:
+        return "橫盤"
+
+def get_rsi_status(rsi):
+    """Get RSI status: overbought (>70), oversold (<30), or neutral"""
+    if not rsi:
+        return "-"
+    if rsi > 70:
+        return "超買"
+    elif rsi < 30:
+        return "超賣"
+    else:
+        return "-"
+
+def print_table_report(stocks):
+    """Print stock report in table format like the example"""
+    print("\n" + "="*115)
+    print(f"📊 股票分析報告 - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print("="*115)
+    print(f"{'股票':<12} {'價格':<10} {'%變動':<10} {'信號':<10} {'趨勢':<12} {'SMA20':<10} {'SMA50':<10} {'RSI':<8} {'狀態':<8}")
+    print("-"*115)
+    
+    results = []
+    for ticker in stocks:
+        analysis = get_stock_analysis(ticker)
+        
+        if "error" in analysis:
+            print(f"{ticker:<12} ❌ Error")
+            continue
+        
+        # Format ticker as XXX.AX
+        ticker_ax = f"{ticker}.AX"
+        
+        # Determine trend
+        trend = get_trend(analysis.get("sma20"), analysis.get("sma50"), analysis.get("ema20"), analysis["price"])
+        
+        # Signal mapping to Chinese - map the signal type (BUY/HOLD/SELL)
+        signal_emoji = analysis["signal"][:2] if analysis["signal"] else "🟡"
+        signal_type = analysis["signal"][2:].strip() if analysis["signal"] else "HOLD"
+        signal_map = {"BUY": "買入", "HOLD": "持有", "SELL": "賣出"}
+        signal_text = signal_map.get(signal_type, "持有")
+        
+        # Format RSI with status
+        rsi = analysis.get("rsi")
+        rsi_str = f"{rsi:.1f}" if rsi else "N/A"
+        rsi_status = get_rsi_status(rsi)
+        
+        # Format % change
+        change_pct = analysis.get("change_pct", 0)
+        change_str = f"{change_pct:+.2f}%"
+        
+        # Format SMAs
+        sma20_str = f"${analysis['sma20']:.2f}" if analysis.get("sma20") else "N/A"
+        sma50_str = f"${analysis['sma50']:.2f}" if analysis.get("sma50") else "N/A"
+        
+        print(f"{ticker_ax:<12} ${analysis['price']:<9.2f} {change_str:<10} {signal_emoji} {signal_text:<8} {trend:<12} {sma20_str:<10} {sma50_str:<10} {rsi_str:<8} {rsi_status:<8}")
+        
+        results.append(analysis)
+    
+    print("-"*115)
+    
+    # Summary
+    buy_count = sum(1 for r in results if r['signal'].startswith("🟢"))
+    sell_count = sum(1 for r in results if r['signal'].startswith("🔴"))
+    hold_count = sum(1 for r in results if r['signal'].startswith("🟡"))
+    
+    print(f"📈 總計: 🟢買入 {buy_count} | 🟡持有 {hold_count} | 🔴賣出 {sell_count}")
+    print("="*115)
+    
+    return results
+
 def main():
     parser = argparse.ArgumentParser(description="Australian Stock Tracker - Enhanced")
     parser.add_argument("--aus", action="store_true", help="Track ASX stocks")
     parser.add_argument("--report", action="store_true", help="Generate daily report")
     parser.add_argument("--signals", action="store_true", help="Show buy/sell signals and technical analysis")
+    parser.add_argument("--table", action="store_true", help="Show table format report")
     parser.add_argument("--stocks", nargs="+", help="Custom stock list (e.g., CBA BHP CSL)")
     parser.add_argument("--save", action="store_true", help="Save today's analysis to history")
     parser.add_argument("--history", type=int, default=0, metavar="N", help="Show last N days of history")
@@ -548,7 +632,11 @@ def main():
         verify_signals(args.verify)
     elif args.aus or args.stocks:
         stocks = args.stocks if args.stocks else DEFAULT_ASX_STOCKS
-        results = print_report(stocks, show_signals=args.signals)
+        
+        if args.table:
+            results = print_table_report(stocks)
+        else:
+            results = print_report(stocks, show_signals=args.signals)
         
         if args.save:
             save_history(results)

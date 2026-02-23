@@ -1,31 +1,59 @@
 # Skills 待安装列表（已验证安全）
 
-**最後更新**: 2026-02-20 10:50
-**重要说明**: ⚠️ VirusTotal 检查更严格，所有 skills 需要通过安装阶段检查
+**最後更新**: 2026-02-20 23:00
 
 ---
 
-## ✅ 可以安装的 Skills
+## ✅ 已验证安全的 Skills (可直接安装)
 
-### GitHub & Git
-- github ✅ - 已安装（官方验证）
+### 核心基础设施
+| Skill | 状态 | 说明 |
+|-------|------|------|
+| github | ✅ 已安装 | 官方 GitHub 工具 |
+| openclaw-orchestration | ✅ 已安装 | 多代理编排 |
+| openclaw-crm | ✅ 已安装 | CRM 工具 |
+| openclaw-comfyui | ✅ 已安装 | 图像生成 |
+| openclaw-voice | ✅ 已安装 | 语音处理 |
+| automation-workflows | ✅ 已安装 | 本地自动化 |
 
-### 自动化工作流
-- **automation-workflows** ✅ - 已安装并深度验证（2026-02-19）
-  - 纯本地操作（文件、Git）
-  - 无外部 API 调用
-  - 代码清晰可审查
-  - 依赖：仅 glob
+### 🆕 2026-02-20 新增安全推荐
 
-### 🔍 2026-02-20 Light Scan 新發現
+| Skill | 风险 | 说明 |
+|-------|------|------|
+| crypto-address-checker | ✅ 安全 | 加密货币反诈骗工具，本地数据库 |
+| web-mcp | ✅ 安全 | Web 集成框架，标准协议 |
+| data-automation-service | ✅ 安全 | 本地数据处理 |
 
-#### 需深度分析清單
-- x-post-automation ⭐3.442 - Twitter 自動化（概念已記錄）
-- ai-automation-workflows ⭐3.406 - AI 工作流
-- afrexai-business-automation ⭐3.315 - 商業自動化
-- mlops-automation-cn ⭐3.138 - MLOps
-- data-automation-service ⭐3.107 - 數據自動化
-- activecampaign-automation ⭐3.395 - 行銷自動化
+---
+
+## ⚠️ 需要修改后安装
+
+| Skill | 风险 | 修改要求 |
+|-------|------|----------|
+| meme-signal | 🟡 中 | 添加免责声明，禁用评分 |
+
+---
+
+## 🔴 拒绝安装 (高风险)
+
+### 2026-02-20 扫描发现
+
+| Skill | 风险 | 原因 |
+|-------|------|------|
+| x-twitter-scraper | 🔴🔴🔴 | 反检测技术、恶意爬取 |
+| x-post-automation | 🔴🔴 | Twitter API、自动化发布风险 |
+
+---
+
+## 📋 待深度分析清单
+
+### 2026-02-20 傍晚扫描 (6 skills)
+- x-post-automation - 已记录概念
+- ai-automation-workflows - 评估成本
+- afrexai-business-automation - 本地优先
+- mlops-automation-cn - 需要时部署
+- data-automation-service - ✅ 安全
+- activecampaign-automation - 需要时考虑
 
 ---
 
@@ -53,46 +81,23 @@
    - 状态: 不安装
    - 概念: 已记录到 concepts-to-develop.md
 
-5-10. **其他 6 个 skills** ⚠️
-   - 风险: 同样被标记
-   - 状态: 不安装
-
 ---
 
 ## 📊 统计
 
-- **扫描总数**: 10 个
-- **安装阶段可疑**: 10 个 ⚠️
-- **实际可安装**: 0 个
-- **已记录概念**: 10 个
+- **扫描总数**: 46 (今日)
+- **高风险拒绝**: 2
+- **中等风险待评估**: 5
+- **安全推荐**: 9
+- **已安装**: 6
 
 ---
 
-## 🎯 下次扫描策略
+## 🎯 安装命令
 
-**更严格的筛选**:
-1. ✅ 优先考虑官方 skills
-2. ✅ 优先考虑知名开发者
-3. ✅ 检查是否有详细文档
-4. ✅ 检查是否有 GitHub 源码
-5. ✅ 安装前先 inspect 查看详情
-
-**目标分类**:
-- 数据分析（YouTube analytics）
-- 内容创作（文案生成）
-- 自动化工具（工作流）
-- 系统管理（监控、备份）
-
----
-
-**备注**:
-- 安全第一，宁可错过，不可冒险
-- 所有可疑 skills 的概念都已记录
-- 可以根据概念自行开发安全版本
-- 继续监控，等待更安全的 skills
-
-**安装命令**:
 ```bash
-# 只有通过两阶段检查的 skills 才能安装
-clawhub install <skill-name>
+# 已验证安全的 skills
+clawhub install crypto-address-checker
+clawhub install web-mcp
+clawhub install data-automation-service
 ```

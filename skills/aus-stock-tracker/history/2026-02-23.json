@@ -1,0 +1,109 @@
+{
+  "date": "2026-02-23",
+  "stocks": {
+    "CBA": {
+      "price": 179.86,
+      "rsi": 88.6,
+      "adx": 60.91,
+      "ema20": 167.0,
+      "macd": 7.27,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "BHP": {
+      "price": 54.06,
+      "rsi": 62.67,
+      "adx": 20.28,
+      "ema20": 51.2,
+      "macd": 1.4,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "CSL": {
+      "price": 149.19,
+      "rsi": 18.35,
+      "adx": 40.99,
+      "ema20": 162.98,
+      "macd": -7.15,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "ANZ": {
+      "price": 40.2,
+      "rsi": 65.95,
+      "adx": 29.04,
+      "ema20": 38.6,
+      "macd": 1.01,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "NAB": {
+      "price": 48.4,
+      "rsi": 79.26,
+      "adx": 40.92,
+      "ema20": 45.4,
+      "macd": 1.46,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "WBC": {
+      "price": 42.4,
+      "rsi": 72.85,
+      "adx": 16.55,
+      "ema20": 40.45,
+      "macd": 0.85,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "4DX": {
+      "price": 4.13,
+      "rsi": 57.6,
+      "adx": 21.63,
+      "ema20": 3.76,
+      "macd": 0.06,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "AD8": {
+      "price": 3.18,
+      "rsi": 30.5,
+      "adx": 31.68,
+      "ema20": 3.84,
+      "macd": -0.27,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "ARU": {
+      "price": 0.23,
+      "rsi": 41.1,
+      "adx": 35.8,
+      "ema20": 0.24,
+      "macd": -0.01,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "BGL": {
+      "price": 1.77,
+      "rsi": 52.24,
+      "adx": 10.95,
+      "ema20": 1.77,
+      "macd": 0.02,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "ELD": {
+      "price": 7.2,
+      "rsi": 39.48,
+      "adx": 13.89,
+      "ema20": 7.19,
+      "macd": -0.01,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "KMD": {
+      "price": 0.21,
+      "rsi": 20.0,
+      "adx": 17.88,
+      "ema20": 0.22,
+      "macd": -0.01,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "VR1": {
+      "price": 0.03,
+      "rsi": 44.0,
+      "adx": 10.83,
+      "ema20": 0.03,
+      "macd": -0.0,
+      "signal": "\ud83d\udfe1 HOLD"
+    }
+  }
+}
