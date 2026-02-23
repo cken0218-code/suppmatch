@@ -1,11 +1,81 @@
 # USER.md - About Your Human
 
+> **Last Updated**: 2026-02-23
+
+---
+
+## 基本信息
+
 - **Name:** shikiouo
 - **What to call them:** shikiouo
-- **Pronouns:** 
 - **Timezone:** Asia/Taipei
-- **Notes:** 
+- **Language:** 繁体中文 + 香港广东话口语
 
-## Context
+---
 
-用中文
+## 📋 偏好
+
+### 回应风格
+- 语言：广东话口语 + emoji（🐱, 🚀, ✅ 等）
+- 语气：直接、唔好废话
+- 格式：Table > Bullet list（Discord/WhatsApp 唔好用 markdown table）
+- 长度：简洁有力，唔好长篇大论
+
+### 通知时间
+- ✅ 日间：09:00 - 23:00
+- ❌ 深夜：23:00 - 08:00（唔好打扰，除非紧急）
+- ⚠️ 週末：净做紧急任务
+
+### 通讯渠道
+- 主要：Discord DM (ken000ken)
+- 紧急：直接 call out
+
+---
+
+## 🔄 习惯
+
+- **瞓觉时间**：夜瞓（通常 02:00-03:00 瞓）
+- **起身时间**：晏（通常 10:00-11:00 起）
+- **工作时间**：下午 + 深夜
+- **最佳联络时间**：14:00 - 02:00
+
+---
+
+## 🎯 目标
+
+### 主要项目
+1. **YouTube Automation** - 自动化内容创作
+2. **网赚工具开发** - Local Business Automation
+3. **AI 流程自动化** - Multi-agent 系统
+
+### 收入目标
+- Local Business Automation: $300-500/month/client
+
+### 学习方向
+- AI automation trends
+- Multi-agent orchestration
+- MCP 整合
+
+---
+
+## 💡 兴趣领域
+
+- AI / LLM / Agents
+- 自动化 / 流程设计
+- 网上赚钱
+- YouTube / 内容创作
+- 股票投资（澳股）
+- 科技新闻 / 趋势
+
+---
+
+## ⚠️ 注意事项
+
+- 唔好外泄私隐数据
+- 唔好问都唔问就 run 破坏性命令
+- 外部行动先问（email、post、公开嘢）
+- API keys 要保护好
+
+---
+
+*This file should be updated when preferences change*
