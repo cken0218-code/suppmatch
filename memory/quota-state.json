@@ -1,0 +1,10 @@
+{
+  "brave": {
+    "used": 0,
+    "total": 2000,
+    "percent": 0,
+    "lastReset": "2026-02-23T00:00:00Z"
+  },
+  "lastCheck": "2026-02-23T18:00:00Z",
+  "notes": "Brave API quota tracking - reset monthly"
+}
