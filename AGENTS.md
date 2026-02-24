@@ -18,6 +18,7 @@
 - [Tools](#tools)
 - [Heartbeats](#-heartbeats---be-proactive)
 - [自主报告工作流](#-主動回報工作流程autonomous-reporting)
+- [🤖 自主調動系統](#-自主調動系統)
 - [Debug & Fail Handling](#-debug--fail-handling)
 - [版本控制](#-版本控制)
 
@@ -368,6 +369,89 @@ AI: 🎉 完成喇！
 
 - ❌ 5 秒内做完嘅嘢
 - ❌ 即时对话（呢句回覆就唔使）
+
+---
+
+## 🤖 自主調動系統 (Autonomous Tool Selection)
+
+**核心理念**：讓 AI 自動選擇最合適工具，唔只係執行 workflow
+
+### Step 1: 檢查記憶
+
+每次執行任務前，先搜尋 `memory/errors/`：
+- 有冇類似任務嘅成功/失敗記錄？
+- 上次用咩方法解決？
+
+### Step 2: 工具選擇矩陣
+
+| 任務類型 | 首選 | 備選 | 觸發條件 |
+|----------|------|------|----------|
+| X/Trending | Chrome browser | OpenClaw browser | Chrome 未 attach |
+| Web Search | Brave API | DuckDuckGo | API quota 用盡 |
+| 知識收集 | browser automation | web_fetch | 需要登入 |
+| 圖片生成 | 外部 API | 本地模型 | API fail |
+| 小紅書 | Chrome browser | OpenClaw browser | RPA login |
+
+### Step 3: Fallback 流程
+
+```
+執行任務
+    ↓
+首選工具成功？ ─Yes→ 完成，記錄成功
+    ↓No
+嘗試備選工具
+    ↓
+備選成功？ ─Yes→ 完成，記錄成功
+    ↓No
+記錄錯誤 → 通知用戶
+```
+
+### Step 4: 記錄結果
+
+**成功記錄**：
+```json
+{
+  "task": "X trending crawl",
+  "tool": "openclaw browser",
+  "success": true,
+  "timestamp": "2026-02-24T12:00:00Z"
+}
+```
+
+**失敗記錄**：
+```json
+{
+  "task": "Brave search",
+  "tool": "web_search",
+  "error": "API quota exceeded",
+  "fallback": "DuckDuckGo",
+  "success": true,
+  "timestamp": "2026-02-24T12:00:00Z"
+}
+```
+
+### 實際範例
+
+**Prompt 加入**：
+```
+## Tool Selection Rules
+When crawling X/Threads/小紅書:
+1. Check browser status first
+2. If Chrome not attached → switch to openclaw browser
+3. Record success/failure to memory/errors/
+4. Only notify user if ALL methods fail
+```
+
+### 成功指標
+
+| 指標 | 目標 |
+|------|------|
+| 首次成功率 | > 70% |
+| Fallback 成功率 | > 90% |
+| 用戶介入率 | < 10% |
+| 錯誤重複率 | < 5% |
+
+**詳細文檔**：`memory/autonomous-tool-selection.md`
 
 ---
 
