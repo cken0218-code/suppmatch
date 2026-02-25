@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦞 OpenClaw Pixel Office</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        .header p {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        .office-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .office {
+            background: #2d3436;
+            border: 4px solid #636e72;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .office-floor {
+            width: 800px;
+            height: 500px;
+            position: relative;
+            background: 
+                linear-gradient(90deg, #4a4a4a 1px, transparent 1px) 0 0 / 32px 32px,
+                linear-gradient(#4a4a4a 1px, transparent 1px) 0 0 / 32px 32px,
+                #3d3d3d;
+        }
+
+        /* 辦公室傢俬 */
+        .desk {
+            position: absolute;
+            width: 96px;
+            height: 48px;
+            background: #8b4513;
+            border: 2px solid #5d3a1a;
+            border-radius: 4px;
+        }
+
+        .desk::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 80px;
+            height: 32px;
+            background: #654321;
+            border-radius: 2px;
+        }
+
+        .monitor {
+            position: absolute;
+            width: 24px;
+            height: 18px;
+            background: #000;
+            border: 2px solid #333;
+            border-radius: 2px;
+        }
+
+        .monitor.on {
+            background: linear-gradient(#1a1a2e, #16213e);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .chair {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #2d3436;
+            border: 2px solid #636e72;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .plant {
+            position: absolute;
+            width: 24px;
+            height: 32px;
+        }
+
+        .plant::before {
+            content: '🪴';
+            font-size: 24px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        /* 像素小人 */
+        .agent {
+            position: absolute;
+            width: 32px;
+            height: 48px;
+            transition: left 0.5s ease, top 0.5s ease;
+            image-rendering: pixelated;
+        }
+
+        .agent-body {
+            width: 32px;
+            height: 48px;
+            position: relative;
+        }
+
+        /* 頭 */
+        .agent-head {
+            width: 16px;
+            height: 16px;
+            background: #ffeaa7;
+            border-radius: 4px;
+            position: absolute;
+            top: 0;
+            left: 8px;
+            border: 2px solid #fdcb6e;
+        }
+
+        .agent-eyes {
+            position: absolute;
+            top: 4px;
+            left: 2px;
+            width: 12px;
+            height: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .agent-eye {
+            width: 4px;
+            height: 4px;
+            background: #2d3436;
+            border-radius: 50%;
+        }
+
+        /* 身體 */
+        .agent-torso {
+            width: 20px;
+            height: 16px;
+            position: absolute;
+            top: 16px;
+            left: 6px;
+            border-radius: 4px;
+        }
+
+        /* 腳 */
+        .agent-legs {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 32px;
+            left: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .agent-leg {
+            width: 6px;
+            height: 16px;
+            background: #2d3436;
+            border-radius: 0 0 2px 2px;
+        }
+
+        /* 手臂 */
+        .agent-arms {
+            position: absolute;
+            top: 16px;
+            width: 32px;
+            height: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .agent-arm {
+            width: 6px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        /* 不同顏色的 agents */
+        .agent.main .agent-torso { background: #e17055; }
+        .agent.main .agent-arm { background: #e17055; }
+
+        .agent.cron .agent-torso { background: #00b894; }
+        .agent.cron .agent-arm { background: #00b894; }
+
+        .agent.sub .agent-torso { background: #0984e3; }
+        .agent.sub .agent-arm { background: #0984e3; }
+
+        .agent.youtube .agent-torso { background: #e84393; }
+        .agent.youtube .agent-arm { background: #e84393; }
+
+        .agent.knowledge .agent-torso { background: #6c5ce7; }
+        .agent.knowledge .agent-arm { background: #6c5ce7; }
+
+        /* 動畫狀態 */
+        .agent.thinking .agent-head {
+            animation: thinking 1s infinite;
+        }
+
+        @keyframes thinking {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .agent.typing .agent-arm {
+            animation: typing 0.3s infinite alternate;
+        }
+
+        @keyframes typing {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+
+        .agent.reading .agent-head {
+            animation: reading 2s infinite;
+        }
+
+        @keyframes reading {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-2px); }
+        }
+
+        .agent.waiting {
+            animation: waiting 0.5s infinite;
+        }
+
+        .agent.waiting::after {
+            content: '✋';
+            position: absolute;
+            top: -20px;
+            left: 8px;
+            font-size: 16px;
+            animation: wave 0.5s infinite alternate;
+        }
+
+        @keyframes waiting {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(-20deg); }
+            100% { transform: rotate(20deg); }
+        }
+
+        .agent.walking {
+            animation: walking 0.3s infinite;
+        }
+
+        .agent.walking .agent-leg:first-child {
+            animation: walk-left 0.3s infinite;
+        }
+
+        .agent.walking .agent-leg:last-child {
+            animation: walk-right 0.3s infinite;
+        }
+
+        @keyframes walking {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(2px); }
+        }
+
+        @keyframes walk-left {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes walk-right {
+            0%, 100% { transform: translateY(-4px); }
+            50% { transform: translateY(0); }
+        }
+
+        .agent.idle .agent-head {
+            animation: idle 3s infinite;
+        }
+
+        @keyframes idle {
+            0%, 100% { transform: rotate(0); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+
+        /* 狀態氣泡 */
+        .status-bubble {
+            position: absolute;
+            top: -30px;
+            left: -10px;
+            background: #fff;
+            color: #2d3436;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 10px;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .status-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 20px;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #fff;
+        }
+
+        /* 控制面板 */
+        .controls {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            background: #6c5ce7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .controls button:hover {
+            background: #5b4cdb;
+        }
+
+        /* Agent 列表 */
+        .agent-list {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            width: 300px;
+        }
+
+        .agent-list h3 {
+            margin-bottom: 10px;
+            color: #ffeaa7;
+        }
+
+        .agent-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .agent-item .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .agent-item .info {
+            flex: 1;
+        }
+
+        .agent-item .name {
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .agent-item .status {
+            font-size: 10px;
+            color: #aaa;
+        }
+
+        /* 訊息區 */
+        .message-area {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 300px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .message {
+            font-size: 11px;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .message:last-child {
+            border-bottom: none;
+        }
+
+        .message .time {
+            color: #636e72;
+            font-size: 9px;
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 32px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🦞 OpenClaw Pixel Office</h1>
+        <p>實時監控你的 AI Agents</p>
+    </div>
+
+    <div class="controls">
+        <button onclick="addAgent('main')">➕ 新增 Main Agent</button>
+        <button onclick="addAgent('cron')">➕ 新增 Cron Agent</button>
+        <button onclick="addAgent('sub')">➕ 新增 Sub Agent</button>
+        <button onclick="addAgent('youtube')">➕ 新增 YouTube Agent</button>
+        <button onclick="addAgent('knowledge')">➕ 新增 Knowledge Agent</button>
+        <button onclick="randomActivity()">🎲 隨機活動</button>
+        <button onclick="clearAgents()">🗑️ 清除所有</button>
+    </div>
+
+    <div class="office-container">
+        <div class="office">
+            <div class="office-floor" id="office">
+                <div class="logo">🦞</div>
+                <!-- 辦公室佈置 -->
+                <div class="desk" style="left: 100px; top: 150px;"></div>
+                <div class="monitor on" style="left: 136px; top: 140px;"></div>
+                <div class="chair" style="left: 136px; top: 200px;"></div>
+
+                <div class="desk" style="left: 300px; top: 150px;"></div>
+                <div class="monitor on" style="left: 336px; top: 140px;"></div>
+                <div class="chair" style="left: 336px; top: 200px;"></div>
+
+                <div class="desk" style="left: 500px; top: 150px;"></div>
+                <div class="monitor on" style="left: 536px; top: 140px;"></div>
+                <div class="chair" style="left: 536px; top: 200px;"></div>
+
+                <div class="desk" style="left: 100px; top: 320px;"></div>
+                <div class="monitor on" style="left: 136px; top: 310px;"></div>
+                <div class="chair" style="left: 136px; top: 370px;"></div>
+
+                <div class="desk" style="left: 300px; top: 320px;"></div>
+                <div class="monitor on" style="left: 336px; top: 310px;"></div>
+                <div class="chair" style="left: 336px; top: 370px;"></div>
+
+                <div class="plant" style="left: 700px; top: 100px;"></div>
+                <div class="plant" style="left: 700px; top: 400px;"></div>
+            </div>
+        </div>
+
+        <div class="agent-list">
+            <h3>📋 Agent 狀態</h3>
+            <div id="agentList">
+                <p style="color: #aaa; font-size: 12px;">未有 agents...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="message-area">
+        <div style="font-weight: bold; margin-bottom: 10px; color: #ffeaa7;">📜 活動記錄</div>
+        <div id="messages"></div>
+    </div>
+
+    <script>
+        const office = document.getElementById('office');
+        const agentList = document.getElementById('agentList');
+        const messages = document.getElementById('messages');
+        
+        let agents = [];
+        let agentId = 0;
+
+        const deskPositions = [
+            { x: 136, y: 180 },
+            { x: 336, y: 180 },
+            { x: 536, y: 180 },
+            { x: 136, y: 350 },
+            { x: 336, y: 350 }
+        ];
+
+        const activities = ['thinking', 'typing', 'reading', 'waiting', 'idle', 'walking'];
+        const activityNames = {
+            'thinking': '🤔 思考中',
+            'typing': '⌨️ 打字中',
+            'reading': '📖 閱讀中',
+            'waiting': '✋ 等待中',
+            'idle': '😴 閒置',
+            'walking': '🚶 行走中'
+        };
+
+        function createAgent(type) {
+            const id = agentId++;
+            const deskIndex = agents.length % deskPositions.length;
+            const pos = deskPositions[deskIndex];
+
+            const agent = {
+                id: id,
+                type: type,
+                name: getAgentName(type),
+                activity: 'idle',
+                x: pos.x,
+                y: pos.y - 48
+            };
+
+            agents.push(agent);
+            renderAgent(agent);
+            updateAgentList();
+            addMessage(`${agent.name} 已加入辦公室！`);
+
+            return agent;
+        }
+
+        function getAgentName(type) {
+            const names = {
+                'main': '🦞 Main Agent',
+                'cron': '⏰ Cron Agent',
+                'sub': '🤖 Sub Agent',
+                'youtube': '📺 YouTube Agent',
+                'knowledge': '📚 Knowledge Agent'
+            };
+            return names[type] || 'Agent';
+        }
+
+        function renderAgent(agent) {
+            const el = document.createElement('div');
+            el.className = `agent ${agent.type} ${agent.activity}`;
+            el.id = `agent-${agent.id}`;
+            el.style.left = agent.x + 'px';
+            el.style.top = agent.y + 'px';
+
+            el.innerHTML = `
+                <div class="status-bubble">${activityNames[agent.activity]}</div>
+                <div class="agent-body">
+                    <div class="agent-head">
+                        <div class="agent-eyes">
+                            <div class="agent-eye"></div>
+                            <div class="agent-eye"></div>
+                        </div>
+                    </div>
+                    <div class="agent-arms">
+                        <div class="agent-arm"></div>
+                        <div class="agent-arm"></div>
+                    </div>
+                    <div class="agent-torso"></div>
+                    <div class="agent-legs">
+                        <div class="agent-leg"></div>
+                        <div class="agent-leg"></div>
+                    </div>
+                </div>
+            `;
+
+            office.appendChild(el);
+
+            // 點擊切換活動
+            el.addEventListener('click', () => {
+                cycleActivity(agent);
+            });
+        }
+
+        function updateAgent(agent) {
+            const el = document.getElementById(`agent-${agent.id}`);
+            if (el) {
+                el.className = `agent ${agent.type} ${agent.activity}`;
+                el.style.left = agent.x + 'px';
+                el.style.top = agent.y + 'px';
+                el.querySelector('.status-bubble').textContent = activityNames[agent.activity];
+            }
+        }
+
+        function cycleActivity(agent) {
+            const currentIndex = activities.indexOf(agent.activity);
+            const nextIndex = (currentIndex + 1) % activities.length;
+            agent.activity = activities[nextIndex];
+            updateAgent(agent);
+            updateAgentList();
+            addMessage(`${agent.name} → ${activityNames[agent.activity]}`);
+        }
+
+        function setActivity(agent, activity) {
+            agent.activity = activity;
+            updateAgent(agent);
+            updateAgentList();
+            addMessage(`${agent.name} → ${activityNames[activity]}`);
+        }
+
+        function updateAgentList() {
+            if (agents.length === 0) {
+                agentList.innerHTML = '<p style="color: #aaa; font-size: 12px;">未有 agents...</p>';
+                return;
+            }
+
+            agentList.innerHTML = agents.map(agent => {
+                const colors = {
+                    'main': '#e17055',
+                    'cron': '#00b894',
+                    'sub': '#0984e3',
+                    'youtube': '#e84393',
+                    'knowledge': '#6c5ce7'
+                };
+                return `
+                    <div class="agent-item" onclick="cycleActivity(agents.find(a => a.id === ${agent.id}))">
+                        <div class="color-dot" style="background: ${colors[agent.type]}"></div>
+                        <div class="info">
+                            <div class="name">${agent.name}</div>
+                            <div class="status">${activityNames[agent.activity]}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function addMessage(text) {
+            const time = new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+            const msg = document.createElement('div');
+            msg.className = 'message';
+            msg.innerHTML = `<span class="time">[${time}]</span> ${text}`;
+            messages.insertBefore(msg, messages.firstChild);
+
+            // 最多保留 20 條訊息
+            while (messages.children.length > 20) {
+                messages.removeChild(messages.lastChild);
+            }
+        }
+
+        function addAgent(type) {
+            if (agents.length >= 5) {
+                addMessage('⚠️ 辦公室已滿！最多 5 個 agents');
+                return;
+            }
+            createAgent(type);
+        }
+
+        function randomActivity() {
+            agents.forEach(agent => {
+                const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+                setActivity(agent, randomActivity);
+            });
+        }
+
+        function clearAgents() {
+            agents.forEach(agent => {
+                const el = document.getElementById(`agent-${agent.id}`);
+                if (el) el.remove();
+            });
+            agents = [];
+            updateAgentList();
+            addMessage('🗑️ 已清除所有 agents');
+        }
+
+        // 自動隨機活動
+        setInterval(() => {
+            if (agents.length > 0 && Math.random() > 0.7) {
+                const randomAgent = agents[Math.floor(Math.random() * agents.length)];
+                const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+                setActivity(randomAgent, randomActivity);
+            }
+        }, 5000);
+
+        // 初始化
+        addMessage('🦞 OpenClaw Pixel Office 已啟動！');
+        addMessage('💡 點擊 agent 可以切換活動狀態');
+    </script>
+</body>
+</html>
