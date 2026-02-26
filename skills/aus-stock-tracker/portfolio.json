@@ -1,0 +1,14 @@
+{
+  "system_1_owned": [
+    "AX1"
+  ],
+  "system_2_watchlist": [
+    "CBA", "BHP", "CSL", "ANZ", "NAB", "WBC", 
+    "4DX", "AD8", "ARU", "BGL", "ELD", "KMD", "VR1", 
+    "AVH", "BAP", "CTT", "FANG"
+  ],
+  "last_updated": "2026-02-27",
+  "notes": {
+    "AX1": "朋友买入 @ $1.5, 6000股"
+  }
+}

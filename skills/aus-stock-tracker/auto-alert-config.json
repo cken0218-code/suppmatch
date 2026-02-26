@@ -1,0 +1,65 @@
+{
+  "setup_date": "2026-02-27",
+  "status": "active",
+  "schedule": "15 9 * * 1-5 (Australia/Sydney)",
+  "next_run": "2026-02-28 09:15",
+  "stocks_monitored": 18,
+  "thresholds": {
+    "rsi": 35,
+    "adx": 20
+  },
+  "notification": {
+    "channel": "Discord DM",
+    "user": "ken000ken"
+  },
+  "today_signals": [
+    {
+      "ticker": "CSL.AX",
+      "price": 146.02,
+      "rsi": 12.6,
+      "adx": 54.0,
+      "reason": "RSI超卖 + 强趋势"
+    },
+    {
+      "ticker": "AD8.AX",
+      "price": 3.03,
+      "rsi": 31.1,
+      "adx": 42.4,
+      "reason": "RSI超卖 + 强趋势"
+    },
+    {
+      "ticker": "KMD.AX",
+      "price": 0.21,
+      "rsi": 37.5,
+      "adx": 24.0,
+      "reason": "强趋势"
+    },
+    {
+      "ticker": "VR1.AX",
+      "price": 0.03,
+      "rsi": 15.4,
+      "adx": 22.6,
+      "reason": "RSI超卖 + 强趋势"
+    },
+    {
+      "ticker": "BAP.AX",
+      "price": 1.72,
+      "rsi": null,
+      "adx": 66.8,
+      "reason": "信号=BUY + 强趋势"
+    },
+    {
+      "ticker": "CTT.AX",
+      "price": 0.34,
+      "rsi": 28.6,
+      "adx": 59.2,
+      "reason": "RSI超卖 + 强趋势"
+    }
+  ],
+  "files": {
+    "alert_script": "stock-alert.py",
+    "auto_script": "auto-scan.sh",
+    "tracker_script": "stock-tracker.py",
+    "history_dir": "history/"
+  }
+}
