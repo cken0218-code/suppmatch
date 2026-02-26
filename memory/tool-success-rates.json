@@ -1,0 +1,59 @@
+{
+  "month": "2026-02",
+  "tools": {
+    "web_search": {
+      "total_attempts": 15,
+      "first_try_success": 12,
+      "fallback_success": 2,
+      "total_failures": 1,
+      "first_try_rate": 80.0,
+      "overall_rate": 93.3
+    },
+    "browser_automation": {
+      "total_attempts": 8,
+      "first_try_success": 6,
+      "fallback_success": 1,
+      "total_failures": 1,
+      "first_try_rate": 75.0,
+      "overall_rate": 87.5
+    },
+    "discord_message": {
+      "total_attempts": 20,
+      "first_try_success": 18,
+      "fallback_success": 1,
+      "total_failures": 1,
+      "first_try_rate": 90.0,
+      "overall_rate": 95.0
+    },
+    "web_fetch": {
+      "total_attempts": 10,
+      "first_try_success": 4,
+      "fallback_success": 5,
+      "total_failures": 1,
+      "first_try_rate": 40.0,
+      "overall_rate": 90.0
+    },
+    "coingecko_skill": {
+      "total_attempts": 5,
+      "first_try_success": 5,
+      "fallback_success": 0,
+      "total_failures": 0,
+      "first_try_rate": 100.0,
+      "overall_rate": 100.0
+    }
+  },
+  "summary": {
+    "total_tasks": 58,
+    "overall_first_try_rate": 77.6,
+    "overall_success_rate": 93.1,
+    "target_first_try_rate": 70.0,
+    "target_overall_rate": 90.0,
+    "meets_targets": true
+  },
+  "last_updated": "2026-02-26T20:30:00Z",
+  "notes": [
+    "web_fetch first_try_rate 低（40%）主要系 Cloudflare blocking",
+    "DuckDuckGo fallback 非常有效，提升整体成功率到 90%",
+    "discord_message 改进后（用 user:ID）成功率大幅提升"
+  ]
+}

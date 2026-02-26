@@ -122,11 +122,16 @@ code ~/.openclaw/openclaw.json
 python3 scripts/compress-memory.py
 ```
 
-### Backup
+### Backup（自动）
 ```bash
+# 手动 backup
 tar -czf ~/backup/openclaw-backup-$(date +%Y%m%d).tar.gz \
   -C ~/.openclaw/workspace \
   AGENTS.md SOUL.md USER.md MEMORY.md HEARTBEAT.md TOOLS.md IDENTITY.md
+
+# 自动 backup（cron）
+# 每日 00:00 执行
+0 0 * * * cd ~/.openclaw/workspace && tar -czf ~/backup/openclaw-auto-$(date +\%Y\%m\%d).tar.gz AGENTS.md SOUL.md USER.md MEMORY.md HEARTBEAT.md TOOLS.md IDENTITY.md memory/ && git add -A && git commit -m "chore: daily backup $(date +\%Y\%m\%d)" && git push origin main
 ```
 
 ### Git Commit
@@ -134,6 +139,16 @@ tar -czf ~/backup/openclaw-backup-$(date +%Y%m%d).tar.gz \
 cd ~/.openclaw/workspace
 git add -A
 git commit -m "docs: update [file] - [reason]"
+git push origin main
+```
+
+### 自动化 Backup 设置
+```bash
+# 编辑 crontab
+crontab -e
+
+# 加这一行（每日 00:00）
+0 0 * * * cd /Users/cken0218/.openclaw/workspace && tar -czf ~/backup/openclaw-auto-$(date +\%Y\%m\%d).tar.gz AGENTS.md SOUL.md USER.md MEMORY.md HEARTBEAT.md TOOLS.md IDENTITY.md memory/ 2>/dev/null && git add -A && git commit -m "chore: daily backup" && git push origin main 2>/dev/null
 ```
 
 ---
@@ -147,21 +162,74 @@ git commit -m "docs: update [file] - [reason]"
 
 ---
 
-## 🎯 技能索引
+## 🎯 技能索引（含安装）
 
 ### 常用 Skills
-- `stock-agent` - 澳股分析
-- `youtube-agent` - YouTube 自动化
-- `research-agent` - 研究助手
-- `skill-scanner` - ClawHub 扫描
-- `cron-manager` - 定时任务
-- `system-monitor` - 系统监控
-- `backup-manager` - 备份管理
+
+| Skill | 用途 | 安装方式 | 状态 |
+|-------|------|----------|------|
+| `stock-agent` | 澳股分析 | 已安装（本地） | ✅ |
+| `youtube-agent` | YouTube 自动化 | 已安装（本地） | ✅ |
+| `research-agent` | 研究助手 | 已安装（本地） | ✅ |
+| `skill-scanner` | ClawHub 扫描 | `clawhub install skill-scanner` | ✅ |
+| `cron-manager` | 定时任务 | `clawhub install cron-manager` | ✅ |
+| `system-monitor` | 系统监控 | `clawhub install system-monitor` | ✅ |
+| `backup-manager` | 备份管理 | `clawhub install backup-manager` | ✅ |
+| `ddg-search` | DuckDuckGo 搜索 | `clawhub install ddg-search` | ✅ |
+| `coingecko` | 加密货币数据 | `clawhub install coingecko` | ✅ |
+
+### 安装新 Skill
+```bash
+# 从 ClawHub 安装
+clawhub install <skill-name>
+
+# 检查已安装
+clawhub list
+
+# 更新 skill
+clawhub update <skill-name>
+```
 
 ### 查询方式
 ```
 有冇新嘅 skills？ → skill-scanner
 上次发现咩？ → skill-history
+边个 skill 好用？ → memory/skills-ecosystem.md
+```
+
+---
+
+## 🔧 故障排除
+
+### 常见错误 + 解决
+
+| 错误 | 原因 | 解决方法 |
+|------|------|----------|
+| `API quota exceeded` | Brave API 用完 | 改用 DuckDuckGo (`ddg-search` skill) |
+| `Model not allowed` | 模型未配置 | 检查 `~/.openclaw/openclaw.json` → `models.allowed` |
+| `Browser not attached` | Chrome 未连接 | Click OpenClaw extension icon attach tab |
+| `Discord target error` | target 格式错 | 用 `user:ID` 格式（e.g. `user:964140590868594740`） |
+| `Gateway not running` | Gateway 停咗 | `openclaw gateway start` |
+| `File not found` | 档案不存在 | 用 `ls` 检查路径，或创建档案 |
+| `web_fetch 403` | Cloudflare block | 改用 browser automation 或 DuckDuckGo |
+| `Memory too large` | L1-daily 太多 | 运行 `python3 scripts/compress-memory.py` |
+
+### Log 检查
+```bash
+# 检查今日错误
+grep "ERROR" /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log | tail -20
+
+# 检查 Gateway 错误
+tail -50 ~/.openclaw/logs/gateway.log | grep -i error
+```
+
+### 重启服务
+```bash
+# 重启 Gateway
+openclaw gateway restart
+
+# 检查状态
+openclaw status
 ```
 
 ---

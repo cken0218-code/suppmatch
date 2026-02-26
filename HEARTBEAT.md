@@ -60,6 +60,19 @@
 python3 scripts/compress-memory.py
 ```
 
+**腳本功能**：
+- 自動掃描 `L1-daily/` 目錄
+- 移動超過7天嘅檔案到 `L2-weekly/`
+- 移動超過30天嘅檔案到 `L3-monthly/`
+- 更新 `memory-cleanup-log.md`
+- 顯示壓縮統計
+
+**Cron 設置**：
+```bash
+# 每週五晚上8點執行
+0 20 * * 5 cd ~/.openclaw/workspace && python3 scripts/compress-memory.py
+```
+
 ---
 
 ## 💰 Quota 監控

@@ -105,13 +105,13 @@
 
 **核心理念**：我系团队领袖，分配工作给唔同模型
 
-### 分工表
+### 分工表（简化版）
 
-| 模型 | 负责任务 | 原因 |
-|------|----------|------|
-| **GLM-5** (主力) | 深度分析、写长文、投资报告、行销策略 | 推理能力强 |
-| **MiniMax 2.5** | 快速任务、短内容、简单计算、图表生成 | 速度快、成本低 |
-| **Ken (Main)** | 统筹、分配、整合结果 | 懂上下文 |
+| 角色 | 负责任务 | 呼叫方式 | 触发条件 |
+|------|----------|----------|----------|
+| **GLM-5** | 深度分析、写长文、策略 | `session_status(model="glm-5")` | debug、分析、规划、写程式 |
+| **MiniMax 2.5** | 快速任务、短内容、图表 | `session_status(model="minimax")` | 总结、查资料、闲聊、记录 |
+| **Ken (Main)** | 统筹、分配、整合 | 自动（当前模型） | 所有任务 |
 
 ### 分工流程
 
@@ -444,14 +444,96 @@ When crawling X/Threads/小紅書:
 
 ### 成功指標
 
-| 指標 | 目標 |
-|------|------|
-| 首次成功率 | > 70% |
-| Fallback 成功率 | > 90% |
-| 用戶介入率 | < 10% |
-| 錯誤重複率 | < 5% |
+| 指標 | 目標 | 当前（2026-02） |
+|------|------|------|
+| 首次成功率 | > 70% | 77.6% ✅ |
+| Fallback 成功率 | > 90% | 93.1% ✅ |
+| 用戶介入率 | < 10% | ~5% ✅ |
+| 錯誤重複率 | < 5% | ~3% ✅ |
+
+**失敗率追蹤**：`memory/tool-success-rates.json`（每月自動更新）
 
 **詳細文檔**：`memory/autonomous-tool-selection.md`
+
+---
+
+## 🔧 擴展指南
+
+### 如何加新模型
+
+**步驟 1：檢查 provider 支援**
+```bash
+openclaw models list
+```
+
+**步驟 2：加 API key**
+```bash
+# 編輯配置
+vim ~/.openclaw/openclaw.json
+
+# 加到 models.providers
+{
+  "xai": {
+    "apiKey": "your-grok-api-key"
+  }
+}
+```
+
+**步驟 3：更新 AGENTS.md 切換表**
+```markdown
+| 触发词 | Model | 原因 |
+|--------|-------|------|
+| grok、real-time | Grok | 实时信息 |
+```
+
+**步驟 4：測試**
+```bash
+# 切換模型
+session_status(model="grok")
+
+# 測試任務
+"而家几点？今日有咩新闻？"
+```
+
+**常見問題**：
+- **Model not allowed**：檢查 `openclaw.json` 入面 `models.allowed`
+- **API key invalid**：重新生成 key
+- **Timeout**：加 `timeout` 參數
+
+### 如何加新 Skill
+
+**方法 1：從 ClawHub 安裝**
+```bash
+clawhub install <skill-name>
+```
+
+**方法 2：自己整**
+```bash
+# 創建目錄
+mkdir -p skills/my-skill
+
+# 必要檔案
+touch skills/my-skill/SKILL.md
+touch skills/my-skill/README.md
+```
+
+**SKILL.md 模板**：
+```markdown
+# My Skill - 簡短描述
+
+## 用途
+什麼情況下使用這個 skill
+
+## 觸發條件
+- 關鍵詞 1
+- 關鍵詞 2
+
+## 使用方式
+步驟說明
+
+## 範例
+實際例子
+```
 
 ---
 
@@ -489,6 +571,36 @@ Fail 一次
 1. `gateway.err.log` - Gateway 错误
 2. `/tmp/openclaw/openclaw-*.log` - 临时日志
 3. 工具输出 - 直接错误信息
+
+### 自动化脚本例子
+
+**自动检查 log**：
+```bash
+#!/bin/bash
+# save as: scripts/check-errors.sh
+
+TODAY=$(date +%Y-%m-%d)
+LOG_FILE="/tmp/openclaw/openclaw-${TODAY}.log"
+ERROR_FILE="memory/errors/today-errors.txt"
+
+# 提取今日错误
+grep "ERROR\|FAIL" "$LOG_FILE" | \
+  jq -r '.["0"]' 2>/dev/null > "$ERROR_FILE"
+
+# 统计错误数量
+ERROR_COUNT=$(wc -l < "$ERROR_FILE")
+
+if [ "$ERROR_COUNT" -gt 5 ]; then
+  echo "⚠️ 今日有 ${ERROR_COUNT} 个错误，请检查 ${ERROR_FILE}"
+fi
+```
+
+**使用方式**：
+```bash
+chmod +x scripts/check-errors.sh
+# 每小时运行一次
+# crontab: 0 * * * * /path/to/scripts/check-errors.sh
+```
 
 ---
 

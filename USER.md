@@ -41,15 +41,22 @@
 
 ---
 
-## 🎯 目标
+## 🎯 目标（按优先级）
 
-### 主要项目
+### ⭐⭐⭐ 高优先级
 1. **YouTube Automation** - 自动化内容创作
-2. **网赚工具开发** - Local Business Automation
-3. **AI 流程自动化** - Multi-agent 系统
+   - 目标：每月发布 10+ 视频
+   - 收入目标：$500-1000/month
 
-### 收入目标
-- Local Business Automation: $300-500/month/client
+### ⭐⭐ 中优先级
+2. **网赚工具开发** - Local Business Automation
+   - 目标：3个客户
+   - 收入目标：$300-500/month/client
+
+### ⭐ 低优先级
+3. **AI 流程自动化** - Multi-agent 系统
+   - 目标：建立完整 multi-agent 系统
+   - 学习方向：MCP 整合
 
 ### 学习方向
 - AI automation trends
@@ -75,6 +82,13 @@
 - 唔好问都唔问就 run 破坏性命令
 - 外部行动先问（email、post、公开嘢）
 - API keys 要保护好
+
+## 🚨 紧急联络
+
+- **Email**: cken0218@gmail.com
+- **Discord**: ken000ken
+- **紧急情况**: 直接 call out
+- **系统 crash**: 自动发 email 通知
 
 ---
 

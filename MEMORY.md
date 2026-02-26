@@ -60,13 +60,13 @@ memory/
 
 ---
 
-## ⏰ 待办 / 目标
+## ⏰ 待办 / 目标（含 deadline）
 
-- [ ] Xiaohongshu trending 监控
-- [ ] Threads trending 监控
-- [ ] Email SMTP Setup (等 Gmail App Password)
-- [ ] MCP 整合 Phase 1-4
-- [ ] 史莱姆技能进化系统
+- [ ] Xiaohongshu trending 监控 - Deadline: 2026-03-15 - Agent: research-agent
+- [ ] Threads trending 监控 - Deadline: 2026-03-10 - Agent: threads-automation
+- [ ] Email SMTP Setup - Deadline: 2026-03-05 - 等待：Gmail App Password
+- [ ] MCP 整合 Phase 1-4 - Deadline: 2026-04-01 - Agent: multi-agent-collaboration
+- [ ] 史莱姆技能进化系统 - Deadline: 2026-03-20 - Agent: skill-creator
 
 ---
 
@@ -97,13 +97,22 @@ memory/
 
 ## 🔐 API Keys
 
-**位置**: `~/.openclaw/openclaw.json`
+**加密位置**: `~/.openclaw/secrets.gpg`（已加密）
 
+**解密方式**:
+```bash
+gpg -d ~/.openclaw/secrets.gpg > /tmp/secrets.json
+# 用完记得删除：rm /tmp/secrets.json
+```
+
+**包含的 Keys**:
 - YouTube Data API ✅
 - Brave Search ✅
 - X (Twitter) API ✅
 - MiniMax API ✅
 - Composio ✅
+
+**⚠️ 注意**: 原始 openclaw.json 仍保留明文配置，敏感 key 已移至加密檔
 
 ---
 
