@@ -152,6 +152,85 @@ EXECUTION_MODES = {
 
 ---
 
+## 🦞 Superpowers Task Dispatch 模式 (新增)
+
+受 [superpowers](https://github.com/obra/superpowers) 啟發，複雜任務采用以下流程：
+
+### 核心原則
+
+1. **Brainstorming** - 收到任務，先問清楚你想做乜
+2. **Spec Approval** - 寫完計劃等你批准先繼續
+3. **Task Breakdown** - 拆task (每個2-5分鐘，有明確file paths)
+4. **Subagent Dispatch** - 每個task派一個subagent
+5. **Two-Stage Review** - spec compliance → code quality
+6. **Human Checkpoint** - 每隔幾個task等你確認
+
+### Task Breakdown 格式
+
+```python
+TASK_TEMPLATE = {
+    "id": "task_001",
+    "description": "整登入頁面",
+    "file_paths": ["pages/login.tsx", "components/LoginForm.tsx"],
+    "verification": "npm run test:login",
+    "estimated_time": "3 minutes",
+    "depends_on": []  # 前置task
+}
+```
+
+### 執行流程圖
+
+```
+User: "整一個電商網站"
+    ↓
+[1. BRAINSTORMING]
+Agent: "你想做乜類型既電商？有咩功能必須要有？"
+    ↓
+User: "賣衫既，得支付同購物車"
+    ↓
+[2. SPEC WRITING]
+Agent: 寫spec，等你approve
+    ↓
+User: "OK，開始"
+    ↓
+[3. TASK BREAKDOWN]
+- task_001: 整首頁 (2min)
+- task_002: 整產品頁 (3min)
+- task_003: 整購物車 (4min)
+- task_004: 整支付 (3min)
+    ↓
+[4. SUBAGENT EXECUTION]
+For each task:
+  - dispatch subagent
+  - stage 1: check spec compliance
+  - stage 2: check quality
+  - report status
+    ↓
+[5. HUMAN CHECKPOINT]
+每3個task，等你confirm先繼續
+    ↓
+[6. FINISH]
+Present: merge options / PR / discard
+```
+
+### 觸發條件
+
+```python
+SUPERPOWERS_TRIGGERS = {
+    "enabled": True,
+    "triggers": [
+        "整一個新既", "開發", "建立",
+        "完整既", "從頭整", "build"
+    ],
+    "min_complexity": "complex",  # 只對complex任務啟動
+    "auto_breakdown": True,
+    "human_checkpoints": True,
+    "checkpoint_every_n_tasks": 3
+}
+```
+
+---
+
 ## 實際路由範例
 
 ### 範例 1: "分析我的 YouTube 頻道"

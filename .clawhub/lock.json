@@ -52,6 +52,10 @@
     "coingecko": {
       "version": "1.0.0",
       "installedAt": 1771549583411
+    },
+    "memory-manager": {
+      "version": "1.0.0",
+      "installedAt": 1772159073436
     }
   }
 }

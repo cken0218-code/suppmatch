@@ -1,0 +1,55 @@
+{
+  "setup_date": "2026-02-27",
+  "version": "1.0",
+  "status": "active",
+  "systems": {
+    "system_1": {
+      "name": "固定监察（已持有）",
+      "schedule": "每日 09:15（周一至五）",
+      "cron_id": "44d2e2b0-37be-4113-9879-fbbf915eccde",
+      "script": "stock-alert.py",
+      "thresholds": {
+        "rsi": 35,
+        "adx": 20
+      },
+      "stocks_count": 1,
+      "stocks": ["AX1"]
+    },
+    "system_2": {
+      "name": "市场扫描（ASX 200）",
+      "schedule": "每周二、四 09:30",
+      "cron_ids": [
+        "e906654b-1dd5-4c39-81f0-ebbbd925c817",
+        "ca804093-dde5-4360-b18a-8bf0a8e5897c"
+      ],
+      "script": "market-scanner.py",
+      "thresholds": {
+        "rsi": 30,
+        "adx": 25
+      },
+      "scan_range": "ASX 200（200只股票）"
+    }
+  },
+  "notification": {
+    "channel": "Discord",
+    "user": "ken000ken",
+    "format": "区分系统一和系统二通知"
+  },
+  "files": {
+    "portfolio": "portfolio.json",
+    "system1_script": "stock-alert.py",
+    "system2_script": "market-scanner.py",
+    "manager": "stock-alert-manager.py",
+    "docs": "README-DUAL-SYSTEM.md"
+  },
+  "next_runs": {
+    "system_1": "2026-02-28 09:15",
+    "system_2_tue": "2026-03-03 09:30",
+    "system_2_thu": "2026-03-05 09:30"
+  },
+  "workflow": {
+    "buy_stock": "告诉我股票代码 → 自动移到系统一",
+    "watch_stock": "运行 stock-alert-manager.py watch <股票>",
+    "check_status": "运行 stock-alert-manager.py status"
+  }
+}
