@@ -56,6 +56,10 @@
     "memory-manager": {
       "version": "1.0.0",
       "installedAt": 1772159073436
+    },
+    "memoclaw": {
+      "version": "1.15.0",
+      "installedAt": 1772195700635
     }
   }
 }

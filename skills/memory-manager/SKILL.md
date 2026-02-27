@@ -291,6 +291,53 @@ Shows:
 - Proactive retrieval
 - Multi-agent shared memory
 
+## 🦞 MemoClaw Concepts (v1.1)
+
+Inspired by [MemoClaw](https://github.com/anajuliabit/memoclaw) - importance scoring & decay:
+
+### Importance Scoring
+
+| Importance | When to use | Examples |
+|------------|------------|----------|
+| **0.95** | Corrections, critical constraints | "Never deploy on Fridays", "Allergic to shellfish" |
+| **0.85-0.9** | Decisions, strong preferences | "Chose PostgreSQL", "Always use TypeScript" |
+| **0.7-0.8** | General preferences, user info | "Prefers dark mode", "Timezone is PST" |
+| **0.5-0.6** | Useful context | "Likes morning standups" |
+| **0.3-0.4** | Ephemeral observations | "Meeting at 3pm" |
+
+**Rule:** If you'd be upset forgetting it, importance ≥ 0.8
+
+### Memory Decay (Half-Life)
+
+| Memory Type | Half-Life |
+|-------------|-----------|
+| correction | 180 days |
+| preference | 180 days |
+| decision | 90 days |
+| episodic | 30 days |
+| semantic | 60 days |
+| procedural | 90 days |
+
+### Core Memories (Never Decay)
+- importance ≥ 0.9
+- pinned = true
+
+### Conflict Resolution
+
+When new info contradicts existing memory:
+1. Recall the existing memory
+2. Store new fact with `supersedes` tag
+3. Update old memory importance downward
+
+### Before Assuming User Preferences
+```
+→ Recall from memory-manager first
+→ Then check local files if needed
+→ Only ask if both come up empty
+```
+
+**Trigger phrases:** "Do you remember...", "What did we decide about...", "Last time we..."
+
 ## Contributing
 
 Found a bug? Want a feature?
