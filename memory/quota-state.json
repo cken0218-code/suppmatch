@@ -3,8 +3,14 @@
     "used": 0,
     "total": 2000,
     "percent": 0,
-    "lastReset": "2026-02-23T00:00:00Z"
+    "lastReset": "2026-02-23T00:00:00Z",
+    "note": "No Brave API key configured, using DuckDuckGo fallback"
   },
-  "lastCheck": "2026-02-26T09:22:00Z",
-  "notes": "Brave API quota tracking - reset monthly"
+  "duckduckgo": {
+    "used": 6,
+    "lastCheck": "2026-03-02T18:04:00Z",
+    "note": "Fallback search engine (no quota limit)"
+  },
+  "lastCheck": "2026-03-02T18:04:00Z",
+  "lastTask": "knowledge-patrol-pm (evening)"
 }

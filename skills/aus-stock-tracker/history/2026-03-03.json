@@ -1,0 +1,149 @@
+{
+  "date": "2026-03-03",
+  "stocks": {
+    "CBA": {
+      "price": 173.23,
+      "rsi": 61.98,
+      "adx": 74.69,
+      "ema20": 170.81,
+      "macd": 5.36,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "BHP": {
+      "price": 59.18,
+      "rsi": 82.16,
+      "adx": 27.51,
+      "ema20": 54.22,
+      "macd": 2.55,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "CSL": {
+      "price": 145.52,
+      "rsi": 22.09,
+      "adx": 63.55,
+      "ema20": 155.23,
+      "macd": -7.7,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "ANZ": {
+      "price": 39.51,
+      "rsi": 62.22,
+      "adx": 38.54,
+      "ema20": 39.06,
+      "macd": 0.73,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "NAB": {
+      "price": 47.8,
+      "rsi": 63.48,
+      "adx": 57.49,
+      "ema20": 46.74,
+      "macd": 1.42,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "WBC": {
+      "price": 41.51,
+      "rsi": 60.15,
+      "adx": 30.25,
+      "ema20": 41.26,
+      "macd": 0.82,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "4DX": {
+      "price": 4.17,
+      "rsi": 57.02,
+      "adx": 30.1,
+      "ema20": 3.83,
+      "macd": 0.09,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "AD8": {
+      "price": 2.86,
+      "rsi": 12.95,
+      "adx": 57.49,
+      "ema20": 3.45,
+      "macd": -0.35,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "ARU": {
+      "price": 0.28,
+      "rsi": 76.19,
+      "adx": 34.8,
+      "ema20": 0.25,
+      "macd": 0.0,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "BGL": {
+      "price": 1.83,
+      "rsi": 46.33,
+      "adx": 13.29,
+      "ema20": 1.8,
+      "macd": 0.02,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "ELD": {
+      "price": 7.3,
+      "rsi": 54.63,
+      "adx": 21.45,
+      "ema20": 7.23,
+      "macd": 0.02,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "KMD": {
+      "price": 0.2,
+      "rsi": 37.5,
+      "adx": 25.31,
+      "ema20": 0.21,
+      "macd": -0.01,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "VR1": {
+      "price": 0.03,
+      "rsi": 45.0,
+      "adx": 22.69,
+      "ema20": 0.03,
+      "macd": -0.0,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "AVH": {
+      "price": 1.45,
+      "rsi": 71.52,
+      "adx": 30.95,
+      "ema20": 1.27,
+      "macd": 0.07,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "AX1": {
+      "price": 1.07,
+      "rsi": 65.04,
+      "adx": 27.37,
+      "ema20": 0.95,
+      "macd": 0.04,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "BAP": {
+      "price": 0.7,
+      "rsi": 2.97,
+      "adx": 89.21,
+      "ema20": 1.37,
+      "macd": -0.31,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "CTT": {
+      "price": 0.31,
+      "rsi": 14.71,
+      "adx": 59.44,
+      "ema20": 0.45,
+      "macd": -0.08,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "FANG": {
+      "price": 30.08,
+      "rsi": 44.82,
+      "adx": 32.55,
+      "ema20": 30.29,
+      "macd": -0.79,
+      "signal": "\ud83d\udfe1 HOLD"
+    }
+  }
+}
