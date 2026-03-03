@@ -41,18 +41,26 @@ license: MIT
 ## 使用方式
 
 ### 监控 Trending
-```
-"scan YouTube trending for AI/Tech niche"
+```bash
+python3 skills/youtube-agent/trending-scanner.py
 ```
 
 ### 生成内容
-```
-"generate title and description for: AI automation 2026"
+```bash
+python3 skills/youtube-agent/content-generator.py
 ```
 
 ### 分析频道
 ```
 "analyze channel performance last 30 days"
+```
+
+### 快速指令
+```bash
+# 每日 trending 掃描
+openclaw cron add --name="youtube-trending-am" --schedule="0 12 * * *" -- python3 skills/youtube-agent/trending-scanner.py
+
+openclaw cron add --name="youtube-trending-pm" --schedule="0 18 * * *" -- python3 skills/youtube-agent/trending-scanner.py
 ```
 
 ---
