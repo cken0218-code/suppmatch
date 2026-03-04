@@ -219,7 +219,7 @@ def main():
         print()
         
         # 发送通知
-        message = send_discord_notification(buy_signals, scan_type="owned")
+        message = send_discord_notification(buy_signals)
         
         print("📝 通知内容:")
         print(message)

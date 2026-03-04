@@ -1,0 +1,24 @@
+{
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "accounts": {
+        "default": {
+          "botToken": "YOUR_MAIN_BOT_TOKEN",
+          "dmPolicy": "pairing"
+        },
+        "youtube-agent": {
+          "botToken": "YOUR_YOUTUBE_BOT_TOKEN",
+          "dmPolicy": "pairing"
+        }
+      }
+    },
+    "discord": {
+      "enabled": true,
+      "token": "YOUR_DISCORD_TOKEN",
+      "groupPolicy": "allowlist"
+    }
+  }
+}
