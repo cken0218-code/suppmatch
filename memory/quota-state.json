@@ -7,10 +7,10 @@
     "note": "No Brave API key configured, using DuckDuckGo fallback"
   },
   "duckduckgo": {
-    "used": 6,
-    "lastCheck": "2026-03-02T18:04:00Z",
+    "used": 9,
+    "lastCheck": "2026-03-05T15:32:00Z",
     "note": "Fallback search engine (no quota limit)"
   },
-  "lastCheck": "2026-03-02T18:04:00Z",
-  "lastTask": "knowledge-patrol-pm (evening)"
+  "lastCheck": "2026-03-05T15:32:00Z",
+  "lastTask": "knowledge-update (afternoon)"
 }
