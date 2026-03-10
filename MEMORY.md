@@ -62,11 +62,21 @@ memory/
 
 ## ⏰ 待办 / 目标（含 deadline）
 
-- [ ] Xiaohongshu trending 监控 - Deadline: 2026-03-15 - Agent: research-agent
-- [x] Threads trending 监控 - Deadline: 2026-03-10 - Agent: threads-automation ✅ **已完成** (2026-03-10 23:24)
+### 高優先級
+- [ ] **MCP 整合 Phase 1-4** - Deadline: 2026-04-01（22日）- Agent: multi-agent-collaboration
+  - Phase 1 (3月11-17日): GitHub MCP Server ✅
+  - Phase 2 (3月18-24日): Discord MCP Server
+  - Phase 3 (3月25-31日): N8N MCP Server
+  - Phase 4 (4月1日): 完整系統整合
+  - **詳細計劃**: `memory/projects/mcp-integration.md`
+
+- [ ] Xiaohongshu trending 監控 - Deadline: 2026-03-15（5日）- Agent: research-agent
+
+- [ ] 史萊姆技能進化系統 - Deadline: 2026-03-20（10日）- Agent: skill-creator
+
+### 已完成 ✅
+- [x] Threads trending 監控 - Deadline: 2026-03-10 ✅ **已完成** (2026-03-10 23:24)
 - [x] Email SMTP Setup - Deadline: 2026-03-05 ✅ **已完成** (2026-03-10 23:46)
-- [ ] MCP 整合 Phase 1-4 - Deadline: 2026-04-01 - Agent: multi-agent-collaboration
-- [ ] 史莱姆技能进化系统 - Deadline: 2026-03-20 - Agent: skill-creator
 
 ---
 
