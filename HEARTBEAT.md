@@ -1,7 +1,7 @@
 # HEARTBEAT.md - 每日自動維護系統
 
-> **Last Updated**: 2026-02-23
-> **Version**: 2.0
+> **Last Updated**: 2026-03-11
+> **Version**: 3.0
 
 ---
 
@@ -27,6 +27,31 @@
 ---
 
 ## 🔁 每日例行檢查（一至五）
+
+### 💹 早市掃描（08:30，每日）
+- [ ] BTC、SOL 24h 變化 + 主要方向（用 coingecko skill）
+- [ ] Fear & Greed Index（市場情緒）
+- [ ] 澳股昨日收市狀況（用 aus-stock-tracker）
+- [ ] 有無重大新聞影響市場（搜 "crypto news today" + "ASX news today"）
+- [ ] 結果寫入 `memory/L1-daily/今日.md` 嘅「市場摘要」部分
+- [ ] 如有異常走勢（>5% 單日波動）立即 Telegram DM 通知
+
+#### ⚠️ 觸發規則：高風險警報
+**如果 BTC 單日跌幅 > 8%**：
+- 🚨 立即通知（Telegram DM）
+- 標籤：⚠️ **高風險警報**
+- 內容包括：
+  - 當前跌幅
+  - 可能原因（新聞/事件）
+  - 建議行動（唔係投資建議，係提醒）
+
+**Cron 設置**：
+```bash
+# 每日早市掃描（08:30，平日）
+30 8 * * 1-5 openclaw trigger heartbeat market-scan
+```
+
+---
 
 ### 📊 項目監控（09:00）
 - [ ] 檢查所有 git repo 狀態
@@ -127,7 +152,7 @@ python3 scripts/compress-memory.py
 
 - **深夜 23:00-08:00**：唔好打擾，除非 urgent
 - **週末（六日）**：淨做緊急任務
-- **所有 alert**：經 Discord DM（ken000ken）
+- **所有 alert**：經 Telegram DM（主要聯絡渠道）
 - **新學到嘅重要嘢**：更新落 MEMORY.md
 
 ---
@@ -140,4 +165,4 @@ python3 scripts/compress-memory.py
 - 錯誤唔重犯
 
 ---
-*Last updated: 2026-02-23*
+*Last updated: 2026-03-11*
