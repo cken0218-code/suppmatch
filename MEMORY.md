@@ -63,8 +63,8 @@ memory/
 ## ⏰ 待办 / 目标（含 deadline）
 
 - [ ] Xiaohongshu trending 监控 - Deadline: 2026-03-15 - Agent: research-agent
-- [ ] Threads trending 监控 - Deadline: 2026-03-10 - Agent: threads-automation
-- [ ] Email SMTP Setup - Deadline: 2026-03-05 - 等待：Gmail App Password
+- [x] Threads trending 监控 - Deadline: 2026-03-10 - Agent: threads-automation ✅ **已完成** (2026-03-10 23:24)
+- [x] Email SMTP Setup - Deadline: 2026-03-05 ✅ **已完成** (2026-03-10 23:46)
 - [ ] MCP 整合 Phase 1-4 - Deadline: 2026-04-01 - Agent: multi-agent-collaboration
 - [ ] 史莱姆技能进化系统 - Deadline: 2026-03-20 - Agent: skill-creator
 
@@ -84,8 +84,26 @@ memory/
 
 ## 🦞 Skills 生态
 
-**已安装**: 13 个
-**详细**: `memory/skills-ecosystem.md`
+**總數**: 59 個（workspace/skills/）
+**ClawHub 已安裝**: 15 個
+**詳細**: `memory/skills-ecosystem.md`
+
+### ClawHub 已安裝 Skills（15個）
+1. github (1.0.0)
+2. agent-audit (1.0.0)
+3. openclaw-token-save (1.0.0)
+4. ddg-web-search (1.0.0)
+5. automation-workflows (0.1.0)
+6. xiaohongshu (1.0.1)
+7. daily-trending (1.0.0)
+8. productivity (1.0.3)
+9. github-ai-trends (1.1.0)
+10. ai-automation-workflows (0.1.5)
+11. news-aggregator-skill (0.1.0)
+12. x-post-automation (1.0.0)
+13. coingecko (1.0.0)
+14. memory-manager (1.0.0)
+15. memoclaw (1.15.0)
 
 ---
 
