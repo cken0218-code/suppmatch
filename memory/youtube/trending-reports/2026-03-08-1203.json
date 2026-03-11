@@ -1,0 +1,67 @@
+{
+  "date": "2026-03-08",
+  "time": "12:03",
+  "sources": {
+    "youtube": {
+      "source": "YouTube",
+      "trending": [
+        {
+          "title": "AI Automation 2026",
+          "views": "1.2M"
+        },
+        {
+          "title": "Multi-Agent Systems",
+          "views": "890K"
+        }
+      ]
+    },
+    "x": {
+      "source": "X",
+      "trending": [
+        {
+          "topic": "#AIautomation",
+          "tweets": "12.5K"
+        },
+        {
+          "topic": "#OpenClaw",
+          "tweets": "8.2K"
+        }
+      ]
+    },
+    "threads": {
+      "source": "Threads",
+      "trending": [
+        {
+          "topic": "AI Agents",
+          "posts": "5.4K"
+        },
+        {
+          "topic": "Automation",
+          "posts": "3.2K"
+        }
+      ]
+    }
+  },
+  "insights": [
+    "AI automation 持續火熱",
+    "Multi-agent systems 成為趨勢",
+    "OpenClaw 關注度上升"
+  ],
+  "content_suggestions": [
+    {
+      "topic": "Multi-Agent Orchestration",
+      "potential": "HIGH",
+      "reason": "GitHub trending + X 熱議"
+    },
+    {
+      "topic": "Telegram Streaming",
+      "potential": "HIGH",
+      "reason": "OpenClaw 新功能，剛發布"
+    },
+    {
+      "topic": "AI Legal Risks",
+      "potential": "MEDIUM",
+      "reason": "Heppner 案引發討論"
+    }
+  ]
+}

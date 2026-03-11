@@ -1,0 +1,26 @@
+{
+  "name": "mcp-test",
+  "version": "1.0.0",
+  "description": "OpenClaw MCP Server Test",
+  "main": "github-server.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc github-server.ts --module ES2022 --target ES2022 --moduleResolution node --esModuleInterop --outDir dist",
+    "start": "node dist/github-server.js",
+    "test": "echo \"Testing MCP server...\" && node dist/github-server.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "openclaw"
+  ],
+  "author": "OpenClaw",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.15",
+    "typescript": "^5.9.3"
+  }
+}

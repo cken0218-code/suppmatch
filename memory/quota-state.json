@@ -7,10 +7,10 @@
     "note": "No Brave API key configured, using DuckDuckGo fallback"
   },
   "duckduckgo": {
-    "used": 10,
-    "lastCheck": "2026-03-05T18:36:00Z",
+    "used": 23,
+    "lastCheck": "2026-03-10T18:07:00Z",
     "note": "Fallback search engine (no quota limit)"
   },
-  "lastCheck": "2026-03-05T18:36:00Z",
-  "lastTask": "trending-content (evening)"
+  "lastCheck": "2026-03-10T18:07:00Z",
+  "lastTask": "Trending content check (18:00)"
 }

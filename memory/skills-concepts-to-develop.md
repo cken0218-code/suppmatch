@@ -443,5 +443,114 @@ def calculate_risk(address):
 
 ---
 
-**文档版本:** 1.1  
-**更新日期:** 2026-02-20 23:00
+---
+
+### 13. Agentic Workflows (智能代理工作流)
+
+**来源:** AI 自动化趋势报告（2026年3月）
+
+**核心理念:**
+- 从简单触发器（Zapier-style）转向智能代理决策
+- 代理自主判断下一步行动
+- 上下文感知的工作流
+- 动态任务分配
+
+**技术特征:**
+```
+传统自动化:
+Trigger → Action → Result
+
+Agentic Workflow:
+Context → Agent Decision → Dynamic Action → Learn → Adapt
+```
+
+**应用场景:**
+- 复杂业务流程自动化
+- 多步骤决策任务
+- 需要上下文理解的工作流
+
+**学习价值:** ⭐⭐⭐⭐⭐
+
+---
+
+### 14. Agent-to-Agent Protocols (代理间通信协议)
+
+**来源:** ClawHub 精选 skills（2026-03-10）
+
+**核心理念:**
+- 标准化代理间通信
+- 任务委托与结果返回
+- 能力发现与匹配
+- 安全的身份验证
+
+**技术实现:**
+```typescript
+// 代理 A 发送任务
+const task = {
+  to: "agent-b",
+  type: "data-analysis",
+  payload: { dataset: "sales.csv" },
+  callback: "agent-a/results"
+};
+
+// 代理 B 接收并处理
+agent.on("task", async (task) => {
+  const result = await processTask(task);
+  await sendResult(task.callback, result);
+});
+```
+
+**相关 Skills:**
+- `agentdo` - 代理任务队列
+- `agent-team-orchestration` - 多代理编排
+
+**学习价值:** ⭐⭐⭐⭐⭐
+
+---
+
+### 15. Multi-agent Team Orchestration (多代理团队编排)
+
+**来源:** agent-team-orchestration skill
+
+**核心理念:**
+- 定义代理角色与职责
+- 任务生命周期管理
+- 代理间交接协议
+- 审核工作流
+
+**架构模式:**
+```
+任务创建
+    ↓
+角色匹配（根据能力）
+    ↓
+任务分配（负载均衡）
+    ↓
+执行监控
+    ↓
+结果审核（可选）
+    ↓
+交接下一代理（如需要）
+```
+
+**关键组件:**
+1. **角色定义:** 每个代理的专长领域
+2. **任务队列:** 优先级、依赖管理
+3. **交接协议:** 标准化结果传递
+4. **监控仪表板:** 实时状态追踪
+
+**学习价值:** ⭐⭐⭐⭐⭐
+
+---
+
+## 📊 概念统计
+
+**总计概念**: 15 个
+**学习价值 ⭐⭐⭐⭐⭐**: 8 个
+**学习价值 ⭐⭐⭐⭐**: 6 个
+**学习价值 ⭐⭐⭐**: 1 个
+
+---
+
+**文档版本:** 1.2  
+**更新日期:** 2026-03-10 10:00
