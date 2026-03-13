@@ -153,6 +153,45 @@ crontab -e
 
 ---
 
+## 🌐 瀏覽器工具
+
+### 可用工具
+
+| 工具 | 狀態 | 用途 | 限制 |
+|------|------|------|------|
+| **Chrome Extension Relay** | ✅ 可用 | 操作已登入的 Chrome tabs | 需要用户点击 extension attach tab |
+| **OpenClaw Browser** | ✅ 可用 | 独立浏览器 | Playwright 功能受限（无 act/click） |
+| **web_fetch** | ✅ 可用 | 轻量级抓取 | 只支持静态页面，无法处理 JS |
+| **AppleScript** | ✅ 可用 | macOS 自动化 | 需要权限，可能不稳定 |
+
+### 檢查步驟（遇到瀏覽器任務時）
+
+```bash
+# 1. 檢查 Chrome tabs（如果已 attach）
+browser action=tabs profile=chrome
+
+# 2. 檢查 OpenClaw browser 狀態
+browser action=status profile=openclaw
+
+# 3. 如果都唔得 → 用 web_fetch
+web_fetch url="..."
+```
+
+### 優先順序
+
+1. **Chrome Extension Relay**（最快，已有登录状态）
+2. **OpenClaw Browser**（独立，需要重新登录）
+3. **web_fetch**（轻量，静态页面）
+4. **AppleScript**（最后手段）
+
+### 已知限制
+
+- **Playwright 不可用**：无法使用 `act:click`、`act:type`、`snapshot`
+- **可用功能**：`screenshot`、`open`、`tabs`、`focus`
+- **变通方法**：用截图 + 图像识别 + AppleScript 模拟点击
+
+---
+
 ## 📊 Quota 监控
 
 ### Brave API

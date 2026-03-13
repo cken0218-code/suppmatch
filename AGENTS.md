@@ -529,18 +529,40 @@ When crawling X/Threads/小紅書:
 
 ### 遇到 Browser 任務時
 
-**執行前先檢查**：
+**執行前必須檢查**（唔好假設冇工具）：
+
 ```bash
-openclaw tools list
+# Step 1: 檢查 Chrome tabs
+browser action=tabs profile=chrome
+
+# Step 2: 檢查 OpenClaw browser 狀態
+browser action=status profile=openclaw
+
+# Step 3: 檢查 TOOLS.md
+read TOOLS.md | grep -A 20 "瀏覽器工具"
 ```
 
-確認有冇可用工具，唔好假設冇。
-
 **Browser 工具優先順序**：
-1. Chrome extension relay（最快，需要用戶 attach）
-2. OpenClaw 自帶 browser（獨立，需要重新登入）
-3. web_fetch（輕量，只支援靜態頁面）
-4. AppleScript（macOS 自動化）
+1. **Chrome extension relay**（最快，需要用戶 attach）
+   - 優點：已有登入狀態
+   - 限制：需要用戶手動 attach tab
+   
+2. **OpenClaw 自帶 browser**（獨立，需要重新登入）
+   - 優點：完全控制
+   - 限制：Playwright 功能受限（無 act/click）
+   
+3. **web_fetch**（輕量，只支援靜態頁面）
+   - 優點：快速、穩定
+   - 限制：無法處理 JS 渲染內容
+   
+4. **AppleScript**（macOS 自動化）
+   - 優點：可模擬點擊
+   - 限制：需要權限，可能不穩定
+
+**已知限制**：
+- Playwright 不可用 → 無法使用 `act:click`、`act:type`
+- 可用功能：`screenshot`、`open`、`tabs`、`focus`
+- 變通方法：用 `screenshot` + 圖像識別 + AppleScript 模擬點擊
 
 ### 成功指標
 
