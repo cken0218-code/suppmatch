@@ -112,10 +112,12 @@ Token 節省：~70%
 
 ### 核心腳本
 
-1. **json-extract.py** - JSON 關鍵提取
-2. **dir-list.py** - 精簡目錄列表
-3. **code-search.py** - 智能代碼搜索
-4. **api-fetch.py** - API 響應精簡
+1. **json-extract.py** - JSON 關鍵提取 ✅ **已实现并测试**
+   - 节省 71-95% tokens
+   - 用法：`python3 json-extract.py --file data.json --keys 'path.to.key' --stats`
+2. **dir-list.py** - 精簡目錄列表（待实现）
+3. **code-search.py** - 智能代碼搜索（待实现）
+4. **api-fetch.py** - API 響應精簡（待实现）
 
 ### 設計原則
 

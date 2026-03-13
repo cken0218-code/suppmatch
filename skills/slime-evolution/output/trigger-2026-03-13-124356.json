@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-03-13T12:43:56.885421",
+  "time_triggers": [
+    {
+      "type": "health_warning",
+      "skill": "token-saver-local",
+      "message": "Token Saver 健康度過低 (50)，需要優化"
+    }
+  ],
+  "fusion_triggers": [
+    {
+      "type": "fusion_opportunity",
+      "skills": [
+        "youtube-agent",
+        "youtube-workflow-local"
+      ],
+      "message": "發現高協同度融合機會：youtube-agent + youtube-workflow-local (95%)"
+    }
+  ],
+  "evolution_triggers": [
+    {
+      "type": "evolution_candidate",
+      "skill": "youtube-agent",
+      "candidate": "affiliate-marketing",
+      "message": "YouTube Agent 可以融合 affiliate-marketing"
+    },
+    {
+      "type": "evolution_candidate",
+      "skill": "youtube-agent",
+      "candidate": "seo-optimizer",
+      "message": "YouTube Agent 可以融合 seo-optimizer"
+    },
+    {
+      "type": "evolution_candidate",
+      "skill": "xiaohongshu",
+      "candidate": "data-analytics",
+      "message": "Xiaohongshu Agent 可以融合 data-analytics"
+    },
+    {
+      "type": "evolution_candidate",
+      "skill": "xiaohongshu",
+      "candidate": "video-script-writer",
+      "message": "Xiaohongshu Agent 可以融合 video-script-writer"
+    },
+    {
+      "type": "evolution_candidate",
+      "skill": "token-saver-local",
+      "candidate": "context-compression",
+      "message": "Token Saver 可以融合 context-compression"
+    },
+    {
+      "type": "evolution_candidate",
+      "skill": "token-saver-local",
+      "candidate": "semantic-cache",
+      "message": "Token Saver 可以融合 semantic-cache"
+    },
+    {
+      "type": "evolution_candidate",
+      "skill": "youtube-workflow-local",
+      "candidate": "auto-publish",
+      "message": "YouTube Workflow 可以融合 auto-publish"
+    },
+    {
+      "type": "evolution_candidate",
+      "skill": "youtube-workflow-local",
+      "candidate": "performance-tracking",
+      "message": "YouTube Workflow 可以融合 performance-tracking"
+    }
+  ]
+}
