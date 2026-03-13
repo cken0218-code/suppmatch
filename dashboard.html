@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ken AI Dashboard - Real-time Monitoring</title>
+<title>OpenClaw AI 儀表板 - Ken AI Enhanced</title>
 <style>
   :root {
     --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
@@ -25,7 +25,7 @@
   .badge { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 12px; color: var(--text2); }
 
   /* Layout */
-  .container { padding: 20px; max-width: 1600px; margin: 0 auto; }
+  .container { padding: 20px; max-width: 1400px; margin: 0 auto; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
   .grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 20px; }
   @media(max-width:900px) { .grid-3,.grid-2 { grid-template-columns: 1fr; } }
@@ -35,9 +35,14 @@
   .card-title { font-size: 12px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
 
   /* Model Cards */
-  .model-card { border-radius: 12px; padding: 16px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+  .model-card { border-radius: 12px; padding: 16px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform .2s, box-shadow .2s; cursor: pointer; }
+  .model-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.3); }
   .model-card.glm { background: linear-gradient(135deg, rgba(0,212,170,.08), rgba(13,17,23,1)); border-color: rgba(0,212,170,.3); }
   .model-card.mini { background: linear-gradient(135deg, rgba(255,107,157,.08), rgba(13,17,23,1)); border-color: rgba(255,107,157,.3); }
+  .model-card.ollama { background: linear-gradient(135deg, rgba(88,166,255,.08), rgba(13,17,23,1)); border-color: rgba(88,166,255,.3); }
+  .model-glow-glm { position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(0,212,170,.15), transparent 70%); pointer-events: none; }
+  .model-glow-mini { position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(255,107,157,.15), transparent 70%); pointer-events: none; }
+  .model-glow-ollama { position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(88,166,255,.15), transparent 70%); pointer-events: none; }
   .model-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
   .model-provider { font-size: 11px; color: var(--text2); margin-bottom: 12px; }
   .model-status { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 3px 8px; border-radius: 20px; font-weight: 600; }
@@ -58,15 +63,8 @@
   .fill-glm { background: linear-gradient(90deg, var(--glm), #00f5c0); }
   .fill-mini { background: linear-gradient(90deg, var(--mini), #ff9ebd); }
   .fill-blue { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
-
-  /* Activity Feed */
-  .activity-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
-  .activity-item:last-child { border-bottom: none; }
-  .activity-time { font-size: 11px; color: var(--text2); min-width: 60px; }
-  .activity-icon { font-size: 16px; }
-  .activity-content { flex: 1; }
-  .activity-title { font-size: 13px; font-weight: 500; }
-  .activity-meta { font-size: 11px; color: var(--text2); margin-top: 2px; }
+  .fill-yellow { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+  .fill-red { background: linear-gradient(90deg, var(--red), #ff7b78); }
 
   /* Task List */
   .task-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
@@ -75,43 +73,32 @@
   .task-info { flex: 1; min-width: 0; }
   .task-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .task-meta { font-size: 11px; color: var(--text2); margin-top: 2px; }
-
-  /* Connection Bar */
-  .conn-bar { background: var(--bg2); border: 1px solid rgba(88,166,255,.3); border-radius: 10px; padding: 10px 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .conn-label { font-size: 12px; color: var(--text2); }
-  .conn-input { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; color: var(--text); font-size: 12px; width: 200px; }
-  .conn-input:focus { outline: none; border-color: var(--blue); }
+  .task-bar { width: 80px; }
+  .task-pct { font-size: 11px; color: var(--text2); width: 32px; text-align: right; }
 
   /* Control Buttons */
+  .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
   .btn { border: none; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all .15s; }
   .btn:active { transform: scale(.96); }
-  .btn-blue { background: rgba(88,166,255,.15); color: var(--blue); border: 1px solid rgba(88,166,255,.3); }
-  .btn-blue:hover { background: rgba(88,166,255,.25); }
   .btn-green { background: rgba(63,185,80,.15); color: var(--green); border: 1px solid rgba(63,185,80,.3); }
   .btn-green:hover { background: rgba(63,185,80,.25); }
+  .btn-red { background: rgba(248,81,73,.15); color: var(--red); border: 1px solid rgba(248,81,73,.3); }
+  .btn-red:hover { background: rgba(248,81,73,.25); }
+  .btn-blue { background: rgba(88,166,255,.15); color: var(--blue); border: 1px solid rgba(88,166,255,.3); }
+  .btn-blue:hover { background: rgba(88,166,255,.25); }
+  .btn-yellow { background: rgba(210,153,34,.15); color: var(--yellow); border: 1px solid rgba(210,153,34,.3); }
+  .btn-yellow:hover { background: rgba(210,153,34,.25); }
   .btn-gray { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
   .btn-gray:hover { background: var(--border); color: var(--text); }
 
-  /* Current Action Banner */
-  .action-banner { background: linear-gradient(135deg, rgba(88,166,255,.1), rgba(188,140,255,.1)); border: 1px solid rgba(88,166,255,.3); border-radius: 12px; padding: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
-  .action-icon { font-size: 32px; }
-  .action-text h3 { font-size: 16px; margin-bottom: 4px; }
-  .action-text p { font-size: 12px; color: var(--text2); }
-
-  /* Scrollbar */
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: var(--bg2); }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-
-  /* Animation */
-  .fade-in { animation: fadeIn .3s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-  .spin { animation: spin 1s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* Section Label */
-  .section-label { font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  /* Log Feed */
+  .log-feed { background: #0a0e14; border: 1px solid var(--border); border-radius: 8px; height: 200px; overflow-y: auto; padding: 10px; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 11px; }
+  .log-line { padding: 2px 0; line-height: 1.5; }
+  .log-time { color: var(--text2); }
+  .log-info { color: var(--blue); }
+  .log-ok { color: var(--green); }
+  .log-warn { color: var(--yellow); }
+  .log-err { color: var(--red); }
 
   /* Stats Row */
   .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
@@ -119,15 +106,53 @@
   .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
   .stat-card .big { font-size: 24px; font-weight: 700; }
   .stat-card .label { font-size: 11px; color: var(--text2); margin-top: 2px; }
+  .stat-card .delta { font-size: 11px; margin-top: 4px; }
+  .delta-up { color: var(--green); }
+  .delta-down { color: var(--red); }
+
+  /* Connection Bar */
+  .conn-bar { background: var(--bg2); border: 1px solid rgba(88,166,255,.3); border-radius: 10px; padding: 10px 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .conn-label { font-size: 12px; color: var(--text2); }
+  .conn-url { font-size: 12px; color: var(--blue); font-family: monospace; background: var(--bg3); padding: 3px 8px; border-radius: 4px; }
+  .conn-input { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; color: var(--text); font-size: 12px; width: 200px; }
+  .conn-input:focus { outline: none; border-color: var(--blue); }
+
+  /* Model Select Tabs */
+  .model-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .model-tab { padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg3); color: var(--text2); cursor: pointer; font-size: 12px; transition: all .15s; }
+  .model-tab:hover { border-color: var(--blue); color: var(--text); }
+  .model-tab.active { background: rgba(88,166,255,.15); border-color: var(--blue); color: var(--blue); font-weight: 600; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg2); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* Animation */
+  .spin { animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .fade-in { animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Section Label */
+  .section-label { font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* Toggle Switch */
+  .toggle-wrap { display: flex; align-items: center; gap: 8px; }
+  .toggle { width: 36px; height: 20px; background: var(--bg3); border-radius: 10px; border: 1px solid var(--border); position: relative; cursor: pointer; transition: background .2s; }
+  .toggle.on { background: rgba(63,185,80,.3); border-color: var(--green); }
+  .toggle::after { content: ''; width: 14px; height: 14px; background: var(--text2); border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: all .2s; }
+  .toggle.on::after { left: 18px; background: var(--green); }
 </style>
 </head>
 <body>
 
 <!-- Header -->
 <div class="header">
-  <div style="font-size:20px;">🤖</div>
-  <h1>Ken AI Dashboard</h1>
-  <div class="badge" id="apiVersion">API v1.0</div>
+  <div style="font-size:20px;">🦀</div>
+  <h1>OpenClaw AI 儀表板</h1>
+  <div class="badge" id="ocVersion">Ken AI v1.0</div>
   <div class="header-status">
     <div class="pulse" id="mainPulse"></div>
     <span id="connStatus" style="font-size:12px;color:var(--text2)">正在連線...</span>
@@ -139,20 +164,13 @@
 
   <!-- Connection Bar -->
   <div class="conn-bar">
-    <span class="conn-label">🔌 Ken AI API:</span>
+    <span class="conn-label">🔌 API URL:</span>
     <input class="conn-input" id="apiUrl" value="http://127.0.0.1:18790" />
     <button class="btn btn-blue" onclick="connectAPI()">🔗 連線</button>
-    <button class="btn btn-gray" onclick="testAPI()">🧪 測試</button>
-    <span style="font-size:11px;color:var(--text2);margin-left:auto;" id="refreshStatus">每 3s 自動刷新</span>
-  </div>
-
-  <!-- Current Action Banner -->
-  <div class="action-banner fade-in" id="actionBanner">
-    <div class="action-icon">🤖</div>
-    <div class="action-text">
-      <h3 id="currentAction">正在載入...</h3>
-      <p id="lastUpdate">最後更新: --:--:--</p>
-    </div>
+    <button class="btn btn-gray" onclick="simulateMode()">🎭 模擬模式</button>
+    <span class="conn-label" style="margin-left:auto;">自動刷新:</span>
+    <div class="toggle on" id="autoRefreshToggle" onclick="toggleAutoRefresh(this)"></div>
+    <span style="font-size:11px;color:var(--text2)" id="refreshInterval">每 3s</span>
   </div>
 
   <!-- Stats Row -->
@@ -160,18 +178,22 @@
     <div class="stat-card">
       <div class="big" id="totalMsgs">0</div>
       <div class="label">今日訊息總數</div>
+      <div class="delta delta-up" id="msgDelta">+0 /小時</div>
+    </div>
+    <div class="stat-card">
+      <div class="big" id="activeAgents">0</div>
+      <div class="label">活躍 Agent 數</div>
+      <div class="delta" id="agentDelta" style="color:var(--text2)">共 0 個已設定</div>
     </div>
     <div class="stat-card">
       <div class="big" id="tasksDone">0</div>
       <div class="label">任務完成數</div>
+      <div class="delta delta-up" id="taskDelta">+0 今天</div>
     </div>
     <div class="stat-card">
-      <div class="big" id="tokensUsed">0</div>
-      <div class="label">Token 使用 (K)</div>
-    </div>
-    <div class="stat-card">
-      <div class="big" id="activeTasks">0</div>
-      <div class="label">活躍任務</div>
+      <div class="big" id="queueDepth">0</div>
+      <div class="label">佇列等待中</div>
+      <div class="delta" id="queueDelta" style="color:var(--text2)">0 個排隊中</div>
     </div>
   </div>
 
@@ -180,121 +202,202 @@
   <div class="grid-3" style="margin-bottom:20px;">
 
     <!-- GLM5 Card -->
-    <div class="model-card glm">
+    <div class="model-card glm" onclick="selectModel('glm5')">
+      <div class="model-glow-glm"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
         <div>
           <div class="model-name" style="color:var(--glm)">GLM-5</div>
-          <div class="model-provider">Z.AI / 智譜 · 主要模型</div>
+          <div class="model-provider">Z.AI / 智譜 · Coding-Plan-Global</div>
         </div>
         <span class="model-status status-idle" id="glm5Status">● 閒置</span>
       </div>
       <div class="model-stats">
         <div class="stat-item"><div class="stat-label">Context 使用</div><div class="stat-val" id="glm5Ctx">0%</div></div>
+        <div class="stat-item"><div class="stat-label">佇列深度</div><div class="stat-val" id="glm5Queue">0</div></div>
         <div class="stat-item"><div class="stat-label">今日訊息</div><div class="stat-val" id="glm5Msgs">0</div></div>
+        <div class="stat-item"><div class="stat-label">平均回應</div><div class="stat-val" id="glm5Latency">—</div></div>
       </div>
       <div class="progress-wrap">
         <div class="progress-label"><span>Context 窗口</span><span id="glm5CtxPct">0 / 128K</span></div>
         <div class="progress-bar"><div class="progress-fill fill-glm" id="glm5Bar" style="width:0%"></div></div>
       </div>
+      <div style="display:flex;gap:6px;margin-top:12px;">
+        <button class="btn btn-green" style="flex:1;font-size:11px;" onclick="event.stopPropagation();agentAction('glm5','start')">▶ 啟動</button>
+        <button class="btn btn-red" style="flex:1;font-size:11px;" onclick="event.stopPropagation();agentAction('glm5','stop')">■ 停止</button>
+        <button class="btn btn-gray" style="font-size:11px;" onclick="event.stopPropagation();agentAction('glm5','restart')">↺</button>
+      </div>
     </div>
 
     <!-- MiniMax Card -->
-    <div class="model-card mini">
+    <div class="model-card mini" onclick="selectModel('minimax')">
+      <div class="model-glow-mini"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
         <div>
           <div class="model-name" style="color:var(--mini)">MiniMax 2.5</div>
-          <div class="model-provider">MiniMax · 備用模型</div>
+          <div class="model-provider">MiniMax · 自媒體 / 投資分析</div>
         </div>
         <span class="model-status status-idle" id="minimaxStatus">● 閒置</span>
       </div>
       <div class="model-stats">
         <div class="stat-item"><div class="stat-label">Context 使用</div><div class="stat-val" id="minimaxCtx">0%</div></div>
+        <div class="stat-item"><div class="stat-label">佇列深度</div><div class="stat-val" id="minimaxQueue">0</div></div>
         <div class="stat-item"><div class="stat-label">今日訊息</div><div class="stat-val" id="minimaxMsgs">0</div></div>
+        <div class="stat-item"><div class="stat-label">平均回應</div><div class="stat-val" id="minimaxLatency">—</div></div>
       </div>
       <div class="progress-wrap">
         <div class="progress-label"><span>Context 窗口</span><span id="minimaxCtxPct">0 / 1M</span></div>
         <div class="progress-bar"><div class="progress-fill fill-mini" id="minimaxBar" style="width:0%"></div></div>
       </div>
+      <div style="display:flex;gap:6px;margin-top:12px;">
+        <button class="btn btn-green" style="flex:1;font-size:11px;" onclick="event.stopPropagation();agentAction('minimax','start')">▶ 啟動</button>
+        <button class="btn btn-red" style="flex:1;font-size:11px;" onclick="event.stopPropagation();agentAction('minimax','stop')">■ 停止</button>
+        <button class="btn btn-gray" style="font-size:11px;" onclick="event.stopPropagation();agentAction('minimax','restart')">↺</button>
+      </div>
     </div>
 
-    <!-- Info Card -->
-    <div class="card">
-      <div class="card-title"><span>ℹ️</span> 系統資訊</div>
-      <div style="font-size:12px;line-height:1.8;">
-        <div><strong>Gateway:</strong> <span id="gatewayStatus">檢測中...</span></div>
-        <div><strong>API Server:</strong> <span id="apiServerStatus">檢測中...</span></div>
-        <div><strong>Session:</strong> <span id="sessionInfo">--</span></div>
-        <div><strong>Model:</strong> <span id="currentModel">--</span></div>
-        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
-          <strong>快速操作:</strong>
-          <div style="display:flex;gap:8px;margin-top:8px;">
-            <button class="btn btn-blue" onclick="refreshAll()" style="flex:1">↻ 刷新</button>
-            <button class="btn btn-gray" onclick="openGateway()" style="flex:1">🌐 Gateway</button>
-          </div>
+    <!-- Ollama / Local Card -->
+    <div class="model-card ollama" onclick="selectModel('ollama')">
+      <div class="model-glow-ollama"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div>
+          <div class="model-name" style="color:var(--blue)">本地模型</div>
+          <div class="model-provider">Ollama · 本地私隱模式</div>
         </div>
+        <span class="model-status status-error" id="ollamaStatus">✕ 未連線</span>
+      </div>
+      <div class="model-stats">
+        <div class="stat-item"><div class="stat-label">已載入模型</div><div class="stat-val" id="ollamaModel">—</div></div>
+        <div class="stat-item"><div class="stat-label">RAM 使用</div><div class="stat-val" id="ollamaRam">—</div></div>
+        <div class="stat-item"><div class="stat-label">今日訊息</div><div class="stat-val" id="ollamaMsgs">0</div></div>
+        <div class="stat-item"><div class="stat-label">速度 (tok/s)</div><div class="stat-val" id="ollamaSpeed">—</div></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>GPU / CPU 使用</span><span id="ollamaUsagePct">—</span></div>
+        <div class="progress-bar"><div class="progress-fill fill-blue" id="ollamaBar" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;gap:6px;margin-top:12px;">
+        <button class="btn btn-blue" style="flex:1;font-size:11px;" onclick="event.stopPropagation();connectOllama()">🔗 連接 Ollama</button>
+        <button class="btn btn-gray" style="font-size:11px;" onclick="event.stopPropagation()">⚙</button>
       </div>
     </div>
 
   </div>
 
-  <!-- Main Grid: Tasks + Activity -->
+  <!-- Main Grid: Tasks + Controls + Log -->
   <div class="grid-2">
 
     <!-- Left: Task Monitor -->
     <div>
-      <div class="section-label">📋 任務佇列</div>
+      <div class="section-label">📋 工作進度監測</div>
+
+      <!-- Model Tabs -->
+      <div class="model-tabs">
+        <div class="model-tab active" onclick="filterTasks('all',this)">全部</div>
+        <div class="model-tab" onclick="filterTasks('glm5',this)" style="color:var(--glm)">GLM-5</div>
+        <div class="model-tab" onclick="filterTasks('minimax',this)" style="color:var(--mini)">MiniMax</div>
+        <div class="model-tab" onclick="filterTasks('ollama',this)">本地</div>
+        <div class="model-tab" onclick="filterTasks('done',this)">✅ 完成</div>
+        <div class="model-tab" onclick="filterTasks('error',this)">❌ 錯誤</div>
+      </div>
 
       <div class="card">
         <div class="card-title">
-          <span>🔄</span> 活躍任務
-          <button class="btn btn-gray" style="margin-left:auto;font-size:11px;" onclick="refreshTasks()">↻</button>
+          <span>🔄</span> 即時任務列表
+          <button class="btn btn-gray" style="margin-left:auto;font-size:11px;" onclick="refreshTasks()">↻ 刷新</button>
         </div>
-        <div id="activeTaskList">
+        <div id="taskList">
           <div style="text-align:center;padding:30px;color:var(--text2);">
             <div style="font-size:24px;margin-bottom:8px;">📭</div>
-            <div>暫無活躍任務</div>
+            <div>暫無任務 · 點擊「模擬模式」查看示例</div>
           </div>
         </div>
       </div>
 
+      <!-- Channel Status -->
       <div class="card" style="margin-top:16px;">
-        <div class="card-title">
-          <span>✅</span> 最近完成
-        </div>
-        <div id="completedTaskList">
-          <div style="text-align:center;padding:20px;color:var(--text2);">
-            暫無已完成任務
-          </div>
+        <div class="card-title"><span>📡</span> 通道連接狀態</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;" id="channelGrid">
+          <div class="stat-item" style="text-align:center;"><div style="font-size:18px;">✈️</div><div style="font-size:11px;margin-top:4px;">Telegram</div><div class="model-status status-idle" style="margin-top:4px;display:inline-flex;font-size:10px;" id="tgStatus">● 閒置</div></div>
+          <div class="stat-item" style="text-align:center;"><div style="font-size:18px;">💬</div><div style="font-size:11px;margin-top:4px;">Discord</div><div class="model-status status-error" style="margin-top:4px;display:inline-flex;font-size:10px;" id="dcStatus">✕ 未設定</div></div>
+          <div class="stat-item" style="text-align:center;"><div style="font-size:18px;">📱</div><div style="font-size:11px;margin-top:4px;">WhatsApp</div><div class="model-status status-error" style="margin-top:4px;display:inline-flex;font-size:10px;" id="waStatus">✕ 未設定</div></div>
         </div>
       </div>
     </div>
 
-    <!-- Right: Activity Feed -->
+    <!-- Right: Controls + Log -->
     <div>
-      <div class="section-label">📊 活動記錄</div>
+      <div class="section-label">🎛️ 控制面板</div>
 
-      <div class="card" style="max-height:600px;overflow-y:auto;">
-        <div class="card-title">
-          <span>📝</span> 即時活動
+      <!-- Quick Actions -->
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-title"><span>⚡</span> 快速操作</div>
+        <div class="btn-row">
+          <button class="btn btn-green" onclick="allAgentsAction('start')">▶ 全部啟動</button>
+          <button class="btn btn-red" onclick="allAgentsAction('stop')">■ 全部停止</button>
+          <button class="btn btn-yellow" onclick="allAgentsAction('pause')">⏸ 全部暫停</button>
         </div>
-        <div id="activityFeed">
-          <div class="activity-item">
-            <div class="activity-time">--:--</div>
-            <div class="activity-icon">⏳</div>
-            <div class="activity-content">
-              <div class="activity-title">等待連線...</div>
-              <div class="activity-meta">連接到 Ken AI API 以查看實時活動</div>
+        <div class="btn-row">
+          <button class="btn btn-blue" onclick="clearQueue()">🗑 清空佇列</button>
+          <button class="btn btn-gray" onclick="refreshAll()">↻ 全部刷新</button>
+          <button class="btn btn-gray" onclick="openOCDashboard()">🌐 OpenClaw UI</button>
+        </div>
+
+        <!-- Priority Setting -->
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+          <div style="font-size:11px;color:var(--text2);margin-bottom:8px;">模型優先順序</div>
+          <div style="display:flex;flex-direction:column;gap:6px;" id="priorityList">
+            <div class="stat-item" style="display:flex;align-items:center;gap:8px;cursor:grab;" draggable="true" data-model="glm5">
+              <span style="color:var(--text2)">⠿</span>
+              <span style="font-size:18px;">1</span>
+              <span style="color:var(--glm);font-weight:600;">GLM-5</span>
+              <span style="font-size:10px;color:var(--text2);margin-left:auto;">主要模型</span>
+            </div>
+            <div class="stat-item" style="display:flex;align-items:center;gap:8px;cursor:grab;" draggable="true" data-model="minimax">
+              <span style="color:var(--text2)">⠿</span>
+              <span style="font-size:18px;">2</span>
+              <span style="color:var(--mini);font-weight:600;">MiniMax 2.5</span>
+              <span style="font-size:10px;color:var(--text2);margin-left:auto;">備用模型</span>
+            </div>
+            <div class="stat-item" style="display:flex;align-items:center;gap:8px;cursor:grab;" draggable="true" data-model="ollama">
+              <span style="color:var(--text2)">⠿</span>
+              <span style="font-size:18px;">3</span>
+              <span style="color:var(--blue);">本地 Ollama</span>
+              <span style="font-size:10px;color:var(--text2);margin-left:auto;">離線備援</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Test Actions -->
-      <div class="card" style="margin-top:16px;">
-        <div class="card-title"><span>🧪</span> 測試操作</div>
+      <!-- Task Creator -->
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-title"><span>➕</span> 建立新任務</div>
         <div style="display:flex;flex-direction:column;gap:8px;">
-          <button class="btn btn-green" onclick="testUpdate()">📤 發送測試更新</button>
-          <button class="btn btn-blue" onclick="simulateTask()">➕ 模擬任務</button>
+          <select id="taskModel" style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 10px;color:var(--text);font-size:12px;">
+            <option value="glm5">GLM-5 (投資分析)</option>
+            <option value="minimax">MiniMax 2.5 (自媒體製作)</option>
+            <option value="ollama">本地模型 (私隱處理)</option>
+          </select>
+          <input id="taskName" placeholder="任務名稱..." style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 10px;color:var(--text);font-size:12px;" />
+          <select id="taskType" style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:6px 10px;color:var(--text);font-size:12px;">
+            <option>📈 投資分析</option>
+            <option>🎵 音樂視頻製作</option>
+            <option>📝 內容創作</option>
+            <option>🔍 市場研究</option>
+            <option>🤖 自動化腳本</option>
+            <option>💬 對話處理</option>
+          </select>
+          <button class="btn btn-green" onclick="createTask()" style="width:100%;justify-content:center;">➕ 加入佇列</button>
+        </div>
+      </div>
+
+      <!-- Live Log -->
+      <div class="card">
+        <div class="card-title">
+          <span>📟</span> 即時日誌
+          <button class="btn btn-gray" style="margin-left:auto;font-size:10px;padding:3px 8px;" onclick="clearLog()">清除</button>
+        </div>
+        <div class="log-feed" id="logFeed">
+          <div class="log-line"><span class="log-time">[--:--:--]</span> <span class="log-info">[INFO]</span> 等待連線至 API...</div>
         </div>
       </div>
     </div>
@@ -304,10 +407,16 @@
 
 <script>
 // ── State ──
-let apiConnected = false;
-let refreshTimer = null;
-let uptimeStart = Date.now();
-const REFRESH_INTERVAL = 3000; // 3 seconds
+let autoRefresh = true, refreshTimer = null;
+let simMode = false, uptimeStart = Date.now();
+let tasks = [], currentFilter = 'all', apiConnected = false;
+const REFRESH_INTERVAL = 3000;
+
+const models = {
+  glm5:    { name:'GLM-5',       color:'var(--glm)', ctx:0, queue:0, msgs:0, latency:null, maxCtx:'128K', maxCtxN:128000, status:'idle' },
+  minimax: { name:'MiniMax 2.5', color:'var(--mini)', ctx:0, queue:0, msgs:0, latency:null, maxCtx:'1M',  maxCtxN:1000000, status:'idle' },
+  ollama:  { name:'本地模型',     color:'var(--blue)', ctx:0, queue:0, msgs:0, latency:null, maxCtx:'8K',  maxCtxN:8192,  status:'error' }
+};
 
 // ── Uptime ──
 setInterval(() => {
@@ -318,74 +427,66 @@ setInterval(() => {
   document.getElementById('uptimeBadge').textContent = `⏱ ${h}:${m}:${sec}`;
 }, 1000);
 
-// ── API Functions ──
+// ── Log ──
+function addLog(level, msg) {
+  const feed = document.getElementById('logFeed');
+  const now = new Date().toLocaleTimeString('zh-HK',{hour12:false});
+  const cls = {INFO:'log-info', OK:'log-ok', WARN:'log-warn', ERR:'log-err'}[level] || 'log-info';
+  const line = document.createElement('div');
+  line.className = 'log-line fade-in';
+  line.innerHTML = `<span class="log-time">[${now}]</span> <span class="${cls}">[${level}]</span> ${msg}`;
+  feed.appendChild(line);
+  feed.scrollTop = feed.scrollHeight;
+  if (feed.children.length > 200) feed.removeChild(feed.firstChild);
+}
+function clearLog() { document.getElementById('logFeed').innerHTML = ''; addLog('INFO','日誌已清除'); }
+
+// ── API Connect ──
 async function connectAPI() {
   const url = document.getElementById('apiUrl').value;
-  addActivity('🔌', `正在連線至 ${url}...`);
+  addLog('INFO', `正在連線至 ${url} ...`);
+  document.getElementById('connStatus').textContent = '正在連線...';
 
   try {
     const res = await fetch(`${url}/api/health`, {
-      signal: AbortSignal.timeout(3000)
+      signal: AbortSignal.timeout(3000),
+      mode: 'cors'
     });
-
     if (res.ok) {
       setConnected(true);
-      addActivity('✅', '成功連線至 Ken AI API');
-      await refreshAll();
+      addLog('OK', `✅ 成功連線至 API: ${url}`);
+      await fetchStatus(url);
       startAutoRefresh();
-    } else {
-      setConnected(false);
-      addActivity('❌', `連線失敗: HTTP ${res.status}`);
+      return;
     }
-  } catch (e) {
+  } catch(e) {
     setConnected(false);
-    addActivity('❌', `無法連線: ${e.message}`);
+    addLog('ERR', `❌ 無法連線: ${e.message}`);
   }
 }
 
-async function testAPI() {
-  const url = document.getElementById('apiUrl').value;
-
-  try {
-    const res = await fetch(`${url}/api/health`);
-    const data = await res.json();
-    alert(`✅ API 測試成功!\n\nServer: ${data.server}\nTime: ${data.timestamp}`);
-  } catch (e) {
-    alert(`❌ API 測試失敗: ${e.message}`);
-  }
-}
-
-async function fetchStatus() {
-  const url = document.getElementById('apiUrl').value;
-
+async function fetchStatus(url) {
   try {
     const res = await fetch(`${url}/api/status`, {
+      mode:'cors',
       signal: AbortSignal.timeout(2000)
     });
-
     if (res.ok) {
       const data = await res.json();
       updateDashboard(data);
       return true;
     }
-  } catch (e) {
-    // Silent fail during auto-refresh
-  }
-
+  } catch(e) {}
   return false;
 }
 
 function updateDashboard(data) {
-  // Update current action
-  document.getElementById('currentAction').textContent = data.currentAction || '閒置';
-  document.getElementById('lastUpdate').textContent = `最後更新: ${formatTime(data.lastUpdated)}`;
-
   // Update stats
   const stats = data.stats || {};
   document.getElementById('totalMsgs').textContent = stats.totalMessages || 0;
   document.getElementById('tasksDone').textContent = stats.tasksCompleted || 0;
-  document.getElementById('tokensUsed').textContent = Math.floor((stats.tokensUsed || 0) / 1000);
-  document.getElementById('activeTasks').textContent = (data.activeTasks || []).length;
+  document.getElementById('activeAgents').textContent = (data.activeTasks || []).length;
+  document.getElementById('queueDepth').textContent = (data.taskQueue || []).length;
 
   // Update models
   const models = data.models || {};
@@ -397,7 +498,6 @@ function updateDashboard(data) {
     document.getElementById('glm5Ctx').textContent = (m.context || 0) + '%';
     document.getElementById('glm5Msgs').textContent = m.messages || 0;
     document.getElementById('glm5Bar').style.width = (m.context || 0) + '%';
-    document.getElementById('glm5CtxPct').textContent = `${Math.floor((m.context || 0) * 1280)} / 128K`;
   }
 
   if (models.minimax) {
@@ -407,98 +507,18 @@ function updateDashboard(data) {
     document.getElementById('minimaxCtx').textContent = (m.context || 0) + '%';
     document.getElementById('minimaxMsgs').textContent = m.messages || 0;
     document.getElementById('minimaxBar').style.width = (m.context || 0) + '%';
-    document.getElementById('minimaxCtxPct').textContent = `${Math.floor((m.context || 0) * 10000)} / 1M`;
   }
 
   // Update tasks
-  renderTasks(data.activeTasks || [], data.completedTasks || []);
-
-  // Update activity
-  renderActivity(data.recentActions || []);
-
-  // Update system info
-  document.getElementById('apiServerStatus').textContent = apiConnected ? '✅ 已連線' : '❌ 未連線';
-  document.getElementById('sessionInfo').textContent = `Ken AI`;
-  document.getElementById('currentModel').textContent = models.glm5?.status === 'active' ? 'GLM-5' : models.minimax?.status === 'active' ? 'MiniMax 2.5' : '閒置';
+  tasks = data.activeTasks || [];
+  renderTasks();
 }
 
-function renderTasks(active, completed) {
-  // Active tasks
-  const activeList = document.getElementById('activeTaskList');
-
-  if (active.length === 0) {
-    activeList.innerHTML = `
-      <div style="text-align:center;padding:30px;color:var(--text2);">
-        <div style="font-size:24px;margin-bottom:8px;">📭</div>
-        <div>暫無活躍任務</div>
-      </div>
-    `;
-  } else {
-    activeList.innerHTML = active.map(task => `
-      <div class="task-item fade-in">
-        <div class="task-icon" style="background:rgba(88,166,255,.1)">${task.icon || '📋'}</div>
-        <div class="task-info">
-          <div class="task-name">${task.name}</div>
-          <div class="task-meta">${task.model || 'Unknown'} · ${task.type || 'Task'}</div>
-        </div>
-        <div style="font-size:11px;color:var(--yellow);">${task.progress || 0}%</div>
-      </div>
-    `).join('');
-  }
-
-  // Completed tasks
-  const completedList = document.getElementById('completedTaskList');
-
-  if (completed.length === 0) {
-    completedList.innerHTML = `<div style="text-align:center;padding:20px;color:var(--text2);">暫無已完成任務</div>`;
-  } else {
-    completedList.innerHTML = completed.slice(0, 5).map(task => `
-      <div class="task-item fade-in">
-        <div class="task-icon" style="background:rgba(63,185,80,.1)">✅</div>
-        <div class="task-info">
-          <div class="task-name">${task.name}</div>
-          <div class="task-meta">${task.model || 'Unknown'} · ${formatTime(task.completedAt)}</div>
-        </div>
-      </div>
-    `).join('');
-  }
-}
-
-function renderActivity(actions) {
-  const feed = document.getElementById('activityFeed');
-
-  if (actions.length === 0) {
-    feed.innerHTML = `
-      <div class="activity-item">
-        <div class="activity-time">--:--</div>
-        <div class="activity-icon">⏳</div>
-        <div class="activity-content">
-          <div class="activity-title">等待活動...</div>
-          <div class="activity-meta">連接到 Ken AI API 以查看實時活動</div>
-        </div>
-      </div>
-    `;
-  } else {
-    feed.innerHTML = actions.slice(0, 20).map(action => `
-      <div class="activity-item fade-in">
-        <div class="activity-time">${formatTime(action.timestamp)}</div>
-        <div class="activity-icon">${getStatusIcon(action.status)}</div>
-        <div class="activity-content">
-          <div class="activity-title">${action.action}</div>
-          <div class="activity-meta">${action.model || 'System'} · ${action.status}</div>
-        </div>
-      </div>
-    `).join('');
-  }
-}
-
-// ── Helper Functions ──
-function setConnected(connected) {
-  apiConnected = connected;
+function setConnected(ok) {
+  apiConnected = ok;
   const pulse = document.getElementById('mainPulse');
   const status = document.getElementById('connStatus');
-
-  if (connected) {
+  if (ok) {
     pulse.className = 'pulse';
     status.textContent = '已連線';
     status.style.color = 'var(--green)';
@@ -510,174 +530,261 @@ function setConnected(connected) {
 }
 
 function getStatusLabel(status) {
-  const labels = {
-    'active': '● 活躍',
-    'idle': '● 閒置',
-    'busy': '⟳ 忙碌',
-    'error': '✕ 錯誤'
-  };
+  const labels = { 'active':'● 活躍', 'idle':'● 閒置', 'busy':'⟳ 忙碌', 'error':'✕ 錯誤' };
   return labels[status] || '● 閒置';
 }
 
 function getStatusClass(status) {
-  const classes = {
-    'active': 'status-active',
-    'idle': 'status-idle',
-    'busy': 'status-busy',
-    'error': 'status-error'
-  };
+  const classes = { 'active':'status-active', 'idle':'status-idle', 'busy':'status-busy', 'error':'status-error' };
   return classes[status] || 'status-idle';
 }
 
-function getStatusIcon(status) {
-  const icons = {
-    'active': '🔄',
-    'completed': '✅',
-    'error': '❌',
-    'queued': '⏳'
-  };
-  return icons[status] || '📋';
+// ── Simulate Mode ──
+function simulateMode() {
+  simMode = true;
+  setConnected(true);
+  addLog('OK', '🎭 模擬模式已啟動 · 顯示示例數據');
+
+  // Fake stats
+  document.getElementById('totalMsgs').textContent = '1,247';
+  document.getElementById('msgDelta').textContent = '+38 /小時';
+  document.getElementById('activeAgents').textContent = '2';
+  document.getElementById('agentDelta').textContent = '共 3 個已設定';
+  document.getElementById('tasksDone').textContent = '84';
+  document.getElementById('taskDelta').textContent = '+12 今天';
+  document.getElementById('queueDepth').textContent = '3';
+  document.getElementById('queueDelta').textContent = '3 個排隊中';
+
+  // GLM5
+  setModelState('glm5', 'active', 44.5, '44.5%', '44.5K / 128K', 127, 1.8);
+  // MiniMax
+  setModelState('minimax', 'busy', 12.3, '12.3%', '123K / 1M', 89, 2.4);
+  // Ollama
+  document.getElementById('ollamaStatus').textContent = '✕ 未連線';
+  document.getElementById('ollamaStatus').className = 'model-status status-error';
+
+  // Channel statuses
+  document.getElementById('tgStatus').textContent = '● 活躍';
+  document.getElementById('tgStatus').className = 'model-status status-active';
+
+  // Fake tasks
+  tasks = [
+    { id:1, model:'glm5',    icon:'📈', name:'BTC 市場技術分析報告',   type:'投資分析',   status:'active', pct:67, time:'12分鐘前' },
+    { id:2, model:'minimax', icon:'🎵', name:'放鬆音樂視頻腳本生成',   type:'自媒體製作', status:'active', pct:34, time:'5分鐘前' },
+    { id:3, model:'glm5',    icon:'📝', name:'週報投資組合摘要',       type:'內容創作',   status:'pending', pct:0,  time:'2分鐘前' },
+    { id:4, model:'minimax', icon:'🔍', name:'補充劑市場競品研究',     type:'市場研究',   status:'pending', pct:0,  time:'剛剛' },
+    { id:5, model:'glm5',    icon:'✅', name:'ETH 支撐位分析',         type:'投資分析',   status:'done',   pct:100, time:'1小時前' },
+    { id:6, model:'minimax', icon:'✅', name:'YouTube 縮圖文案',       type:'內容創作',   status:'done',   pct:100, time:'2小時前' },
+    { id:7, model:'glm5',    icon:'❌', name:'Grid Trading EA 優化',   type:'自動化腳本', status:'error',  pct:45, time:'30分鐘前' },
+  ];
+  renderTasks();
+  addLog('INFO', '已載入 7 個示例任務');
+  addLog('INFO', 'GLM-5 正在處理: BTC 市場技術分析報告 (67%)');
+  addLog('INFO', 'MiniMax 2.5 正在處理: 放鬆音樂視頻腳本生成 (34%)');
+  addLog('WARN', 'GLM-5: Grid Trading EA 優化 任務發生錯誤');
+
+  startAutoRefresh();
 }
 
-function formatTime(timestamp) {
-  if (!timestamp) return '--:--';
-  try {
-    const date = new Date(timestamp);
-    return date.toLocaleTimeString('zh-HK', { hour12: false });
-  } catch {
-    return '--:--';
+function setModelState(id, status, barPct, ctxTxt, ctxRange, msgs, latency) {
+  const statusMap = { active:'status-active', idle:'status-idle', busy:'status-busy', error:'status-error' };
+  const labelMap  = { active:'● 活躍', idle:'● 閒置', busy:'⟳ 忙碌', error:'✕ 錯誤' };
+  document.getElementById(id+'Status').textContent = labelMap[status];
+  document.getElementById(id+'Status').className = 'model-status ' + statusMap[status];
+  document.getElementById(id+'Bar').style.width = barPct + '%';
+  document.getElementById(id+'Ctx').textContent = ctxTxt;
+  document.getElementById(id+'CtxPct').textContent = ctxRange;
+  document.getElementById(id+'Msgs').textContent = msgs;
+  document.getElementById(id+'Latency').textContent = latency + 's';
+}
+
+// ── Tasks ──
+function renderTasks() {
+  const list = document.getElementById('taskList');
+  const filtered = currentFilter === 'all' ? tasks :
+    currentFilter === 'done'  ? tasks.filter(t=>t.status==='done') :
+    currentFilter === 'error' ? tasks.filter(t=>t.status==='error') :
+    tasks.filter(t=>t.model===currentFilter);
+
+  if (!filtered.length) {
+    list.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text2);">此篩選條件下無任務</div>';
+    return;
+  }
+
+  list.innerHTML = filtered.map(t => {
+    const fillClass = t.model==='glm5'?'fill-glm':t.model==='minimax'?'fill-mini':'fill-blue';
+    const statusColor = t.status==='done'?'var(--green)':t.status==='error'?'var(--red)':t.status==='active'?'var(--yellow)':'var(--text2)';
+    const bgColor = t.model==='glm5'?'rgba(0,212,170,.1)':t.model==='minimax'?'rgba(255,107,157,.1)':'rgba(88,166,255,.1)';
+    return `
+    <div class="task-item fade-in">
+      <div class="task-icon" style="background:${bgColor}">${t.icon}</div>
+      <div class="task-info">
+        <div class="task-name">${t.name}</div>
+        <div class="task-meta">${t.model==='glm5'?'GLM-5':t.model==='minimax'?'MiniMax 2.5':'本地'} · ${t.type} · <span style="color:${statusColor}">${t.status==='active'?'進行中':t.status==='pending'?'等待中':t.status==='done'?'已完成':'錯誤'}</span></div>
+        ${t.status==='active'||t.status==='error'?`<div class="progress-bar" style="margin-top:4px;height:3px;"><div class="progress-fill ${fillClass}" style="width:${t.pct}%"></div></div>`:''}
+      </div>
+      <div style="font-size:10px;color:var(--text2);text-align:right;min-width:40px;">${t.status==='active'?t.pct+'%':t.time}</div>
+      <div style="display:flex;gap:4px;">
+        ${t.status==='active'?`<button class="btn btn-yellow" style="font-size:10px;padding:3px 7px;" onclick="pauseTask(${t.id})">⏸</button>`:''}
+        ${t.status!=='done'?`<button class="btn btn-red" style="font-size:10px;padding:3px 7px;" onclick="removeTask(${t.id})">✕</button>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterTasks(filter, el) {
+  currentFilter = filter;
+  document.querySelectorAll('.model-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderTasks();
+}
+
+function createTask() {
+  const model = document.getElementById('taskModel').value;
+  const name  = document.getElementById('taskName').value || '新任務 #' + (tasks.length+1);
+  const type  = document.getElementById('taskType').value.replace(/^[^\s]+\s/,'');
+  const icons = {'投資分析':'📈','音樂視頻製作':'🎵','內容創作':'📝','市場研究':'🔍','自動化腳本':'🤖','對話處理':'💬'};
+  const icon  = Object.entries(icons).find(([k])=>type.includes(k))?.[1] || '📋';
+  tasks.unshift({ id: Date.now(), model, icon, name, type, status:'pending', pct:0, time:'剛剛' });
+  document.getElementById('taskName').value = '';
+  renderTasks();
+  addLog('OK', `已加入佇列: ${name} → ${model==='glm5'?'GLM-5':model==='minimax'?'MiniMax 2.5':'本地'}`);
+  document.getElementById('queueDepth').textContent = tasks.filter(t=>t.status==='pending').length;
+}
+
+function removeTask(id) {
+  tasks = tasks.filter(t=>t.id!==id);
+  renderTasks();
+  addLog('INFO', `任務 #${id} 已移除`);
+}
+
+function pauseTask(id) {
+  const t = tasks.find(t=>t.id===id);
+  if (t) { t.status='pending'; renderTasks(); addLog('WARN','任務已暫停: '+t.name); }
+}
+
+function refreshTasks() { renderTasks(); addLog('INFO','任務列表已刷新'); }
+
+// ── Controls ──
+function agentAction(model, action) {
+  const names = { glm5:'GLM-5', minimax:'MiniMax 2.5', ollama:'本地模型' };
+  const msgs = { start:'啟動中 →', stop:'已停止', restart:'正在重啟...' };
+  addLog(action==='stop'?'WARN':'OK', `[${names[model]}] ${msgs[action]}`);
+  if (action==='start') {
+    document.getElementById(model+'Status').textContent = '● 活躍';
+    document.getElementById(model+'Status').className = 'model-status status-active';
+  } else if (action==='stop') {
+    document.getElementById(model+'Status').textContent = '● 閒置';
+    document.getElementById(model+'Status').className = 'model-status status-idle';
+  } else {
+    document.getElementById(model+'Status').textContent = '⟳ 重啟中';
+    document.getElementById(model+'Status').className = 'model-status status-busy';
+    setTimeout(()=>{
+      document.getElementById(model+'Status').textContent = '● 活躍';
+      document.getElementById(model+'Status').className = 'model-status status-active';
+      addLog('OK',`[${names[model]}] 重啟完成`);
+    }, 2000);
   }
 }
 
-function addActivity(icon, title, meta = '') {
-  const feed = document.getElementById('activityFeed');
-  const now = new Date().toLocaleTimeString('zh-HK', { hour12: false });
+function allAgentsAction(action) {
+  ['glm5','minimax'].forEach(m => agentAction(m, action));
+}
 
-  const item = document.createElement('div');
-  item.className = 'activity-item fade-in';
-  item.innerHTML = `
-    <div class="activity-time">${now}</div>
-    <div class="activity-icon">${icon}</div>
-    <div class="activity-content">
-      <div class="activity-title">${title}</div>
-      ${meta ? `<div class="activity-meta">${meta}</div>` : ''}
-    </div>
-  `;
+function clearQueue() {
+  tasks = tasks.filter(t=>t.status!=='pending');
+  renderTasks();
+  document.getElementById('queueDepth').textContent = '0';
+  addLog('WARN','佇列已清空');
+}
 
-  feed.insertBefore(item, feed.firstChild);
-
-  // Keep only last 50 items
-  while (feed.children.length > 50) {
-    feed.removeChild(feed.lastChild);
+function refreshAll() {
+  addLog('INFO','正在刷新所有數據...');
+  if (!simMode && apiConnected) {
+    const url = document.getElementById('apiUrl').value;
+    fetchStatus(url);
+  } else if (simMode) {
+    addLog('OK','數據已刷新 (模擬模式)');
+  } else {
+    addLog('WARN','未連線至 API');
   }
 }
+
+function openOCDashboard() {
+  window.open('http://127.0.0.1:18789', '_blank');
+  addLog('INFO', `已開啟 OpenClaw UI`);
+}
+
+function connectOllama() {
+  addLog('INFO','正在連線 Ollama (localhost:11434)...');
+  fetch('http://localhost:11434/api/tags').then(r=>r.json()).then(d=>{
+    const m = d.models?.[0]?.name || '未知';
+    document.getElementById('ollamaStatus').textContent = '● 活躍';
+    document.getElementById('ollamaStatus').className = 'model-status status-active';
+    document.getElementById('ollamaModel').textContent = m;
+    addLog('OK', `✅ Ollama 已連線 · 模型: ${m}`);
+  }).catch(()=>addLog('ERR','❌ 無法連線 Ollama · 請確認 ollama serve 已啟動'));
+}
+
+function selectModel(id) { addLog('INFO', `已選擇模型: ${models[id]?.name || id}`); }
 
 // ── Auto Refresh ──
+function toggleAutoRefresh(el) {
+  autoRefresh = !el.classList.contains('on');
+  el.classList.toggle('on', autoRefresh);
+  if (autoRefresh) {
+    addLog('INFO','自動刷新已開啟 (每3秒)');
+    startAutoRefresh();
+  } else {
+    clearInterval(refreshTimer);
+    addLog('WARN','自動刷新已關閉');
+  }
+}
+
 function startAutoRefresh() {
   if (refreshTimer) clearInterval(refreshTimer);
-  refreshTimer = setInterval(async () => {
-    const success = await fetchStatus();
-    if (!success) {
-      setConnected(false);
+  refreshTimer = setInterval(() => {
+    if (apiConnected && !simMode) {
+      const url = document.getElementById('apiUrl').value;
+      fetchStatus(url);
+    } else if (simMode) {
+      animateSim();
     }
   }, REFRESH_INTERVAL);
 }
 
-async function refreshAll() {
-  addActivity('🔄', '正在刷新數據...');
-  const success = await fetchStatus();
-  if (success) {
-    addActivity('✅', '數據已刷新');
-  } else {
-    addActivity('❌', '刷新失敗');
+// ── Simulation Animation ──
+let simTick = 0;
+function animateSim() {
+  simTick++;
+  // Animate active tasks
+  tasks.filter(t=>t.status==='active').forEach(t=>{
+    t.pct = Math.min(100, t.pct + Math.floor(Math.random()*8+2));
+    if (t.pct >= 100) { t.status='done'; t.pct=100; t.time='剛剛'; addLog('OK',`✅ 任務完成: ${t.name}`); }
+  });
+  // Start pending tasks
+  const pending = tasks.filter(t=>t.status==='pending');
+  if (pending.length && simTick % 3 === 0) {
+    pending[0].status = 'active';
+    addLog('INFO', `⚡ 開始處理: ${pending[0].name}`);
   }
+  renderTasks();
+  // Update context bars
+  const glmCtx = parseFloat(document.getElementById('glm5Bar').style.width)||0;
+  const newCtx = Math.min(95, glmCtx + (Math.random()*1.2-.3));
+  document.getElementById('glm5Bar').style.width = newCtx + '%';
+  document.getElementById('glm5Ctx').textContent = newCtx.toFixed(1)+'%';
+  document.getElementById('glm5CtxPct').textContent = Math.floor(newCtx*1280/10)+'K / 128K';
+
+  if (simTick % 4 === 0) addLog('INFO', `GLM-5 context: ${newCtx.toFixed(1)}% · Token剩餘: ${Math.floor((100-newCtx)*0.84)}%`);
 }
 
-function refreshTasks() {
-  fetchStatus();
-}
-
-// ── Test Functions ──
-async function testUpdate() {
-  const url = document.getElementById('apiUrl').value;
-
-  try {
-    const res = await fetch(`${url}/api/update`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        currentAction: '測試更新 - ' + new Date().toLocaleTimeString('zh-HK'),
-        stats: {
-          totalMessages: Math.floor(Math.random() * 100),
-          tasksCompleted: Math.floor(Math.random() * 20),
-          tokensUsed: Math.floor(Math.random() * 50000)
-        }
-      })
-    });
-
-    if (res.ok) {
-      addActivity('✅', '測試更新成功');
-      await fetchStatus();
-    } else {
-      addActivity('❌', '測試更新失敗');
-    }
-  } catch (e) {
-    addActivity('❌', `更新失敗: ${e.message}`);
-  }
-}
-
-async function simulateTask() {
-  const url = document.getElementById('apiUrl').value;
-
-  const task = {
-    id: Date.now(),
-    name: '模擬任務 #' + Math.floor(Math.random() * 100),
-    model: Math.random() > 0.5 ? 'GLM-5' : 'MiniMax 2.5',
-    type: '測試',
-    status: 'active',
-    progress: Math.floor(Math.random() * 100),
-    icon: '🧪'
-  };
-
-  try {
-    const res = await fetch(`${url}/api/update`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        currentAction: `處理: ${task.name}`,
-        activeTasks: [task]
-      })
-    });
-
-    if (res.ok) {
-      addActivity('➕', `已創建模擬任務: ${task.name}`);
-      await fetchStatus();
-    }
-  } catch (e) {
-    addActivity('❌', `創建失敗: ${e.message}`);
-  }
-}
-
-// ── Misc Functions ──
-function openGateway() {
-  window.open('http://127.0.0.1:18789', '_blank');
-}
-
-// ── Initialize ──
+// Auto-connect on load
 window.addEventListener('load', () => {
-  // Auto-connect after 1 second
+  // Try to connect to API after 1 second
   setTimeout(() => {
     connectAPI();
   }, 1000);
-
-  // Check Gateway status
-  fetch('http://127.0.0.1:18789/health')
-    .then(() => {
-      document.getElementById('gatewayStatus').textContent = '✅ 運行中';
-    })
-    .catch(() => {
-      document.getElementById('gatewayStatus').textContent = '❌ 未運行';
-    });
 });
 </script>
 </body>
