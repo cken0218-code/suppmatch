@@ -115,6 +115,14 @@
 - [ ] 保存到 `memory/drafts/posts-YYYY-MM-DD.md`
 - [ ] **批准后才发**，唔好自己发
 
+### 📧 每周五发布 Newsletter（10:00 AM）
+- [ ] **Beehiiv Newsletter 发布**（AI Tools Weekly）
+- [ ] 内容来源：本周学习 + 机会扫描 + 投资清单
+- [ ] 发布后分享到 Twitter/Threads
+- [ ] 追踪 subscribers + open rate + clicks
+- [ ] 文件位置：`newsletter/issue-*.md`
+- [ ] 设置指南：`newsletter/beehiiv-setup-guide.md`
+
 ### 📊 每周五投资机会清单（13:35）
 - [ ] 分析澳股 + BTC/ETH 走势
 - [ ] 生成"下周值得留意"清单
