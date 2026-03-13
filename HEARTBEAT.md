@@ -92,6 +92,13 @@
 - [ ] 有重要更新就整理 + alert
 - [ ] 学习笔记保存到 `memory/learning/YYYY-MM-DD-heartbeat-learning.md`
 
+### 🎯 每周机会扫描（週五 13:00）
+- [ ] **搜索 Reddit r/passive_income**（2026 被动收入趋势）
+- [ ] **搜索 YouTube trending**（AI automation 相关）
+- [ ] **总结 3 个可行动机会**（基于已有资源）
+- [ ] **保存到** `memory/opportunities.md`
+- [ ] **下周五更新**（追踪上周机会进展）
+
 ### 📝 錯誤追蹤（20:00）
 - [ ] 回顧今日 session 做錯嘅嘢
 - [ ] 記錄落 `memory/errors/YYYY-MM-DD.md`
