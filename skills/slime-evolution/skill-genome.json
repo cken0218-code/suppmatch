@@ -1,0 +1,172 @@
+{
+  "version": "1.0.0",
+  "created": "2026-03-13",
+  "last_updated": "2026-03-13T12:36:36.767057",
+  "total_skills": 2,
+  "total_evolutions": 3,
+  "skills": {
+    "youtube-agent": {
+      "name": "YouTube Agent",
+      "version": "1.1.0",
+      "created": "2026-03-04",
+      "category": "content-creation",
+      "status": "active",
+      "evolution_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-03-04",
+          "changes": "基礎 YouTube agent - 內容創作、trending 監控",
+          "trigger": "手動創建",
+          "type": "creation"
+        },
+        {
+          "version": "1.1.0",
+          "date": "2026-03-13",
+          "changes": "+ 自主 trending 監控 + 自動產出 workflow",
+          "trigger": "自主檢查發現需求",
+          "type": "feature_addition",
+          "consumed": [
+            "trending-scanner",
+            "content-generator"
+          ]
+        }
+      ],
+      "consumed_skills": [
+        "trending-scanner",
+        "content-generator"
+      ],
+      "can_merge_with": [
+        "content-creator-local",
+        "thumbnail-generator-local"
+      ],
+      "next_evolution_candidates": [
+        "affiliate-marketing",
+        "seo-optimizer"
+      ],
+      "health_score": 85,
+      "last_used": "2026-03-13"
+    },
+    "xiaohongshu": {
+      "name": "Xiaohongshu Agent",
+      "version": "1.1.0",
+      "created": "2026-02-26",
+      "category": "content-creation",
+      "status": "active",
+      "evolution_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-02-26",
+          "changes": "基礎小紅書 agent - 內容創作、渲染卡片、RPA 發布",
+          "trigger": "從 ClawHub 安裝",
+          "type": "installation"
+        },
+        {
+          "version": "1.1.0",
+          "date": "2026-03-13",
+          "changes": "+ Trending 監控（美妝、穿搭、美食、健康）",
+          "trigger": "deadline 推進",
+          "type": "feature_addition",
+          "consumed": [
+            "trending_monitor"
+          ]
+        }
+      ],
+      "consumed_skills": [
+        "trending_monitor"
+      ],
+      "can_merge_with": [
+        "youtube-agent",
+        "content-creator-local"
+      ],
+      "next_evolution_candidates": [
+        "data-analytics",
+        "video-script-writer"
+      ],
+      "health_score": 90,
+      "last_used": "2026-03-13"
+    },
+    "token-saver-local": {
+      "name": "Token Saver",
+      "version": "1.0.0",
+      "created": "2026-03-13",
+      "category": "optimization",
+      "status": "concept",
+      "evolution_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-03-13",
+          "changes": "概念設計 - 減少 30-50% token 使用",
+          "trigger": "安全替代 toon-utils",
+          "type": "creation"
+        }
+      ],
+      "consumed_skills": [],
+      "can_merge_with": [
+        "memory-manager",
+        "openclaw-token-optimizer"
+      ],
+      "next_evolution_candidates": [
+        "context-compression",
+        "semantic-cache"
+      ],
+      "health_score": 50,
+      "last_used": null,
+      "notes": "待實現核心腳本"
+    },
+    "youtube-workflow-local": {
+      "name": "YouTube Workflow",
+      "version": "1.0.0",
+      "created": "2026-03-13",
+      "category": "automation",
+      "status": "active",
+      "evolution_history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-03-13",
+          "changes": "自動化 YouTube 產出流程 - trending search + 腳本生成",
+          "trigger": "自主行動指令",
+          "type": "creation",
+          "consumed": [
+            "trending-search"
+          ]
+        }
+      ],
+      "consumed_skills": [
+        "trending-search"
+      ],
+      "can_merge_with": [
+        "youtube-agent",
+        "affiliate-marketing"
+      ],
+      "next_evolution_candidates": [
+        "auto-publish",
+        "performance-tracking"
+      ],
+      "health_score": 75,
+      "last_used": "2026-03-13"
+    }
+  },
+  "fusion_candidates": [
+    {
+      "skill_a": "youtube-agent",
+      "skill_b": "youtube-workflow-local",
+      "synergy_score": 95,
+      "potential_name": "youtube-content-system",
+      "reason": "兩個技能都專注於 YouTube，合併可形成完整內容系統"
+    },
+    {
+      "skill_a": "xiaohongshu",
+      "skill_b": "youtube-agent",
+      "synergy_score": 85,
+      "potential_name": "multi-platform-creator",
+      "reason": "跨平台內容創作，可共享 trending 監控"
+    }
+  ],
+  "rpg_stats": {
+    "total_xp": 0,
+    "level": 1,
+    "achievements": [],
+    "streak_days": 0,
+    "mystery_boxes": 0
+  }
+}
