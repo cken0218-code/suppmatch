@@ -59,15 +59,28 @@
 - [ ] 有異常就 alert shikiouo
 
 ### 🔍 Trending Content（12:00 + 18:00）
-- [ ] X (Twitter) trending（keywords: AI, automation, YouTube, agent）
-- [ ] GitHub trending（AI/ML/LLM repos）
-- [ ] **小紅書 trending**（美妝、穿搭、美食、健康）✅ NEW
+- [ ] X (Twitter) trending（搜索 + 文字分析）
+- [ ] GitHub trending（API + README 分析）
+- [ ] **YouTube trending**（搜索 + 元数据分析，**⚠️ 不能看视频内容**）
+- [ ] **小紅書 trending**（RPA + 文字爬取，**⚠️ 需要 cookie，不能看图片/视频**）
 - [ ] 有發現就記錄 + alert
+
+**⚠️ 技術限制說明**：
+- **YouTube**：只能爬取標題、描述、標籤、字幕（如果有），**不能真正"看"視頻**
+- **小紅書**：只能爬取文字內容，**不能看圖片/視頻**，需要 cookie 登入
+- **實際做法**：基於文字元數據識別趨勢，而非視覺內容分析
 
 **小紅書 Trending 監控**：
 ```bash
-# 每日 10:00 執行
+# 每日 10:00 執行（需要 cookie）
 0 10 * * * cd ~/.openclaw/workspace && python3 skills/xiaohongshu/scripts/trending_monitor.py
+```
+
+**YouTube Trending 監控**（實際可行）：
+```bash
+# 使用 YouTube Data API 或搜索
+# 只讀取元數據（標題、描述、標籤）
+# 不能分析視頻內容
 ```
 
 ### 🧠 知識更新（15:00）
