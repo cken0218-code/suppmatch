@@ -99,6 +99,28 @@
 - [ ] **保存到** `memory/opportunities.md`
 - [ ] **下周五更新**（追踪上周机会进展）
 
+---
+
+## 📝 每日新任务（新增）
+
+### 🎬 每日 YouTube Trending 检查（科技/AI 分类）
+- [ ] 搜索 YouTube trending（AI tools, automation, tech）
+- [ ] 发现合适题目 → 起草脚本草稿
+- [ ] 保存到 `memory/drafts/youtube-YYYY-MM-DD.md`
+- [ ] **通知 Discord**（完成后）
+- [ ] **唔使问先搵**，搵完先问要不要用
+
+### 📱 每周生成 Twitter/Threads 帖文草稿（周一）
+- [ ] 生成 3 条帖文草稿（AI 工具 + 自动化主题）
+- [ ] 保存到 `memory/drafts/posts-YYYY-MM-DD.md`
+- [ ] **批准后才发**，唔好自己发
+
+### 📊 每周五投资机会清单（13:35）
+- [ ] 分析澳股 + BTC/ETH 走势
+- [ ] 生成"下周值得留意"清单
+- [ ] 保存到 `memory/weekly-investment.md`
+- [ ] 包括：超卖反弹机会、稳健买入机会、加密货币突破机会
+
 ### 📝 錯誤追蹤（20:00）
 - [ ] 回顧今日 session 做錯嘅嘢
 - [ ] 記錄落 `memory/errors/YYYY-MM-DD.md`
