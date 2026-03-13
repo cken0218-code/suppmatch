@@ -1,0 +1,49 @@
+{
+  "server": "Ken AI Status API",
+  "version": "1.0",
+  "lastUpdated": "2026-03-13T19:47:19.082762",
+  "currentAction": "測試連線 - Dashboard 上線",
+  "activeTasks": [
+    {
+      "id": 1,
+      "name": "Dashboard 系統測試",
+      "model": "GLM-5",
+      "type": "系統測試",
+      "status": "active",
+      "progress": 50,
+      "icon": "🧪"
+    }
+  ],
+  "taskQueue": [],
+  "completedTasks": [],
+  "recentActions": [
+    {
+      "action": "Dashboard 系統測試",
+      "model": "GLM-5",
+      "timestamp": "2026-03-13T19:47:19.078746",
+      "status": "active"
+    }
+  ],
+  "models": {
+    "glm5": {
+      "name": "GLM-5",
+      "status": "idle",
+      "context": 0,
+      "messages": 0,
+      "lastUsed": null
+    },
+    "minimax": {
+      "name": "MiniMax 2.5",
+      "status": "idle",
+      "context": 0,
+      "messages": 0,
+      "lastUsed": null
+    }
+  },
+  "stats": {
+    "totalMessages": 0,
+    "tasksCompleted": 0,
+    "tokensUsed": 0,
+    "uptime": 0
+  }
+}

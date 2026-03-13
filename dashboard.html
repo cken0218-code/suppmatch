@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ken AI Dashboard - Real-time Monitoring</title>
+<style>
+  :root {
+    --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
+    --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+    --green: #3fb950; --yellow: #d29922; --red: #f85149; --blue: #58a6ff;
+    --purple: #bc8cff; --orange: #ffa657; --cyan: #39d3f0;
+    --glm: #00d4aa; --mini: #ff6b9d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; }
+
+  /* Header */
+  .header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 12px 20px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; }
+  .header h1 { font-size: 18px; font-weight: 700; background: linear-gradient(135deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .header-status { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+  .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  .pulse.offline { background: var(--red); animation: none; }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(63,185,80,.4)} 50%{box-shadow:0 0 0 6px rgba(63,185,80,0)} }
+  .badge { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 12px; color: var(--text2); }
+
+  /* Layout */
+  .container { padding: 20px; max-width: 1600px; margin: 0 auto; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+  .grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 20px; }
+  @media(max-width:900px) { .grid-3,.grid-2 { grid-template-columns: 1fr; } }
+
+  /* Cards */
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .card-title { font-size: 12px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+
+  /* Model Cards */
+  .model-card { border-radius: 12px; padding: 16px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+  .model-card.glm { background: linear-gradient(135deg, rgba(0,212,170,.08), rgba(13,17,23,1)); border-color: rgba(0,212,170,.3); }
+  .model-card.mini { background: linear-gradient(135deg, rgba(255,107,157,.08), rgba(13,17,23,1)); border-color: rgba(255,107,157,.3); }
+  .model-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .model-provider { font-size: 11px; color: var(--text2); margin-bottom: 12px; }
+  .model-status { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 3px 8px; border-radius: 20px; font-weight: 600; }
+  .status-active { background: rgba(63,185,80,.15); color: var(--green); }
+  .status-idle { background: rgba(139,148,158,.15); color: var(--text2); }
+  .status-busy { background: rgba(210,153,34,.15); color: var(--yellow); }
+  .status-error { background: rgba(248,81,73,.15); color: var(--red); }
+  .model-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .stat-item { background: rgba(255,255,255,.04); border-radius: 8px; padding: 8px 10px; }
+  .stat-label { font-size: 10px; color: var(--text2); margin-bottom: 2px; }
+  .stat-val { font-size: 14px; font-weight: 600; }
+
+  /* Progress Bar */
+  .progress-wrap { margin-top: 12px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--text2); margin-bottom: 4px; }
+  .progress-bar { height: 5px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+  .fill-glm { background: linear-gradient(90deg, var(--glm), #00f5c0); }
+  .fill-mini { background: linear-gradient(90deg, var(--mini), #ff9ebd); }
+  .fill-blue { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+
+  /* Activity Feed */
+  .activity-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .activity-item:last-child { border-bottom: none; }
+  .activity-time { font-size: 11px; color: var(--text2); min-width: 60px; }
+  .activity-icon { font-size: 16px; }
+  .activity-content { flex: 1; }
+  .activity-title { font-size: 13px; font-weight: 500; }
+  .activity-meta { font-size: 11px; color: var(--text2); margin-top: 2px; }
+
+  /* Task List */
+  .task-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .task-item:last-child { border-bottom: none; }
+  .task-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .task-info { flex: 1; min-width: 0; }
+  .task-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .task-meta { font-size: 11px; color: var(--text2); margin-top: 2px; }
+
+  /* Connection Bar */
+  .conn-bar { background: var(--bg2); border: 1px solid rgba(88,166,255,.3); border-radius: 10px; padding: 10px 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .conn-label { font-size: 12px; color: var(--text2); }
+  .conn-input { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; color: var(--text); font-size: 12px; width: 200px; }
+  .conn-input:focus { outline: none; border-color: var(--blue); }
+
+  /* Control Buttons */
+  .btn { border: none; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all .15s; }
+  .btn:active { transform: scale(.96); }
+  .btn-blue { background: rgba(88,166,255,.15); color: var(--blue); border: 1px solid rgba(88,166,255,.3); }
+  .btn-blue:hover { background: rgba(88,166,255,.25); }
+  .btn-green { background: rgba(63,185,80,.15); color: var(--green); border: 1px solid rgba(63,185,80,.3); }
+  .btn-green:hover { background: rgba(63,185,80,.25); }
+  .btn-gray { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
+  .btn-gray:hover { background: var(--border); color: var(--text); }
+
+  /* Current Action Banner */
+  .action-banner { background: linear-gradient(135deg, rgba(88,166,255,.1), rgba(188,140,255,.1)); border: 1px solid rgba(88,166,255,.3); border-radius: 12px; padding: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 16px; }
+  .action-icon { font-size: 32px; }
+  .action-text h3 { font-size: 16px; margin-bottom: 4px; }
+  .action-text p { font-size: 12px; color: var(--text2); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg2); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* Animation */
+  .fade-in { animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .spin { animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Section Label */
+  .section-label { font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* Stats Row */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+  @media(max-width:700px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+  .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+  .stat-card .big { font-size: 24px; font-weight: 700; }
+  .stat-card .label { font-size: 11px; color: var(--text2); margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div style="font-size:20px;">🤖</div>
+  <h1>Ken AI Dashboard</h1>
+  <div class="badge" id="apiVersion">API v1.0</div>
+  <div class="header-status">
+    <div class="pulse" id="mainPulse"></div>
+    <span id="connStatus" style="font-size:12px;color:var(--text2)">正在連線...</span>
+    <div class="badge" id="uptimeBadge">⏱ 00:00:00</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Connection Bar -->
+  <div class="conn-bar">
+    <span class="conn-label">🔌 Ken AI API:</span>
+    <input class="conn-input" id="apiUrl" value="http://127.0.0.1:18790" />
+    <button class="btn btn-blue" onclick="connectAPI()">🔗 連線</button>
+    <button class="btn btn-gray" onclick="testAPI()">🧪 測試</button>
+    <span style="font-size:11px;color:var(--text2);margin-left:auto;" id="refreshStatus">每 3s 自動刷新</span>
+  </div>
+
+  <!-- Current Action Banner -->
+  <div class="action-banner fade-in" id="actionBanner">
+    <div class="action-icon">🤖</div>
+    <div class="action-text">
+      <h3 id="currentAction">正在載入...</h3>
+      <p id="lastUpdate">最後更新: --:--:--</p>
+    </div>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="big" id="totalMsgs">0</div>
+      <div class="label">今日訊息總數</div>
+    </div>
+    <div class="stat-card">
+      <div class="big" id="tasksDone">0</div>
+      <div class="label">任務完成數</div>
+    </div>
+    <div class="stat-card">
+      <div class="big" id="tokensUsed">0</div>
+      <div class="label">Token 使用 (K)</div>
+    </div>
+    <div class="stat-card">
+      <div class="big" id="activeTasks">0</div>
+      <div class="label">活躍任務</div>
+    </div>
+  </div>
+
+  <!-- Model Cards -->
+  <div class="section-label">🤖 AI 模型狀態</div>
+  <div class="grid-3" style="margin-bottom:20px;">
+
+    <!-- GLM5 Card -->
+    <div class="model-card glm">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div>
+          <div class="model-name" style="color:var(--glm)">GLM-5</div>
+          <div class="model-provider">Z.AI / 智譜 · 主要模型</div>
+        </div>
+        <span class="model-status status-idle" id="glm5Status">● 閒置</span>
+      </div>
+      <div class="model-stats">
+        <div class="stat-item"><div class="stat-label">Context 使用</div><div class="stat-val" id="glm5Ctx">0%</div></div>
+        <div class="stat-item"><div class="stat-label">今日訊息</div><div class="stat-val" id="glm5Msgs">0</div></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Context 窗口</span><span id="glm5CtxPct">0 / 128K</span></div>
+        <div class="progress-bar"><div class="progress-fill fill-glm" id="glm5Bar" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <!-- MiniMax Card -->
+    <div class="model-card mini">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div>
+          <div class="model-name" style="color:var(--mini)">MiniMax 2.5</div>
+          <div class="model-provider">MiniMax · 備用模型</div>
+        </div>
+        <span class="model-status status-idle" id="minimaxStatus">● 閒置</span>
+      </div>
+      <div class="model-stats">
+        <div class="stat-item"><div class="stat-label">Context 使用</div><div class="stat-val" id="minimaxCtx">0%</div></div>
+        <div class="stat-item"><div class="stat-label">今日訊息</div><div class="stat-val" id="minimaxMsgs">0</div></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Context 窗口</span><span id="minimaxCtxPct">0 / 1M</span></div>
+        <div class="progress-bar"><div class="progress-fill fill-mini" id="minimaxBar" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <!-- Info Card -->
+    <div class="card">
+      <div class="card-title"><span>ℹ️</span> 系統資訊</div>
+      <div style="font-size:12px;line-height:1.8;">
+        <div><strong>Gateway:</strong> <span id="gatewayStatus">檢測中...</span></div>
+        <div><strong>API Server:</strong> <span id="apiServerStatus">檢測中...</span></div>
+        <div><strong>Session:</strong> <span id="sessionInfo">--</span></div>
+        <div><strong>Model:</strong> <span id="currentModel">--</span></div>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);">
+          <strong>快速操作:</strong>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button class="btn btn-blue" onclick="refreshAll()" style="flex:1">↻ 刷新</button>
+            <button class="btn btn-gray" onclick="openGateway()" style="flex:1">🌐 Gateway</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Main Grid: Tasks + Activity -->
+  <div class="grid-2">
+
+    <!-- Left: Task Monitor -->
+    <div>
+      <div class="section-label">📋 任務佇列</div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>🔄</span> 活躍任務
+          <button class="btn btn-gray" style="margin-left:auto;font-size:11px;" onclick="refreshTasks()">↻</button>
+        </div>
+        <div id="activeTaskList">
+          <div style="text-align:center;padding:30px;color:var(--text2);">
+            <div style="font-size:24px;margin-bottom:8px;">📭</div>
+            <div>暫無活躍任務</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">
+          <span>✅</span> 最近完成
+        </div>
+        <div id="completedTaskList">
+          <div style="text-align:center;padding:20px;color:var(--text2);">
+            暫無已完成任務
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Activity Feed -->
+    <div>
+      <div class="section-label">📊 活動記錄</div>
+
+      <div class="card" style="max-height:600px;overflow-y:auto;">
+        <div class="card-title">
+          <span>📝</span> 即時活動
+        </div>
+        <div id="activityFeed">
+          <div class="activity-item">
+            <div class="activity-time">--:--</div>
+            <div class="activity-icon">⏳</div>
+            <div class="activity-content">
+              <div class="activity-title">等待連線...</div>
+              <div class="activity-meta">連接到 Ken AI API 以查看實時活動</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Test Actions -->
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title"><span>🧪</span> 測試操作</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <button class="btn btn-green" onclick="testUpdate()">📤 發送測試更新</button>
+          <button class="btn btn-blue" onclick="simulateTask()">➕ 模擬任務</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── State ──
+let apiConnected = false;
+let refreshTimer = null;
+let uptimeStart = Date.now();
+const REFRESH_INTERVAL = 3000; // 3 seconds
+
+// ── Uptime ──
+setInterval(() => {
+  const s = Math.floor((Date.now()-uptimeStart)/1000);
+  const h = String(Math.floor(s/3600)).padStart(2,'0');
+  const m = String(Math.floor((s%3600)/60)).padStart(2,'0');
+  const sec = String(s%60).padStart(2,'0');
+  document.getElementById('uptimeBadge').textContent = `⏱ ${h}:${m}:${sec}`;
+}, 1000);
+
+// ── API Functions ──
+async function connectAPI() {
+  const url = document.getElementById('apiUrl').value;
+  addActivity('🔌', `正在連線至 ${url}...`);
+
+  try {
+    const res = await fetch(`${url}/api/health`, {
+      signal: AbortSignal.timeout(3000)
+    });
+
+    if (res.ok) {
+      setConnected(true);
+      addActivity('✅', '成功連線至 Ken AI API');
+      await refreshAll();
+      startAutoRefresh();
+    } else {
+      setConnected(false);
+      addActivity('❌', `連線失敗: HTTP ${res.status}`);
+    }
+  } catch (e) {
+    setConnected(false);
+    addActivity('❌', `無法連線: ${e.message}`);
+  }
+}
+
+async function testAPI() {
+  const url = document.getElementById('apiUrl').value;
+
+  try {
+    const res = await fetch(`${url}/api/health`);
+    const data = await res.json();
+    alert(`✅ API 測試成功!\n\nServer: ${data.server}\nTime: ${data.timestamp}`);
+  } catch (e) {
+    alert(`❌ API 測試失敗: ${e.message}`);
+  }
+}
+
+async function fetchStatus() {
+  const url = document.getElementById('apiUrl').value;
+
+  try {
+    const res = await fetch(`${url}/api/status`, {
+      signal: AbortSignal.timeout(2000)
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      updateDashboard(data);
+      return true;
+    }
+  } catch (e) {
+    // Silent fail during auto-refresh
+  }
+
+  return false;
+}
+
+function updateDashboard(data) {
+  // Update current action
+  document.getElementById('currentAction').textContent = data.currentAction || '閒置';
+  document.getElementById('lastUpdate').textContent = `最後更新: ${formatTime(data.lastUpdated)}`;
+
+  // Update stats
+  const stats = data.stats || {};
+  document.getElementById('totalMsgs').textContent = stats.totalMessages || 0;
+  document.getElementById('tasksDone').textContent = stats.tasksCompleted || 0;
+  document.getElementById('tokensUsed').textContent = Math.floor((stats.tokensUsed || 0) / 1000);
+  document.getElementById('activeTasks').textContent = (data.activeTasks || []).length;
+
+  // Update models
+  const models = data.models || {};
+
+  if (models.glm5) {
+    const m = models.glm5;
+    document.getElementById('glm5Status').textContent = getStatusLabel(m.status);
+    document.getElementById('glm5Status').className = 'model-status ' + getStatusClass(m.status);
+    document.getElementById('glm5Ctx').textContent = (m.context || 0) + '%';
+    document.getElementById('glm5Msgs').textContent = m.messages || 0;
+    document.getElementById('glm5Bar').style.width = (m.context || 0) + '%';
+    document.getElementById('glm5CtxPct').textContent = `${Math.floor((m.context || 0) * 1280)} / 128K`;
+  }
+
+  if (models.minimax) {
+    const m = models.minimax;
+    document.getElementById('minimaxStatus').textContent = getStatusLabel(m.status);
+    document.getElementById('minimaxStatus').className = 'model-status ' + getStatusClass(m.status);
+    document.getElementById('minimaxCtx').textContent = (m.context || 0) + '%';
+    document.getElementById('minimaxMsgs').textContent = m.messages || 0;
+    document.getElementById('minimaxBar').style.width = (m.context || 0) + '%';
+    document.getElementById('minimaxCtxPct').textContent = `${Math.floor((m.context || 0) * 10000)} / 1M`;
+  }
+
+  // Update tasks
+  renderTasks(data.activeTasks || [], data.completedTasks || []);
+
+  // Update activity
+  renderActivity(data.recentActions || []);
+
+  // Update system info
+  document.getElementById('apiServerStatus').textContent = apiConnected ? '✅ 已連線' : '❌ 未連線';
+  document.getElementById('sessionInfo').textContent = `Ken AI`;
+  document.getElementById('currentModel').textContent = models.glm5?.status === 'active' ? 'GLM-5' : models.minimax?.status === 'active' ? 'MiniMax 2.5' : '閒置';
+}
+
+function renderTasks(active, completed) {
+  // Active tasks
+  const activeList = document.getElementById('activeTaskList');
+
+  if (active.length === 0) {
+    activeList.innerHTML = `
+      <div style="text-align:center;padding:30px;color:var(--text2);">
+        <div style="font-size:24px;margin-bottom:8px;">📭</div>
+        <div>暫無活躍任務</div>
+      </div>
+    `;
+  } else {
+    activeList.innerHTML = active.map(task => `
+      <div class="task-item fade-in">
+        <div class="task-icon" style="background:rgba(88,166,255,.1)">${task.icon || '📋'}</div>
+        <div class="task-info">
+          <div class="task-name">${task.name}</div>
+          <div class="task-meta">${task.model || 'Unknown'} · ${task.type || 'Task'}</div>
+        </div>
+        <div style="font-size:11px;color:var(--yellow);">${task.progress || 0}%</div>
+      </div>
+    `).join('');
+  }
+
+  // Completed tasks
+  const completedList = document.getElementById('completedTaskList');
+
+  if (completed.length === 0) {
+    completedList.innerHTML = `<div style="text-align:center;padding:20px;color:var(--text2);">暫無已完成任務</div>`;
+  } else {
+    completedList.innerHTML = completed.slice(0, 5).map(task => `
+      <div class="task-item fade-in">
+        <div class="task-icon" style="background:rgba(63,185,80,.1)">✅</div>
+        <div class="task-info">
+          <div class="task-name">${task.name}</div>
+          <div class="task-meta">${task.model || 'Unknown'} · ${formatTime(task.completedAt)}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+function renderActivity(actions) {
+  const feed = document.getElementById('activityFeed');
+
+  if (actions.length === 0) {
+    feed.innerHTML = `
+      <div class="activity-item">
+        <div class="activity-time">--:--</div>
+        <div class="activity-icon">⏳</div>
+        <div class="activity-content">
+          <div class="activity-title">等待活動...</div>
+          <div class="activity-meta">連接到 Ken AI API 以查看實時活動</div>
+        </div>
+      </div>
+    `;
+  } else {
+    feed.innerHTML = actions.slice(0, 20).map(action => `
+      <div class="activity-item fade-in">
+        <div class="activity-time">${formatTime(action.timestamp)}</div>
+        <div class="activity-icon">${getStatusIcon(action.status)}</div>
+        <div class="activity-content">
+          <div class="activity-title">${action.action}</div>
+          <div class="activity-meta">${action.model || 'System'} · ${action.status}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+// ── Helper Functions ──
+function setConnected(connected) {
+  apiConnected = connected;
+  const pulse = document.getElementById('mainPulse');
+  const status = document.getElementById('connStatus');
+
+  if (connected) {
+    pulse.className = 'pulse';
+    status.textContent = '已連線';
+    status.style.color = 'var(--green)';
+  } else {
+    pulse.className = 'pulse offline';
+    status.textContent = '未連線';
+    status.style.color = 'var(--red)';
+  }
+}
+
+function getStatusLabel(status) {
+  const labels = {
+    'active': '● 活躍',
+    'idle': '● 閒置',
+    'busy': '⟳ 忙碌',
+    'error': '✕ 錯誤'
+  };
+  return labels[status] || '● 閒置';
+}
+
+function getStatusClass(status) {
+  const classes = {
+    'active': 'status-active',
+    'idle': 'status-idle',
+    'busy': 'status-busy',
+    'error': 'status-error'
+  };
+  return classes[status] || 'status-idle';
+}
+
+function getStatusIcon(status) {
+  const icons = {
+    'active': '🔄',
+    'completed': '✅',
+    'error': '❌',
+    'queued': '⏳'
+  };
+  return icons[status] || '📋';
+}
+
+function formatTime(timestamp) {
+  if (!timestamp) return '--:--';
+  try {
+    const date = new Date(timestamp);
+    return date.toLocaleTimeString('zh-HK', { hour12: false });
+  } catch {
+    return '--:--';
+  }
+}
+
+function addActivity(icon, title, meta = '') {
+  const feed = document.getElementById('activityFeed');
+  const now = new Date().toLocaleTimeString('zh-HK', { hour12: false });
+
+  const item = document.createElement('div');
+  item.className = 'activity-item fade-in';
+  item.innerHTML = `
+    <div class="activity-time">${now}</div>
+    <div class="activity-icon">${icon}</div>
+    <div class="activity-content">
+      <div class="activity-title">${title}</div>
+      ${meta ? `<div class="activity-meta">${meta}</div>` : ''}
+    </div>
+  `;
+
+  feed.insertBefore(item, feed.firstChild);
+
+  // Keep only last 50 items
+  while (feed.children.length > 50) {
+    feed.removeChild(feed.lastChild);
+  }
+}
+
+// ── Auto Refresh ──
+function startAutoRefresh() {
+  if (refreshTimer) clearInterval(refreshTimer);
+  refreshTimer = setInterval(async () => {
+    const success = await fetchStatus();
+    if (!success) {
+      setConnected(false);
+    }
+  }, REFRESH_INTERVAL);
+}
+
+async function refreshAll() {
+  addActivity('🔄', '正在刷新數據...');
+  const success = await fetchStatus();
+  if (success) {
+    addActivity('✅', '數據已刷新');
+  } else {
+    addActivity('❌', '刷新失敗');
+  }
+}
+
+function refreshTasks() {
+  fetchStatus();
+}
+
+// ── Test Functions ──
+async function testUpdate() {
+  const url = document.getElementById('apiUrl').value;
+
+  try {
+    const res = await fetch(`${url}/api/update`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        currentAction: '測試更新 - ' + new Date().toLocaleTimeString('zh-HK'),
+        stats: {
+          totalMessages: Math.floor(Math.random() * 100),
+          tasksCompleted: Math.floor(Math.random() * 20),
+          tokensUsed: Math.floor(Math.random() * 50000)
+        }
+      })
+    });
+
+    if (res.ok) {
+      addActivity('✅', '測試更新成功');
+      await fetchStatus();
+    } else {
+      addActivity('❌', '測試更新失敗');
+    }
+  } catch (e) {
+    addActivity('❌', `更新失敗: ${e.message}`);
+  }
+}
+
+async function simulateTask() {
+  const url = document.getElementById('apiUrl').value;
+
+  const task = {
+    id: Date.now(),
+    name: '模擬任務 #' + Math.floor(Math.random() * 100),
+    model: Math.random() > 0.5 ? 'GLM-5' : 'MiniMax 2.5',
+    type: '測試',
+    status: 'active',
+    progress: Math.floor(Math.random() * 100),
+    icon: '🧪'
+  };
+
+  try {
+    const res = await fetch(`${url}/api/update`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        currentAction: `處理: ${task.name}`,
+        activeTasks: [task]
+      })
+    });
+
+    if (res.ok) {
+      addActivity('➕', `已創建模擬任務: ${task.name}`);
+      await fetchStatus();
+    }
+  } catch (e) {
+    addActivity('❌', `創建失敗: ${e.message}`);
+  }
+}
+
+// ── Misc Functions ──
+function openGateway() {
+  window.open('http://127.0.0.1:18789', '_blank');
+}
+
+// ── Initialize ──
+window.addEventListener('load', () => {
+  // Auto-connect after 1 second
+  setTimeout(() => {
+    connectAPI();
+  }, 1000);
+
+  // Check Gateway status
+  fetch('http://127.0.0.1:18789/health')
+    .then(() => {
+      document.getElementById('gatewayStatus').textContent = '✅ 運行中';
+    })
+    .catch(() => {
+      document.getElementById('gatewayStatus').textContent = '❌ 未運行';
+    });
+});
+</script>
+</body>
+</html>
