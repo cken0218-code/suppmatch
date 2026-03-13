@@ -52,7 +52,13 @@
    - 用户原话："我想問根據我咁耐嘅情況，我應該點樣改善你個md會比較好"
    - 采纳：✅ 是
    - 原因：AGENTS.md 太大（966 行），信息重复
-   - 执行：Phase 1-3 执行中
+   - 执行：Phase 1-3 已完成（减少 68% 内容）
+
+3. **选择全部执行改进建议**
+   - 用户原话："C"
+   - 采纳：✅ 是
+   - 原因：用户想要全面改进系统
+   - 执行：正在按优先级执行
 
 ---
 
@@ -100,7 +106,11 @@
 1. ✅ **自主解决原则** - 先自己解决，唔好即刻问用户
 2. ✅ **Browser tools checklist** - 执行前检查可用工具
 3. ✅ **模型切换优化** - GLM-5 primary + MiniMax-M2.1 fallback
-4. ✅ **MD 精简计划** - Phase 1-3 执行中
+4. ✅ **MD 精简计划** - Phase 1-3 完成（减少 68% 内容）
+5. ✅ **安装 self-improving-agent** - ClawHub rate limit，手动从 GitHub clone
+6. ✅ **优化 Heartbeat 学习关键词** - 新增 multi-agent / MCP / AI company
+7. ✅ **创建自动化脚本库** - check-system-health.sh, generate-daily-summary.sh, track-token-usage.py
+5. ✅ **安装 self-improving-agent** - 补充史莱姆系统，自动记录错误
 
 ---
 

@@ -45,7 +45,13 @@
 - YouTube trending（只讀元數據，不能看视频）
 
 ### 🧠 知識更新（15:00）
-- 學習搜索：YouTube automation, affiliate marketing, AI tools
+- 學習搜索：
+  - YouTube automation 2026
+  - Affiliate marketing trends 2026
+  - AI passive income tools 2026
+  - **Multi-agent orchestration 2026** ⭐ 新增
+  - **MCP protocol integration** ⭐ 新增
+  - **AI company architecture** ⭐ 新增
 - AI 新聞 / 更新
 
 ---
