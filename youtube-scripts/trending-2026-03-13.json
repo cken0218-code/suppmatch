@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-03-13T11:23:12.482036",
+  "topics": [
+    {
+      "topic": "15 AI Tools Trending March 2026",
+      "description": "Explore trending AI tools including ChatGPT, Claude, Gemini",
+      "potential_score": 32
+    },
+    {
+      "topic": "Best Health Supplements for Sleep 2026",
+      "description": "Science-backed supplements for better sleep",
+      "potential_score": 21
+    },
+    {
+      "topic": "Productivity Hacks Using AI in 2026",
+      "description": "How AI can boost your productivity",
+      "potential_score": 20
+    },
+    {
+      "topic": "AI Automation for Small Business",
+      "description": "How to automate your business with AI",
+      "potential_score": 14
+    }
+  ],
+  "selected": {
+    "topic": "15 AI Tools Trending March 2026",
+    "description": "Explore trending AI tools including ChatGPT, Claude, Gemini",
+    "potential_score": 32,
+    "reason": "最高潛力分數：32/100"
+  }
+}
