@@ -110,6 +110,8 @@
 5. ✅ **安装 self-improving-agent** - ClawHub rate limit，手动从 GitHub clone
 6. ✅ **优化 Heartbeat 学习关键词** - 新增 multi-agent / MCP / AI company
 7. ✅ **创建自动化脚本库** - check-system-health.sh, generate-daily-summary.sh, track-token-usage.py
+8. ✅ **创建 MCP Phase 2-4 详细计划** - Deadline: Apr 1，3 个 phases 规划完成
+9. ✅ **创建 Multi-Agent 测试计划** - 4 个测试场景，测试 handoff / 品控 / 错误恢复
 5. ✅ **安装 self-improving-agent** - 补充史莱姆系统，自动记录错误
 
 ---
