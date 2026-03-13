@@ -43,10 +43,33 @@ from uploader.xiaohongshu_uploader.main import XiaoHongShuVideo
 # 详见 examples/upload_video_to_xiaohongshu.py
 ```
 
-### 4. 查看数据（开发中）
+### 4. Trending 监控 ✅ (NEW)
+自动监控小红书热门话题和趋势。
+
+**运行方式**：
+```bash
+cd skills/xiaohongshu
+python3 scripts/trending_monitor.py
+```
+
+**功能**：
+- 爬取热门分类（美妆、穿搭、美食、健康）
+- 分析点赞、浏览数据
+- 生成推荐行动
+- 保存原始数据和分析报告
+
+**输出**：
+- `output/trending/trending-YYYY-MM-DD-HHMMSS.json` - 原始数据
+- `output/trending/analysis-YYYY-MM-DD-HHMMSS.json` - 分析报告
+
+**自动化**：
+- Cron: 每日 10:00 执行
+- Heartbeat: 整合到每日检查
+
+### 5. 查看数据（开发中）
 通过 RPA 方式获取笔记数据。
 
-### 5. 学习他人笔记（开发中）
+### 6. 学习他人笔记（开发中）
 通过 RPA 方式浏览和分析热门笔记。
 
 ## 完整工作流

@@ -61,7 +61,14 @@
 ### 🔍 Trending Content（12:00 + 18:00）
 - [ ] X (Twitter) trending（keywords: AI, automation, YouTube, agent）
 - [ ] GitHub trending（AI/ML/LLM repos）
+- [ ] **小紅書 trending**（美妝、穿搭、美食、健康）✅ NEW
 - [ ] 有發現就記錄 + alert
+
+**小紅書 Trending 監控**：
+```bash
+# 每日 10:00 執行
+0 10 * * * cd ~/.openclaw/workspace && python3 skills/xiaohongshu/scripts/trending_monitor.py
+```
 
 ### 🧠 知識更新（15:00）
 - [ ] AI 新聞 / 更新（OpenAI, Anthropic, 開源項目）

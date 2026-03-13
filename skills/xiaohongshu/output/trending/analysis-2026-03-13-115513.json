@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-03-13T11:55:13.611428",
+  "total_posts": 12,
+  "avg_likes": 12933.333333333334,
+  "avg_views": 86250.0,
+  "top_categories": [
+    {
+      "category": "健康",
+      "total_likes": 45200,
+      "total_views": 296000,
+      "post_count": 3
+    },
+    {
+      "category": "美食",
+      "total_likes": 43700,
+      "total_views": 292000,
+      "post_count": 3
+    },
+    {
+      "category": "穿搭",
+      "total_likes": 35800,
+      "total_views": 241000,
+      "post_count": 3
+    },
+    {
+      "category": "美妆",
+      "total_likes": 30500,
+      "total_views": 206000,
+      "post_count": 3
+    }
+  ],
+  "recommendations": [
+    "🔥 最热门分类：健康（45,200 likes）",
+    "📊 平均互动：12,933 likes, 86,250 views",
+    "💡 建议：创作 健康 相关内容"
+  ]
+}
