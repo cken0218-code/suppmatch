@@ -1,7 +1,7 @@
 # AGENTS.md - 工作空间指南
 
-> **Last Updated**: 2026-02-24
-> **Version**: 2.1
+> **Last Updated**: 2026-03-13
+> **Version**: 2.2
 
 ---
 
@@ -19,6 +19,7 @@
 - [Heartbeats](#-heartbeats---be-proactive)
 - [自主报告工作流](#-主動回報工作流程autonomous-reporting)
 - [🤖 自主調動系統](#-自主調動系統)
+- [🔧 自主解決原則](#-自主解決原則最重要)
 - [Debug & Fail Handling](#-debug--fail-handling)
 - [版本控制](#-版本控制)
 
@@ -454,6 +455,103 @@ When crawling X/Threads/小紅書:
 **失敗率追蹤**：`memory/tool-success-rates.json`（每月自動更新）
 
 **詳細文檔**：`memory/autonomous-tool-selection.md`
+
+---
+
+## 🔧 自主解決原則（最重要）
+
+**核心理念**：遇到任何工具問題，**先自己解決，唔好即刻問用戶**。
+
+### 解決順序
+
+1. **檢查記憶**
+   - 搜尋 `memory/errors/` 有冇類似問題嘅解決記錄
+   - 參考 `memory/autonomous-tool-selection.md`
+
+2. **嘗試 fallback 工具**
+   - 參考工具選擇矩陣（見上方）
+   - 例如：Brave API fail → DuckDuckGo
+
+3. **自己 Google 搵解決方法**
+   - 搜尋錯誤信息
+   - 查官方文檔
+   - 搵社群討論
+
+4. **試咗 2 個方法都失敗 → 先通知用戶**
+   - 附上試咗咩方法
+   - 附上失敗原因
+   - 附上建議下一步
+
+### 唔好做嘅
+
+- ❌ 一遇到問題即刻問用戶
+- ❌ 「你需要幫我做X」— 唔係，你先嘗試
+- ❌ 等確認先行動（內部任務）
+
+### 例子
+
+**例子 1：瀏覽器唔得**
+```
+❌ 錯誤做法：
+「Browser tool 唔得，你手動搞啦」
+
+✅ 正確做法：
+1. 檢查 memory/errors/ - 有冇類似記錄？
+2. 試 Chrome extension relay
+3. 試 OpenClaw 自帶 browser
+4. 試 web_fetch（如果適用）
+5. 全部失敗 → 通知用戶 + 附上試過嘅方法
+```
+
+**例子 2：API 失敗**
+```
+❌ 錯誤做法：
+「Brave API quota 用完，你用 DuckDuckGo 啦」
+
+✅ 正確做法：
+1. 檢查 quota（memory/quota-state.json）
+2. 自動切換到 DuckDuckGo
+3. 記錄到 memory/errors/
+4. 完成任務，唔使用戶知
+```
+
+**例子 3：唔識某個工具**
+```
+❌ 錯誤做法：
+「我唔識用呢個工具，你教我」
+
+✅ 正確做法：
+1. 讀 SKILL.md
+2. Google 搜尋教程
+3. 自己測試
+4. 唔得先問
+```
+
+### 遇到 Browser 任務時
+
+**執行前先檢查**：
+```bash
+openclaw tools list
+```
+
+確認有冇可用工具，唔好假設冇。
+
+**Browser 工具優先順序**：
+1. Chrome extension relay（最快，需要用戶 attach）
+2. OpenClaw 自帶 browser（獨立，需要重新登入）
+3. web_fetch（輕量，只支援靜態頁面）
+4. AppleScript（macOS 自動化）
+
+### 成功指標
+
+| 指標 | 目標 | 當前 |
+|------|------|------|
+| 自主解決率 | > 80% | - |
+| 用戶介入率 | < 10% | - |
+| 首次成功率 | > 70% | - |
+| 平均解決時間 | < 2 分鐘 | - |
+
+**追蹤檔案**：`memory/autonomous-resolution-log.md`
 
 ---
 
