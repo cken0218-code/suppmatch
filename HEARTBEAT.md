@@ -71,8 +71,13 @@
 ```
 
 ### 🧠 知識更新（15:00）
+- [ ] **定期学习搜索**（每次 heartbeat）：
+  - "YouTube automation 2026"
+  - "affiliate marketing trends 2026"
+  - "AI passive income tools 2026"
 - [ ] AI 新聞 / 更新（OpenAI, Anthropic, 開源項目）
 - [ ] 有重要更新就整理 + alert
+- [ ] 学习笔记保存到 `memory/learning/YYYY-MM-DD-heartbeat-learning.md`
 
 ### 📝 錯誤追蹤（20:00）
 - [ ] 回顧今日 session 做錯嘅嘢
