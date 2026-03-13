@@ -13,19 +13,67 @@
 
 ---
 
-## Multi-Agent 架构 (2026-02-22)
+## Multi-Agent 架构 (2026-03-13 更新)
 
+**总览**：从「一个助理」升级成「一间 AI 公司」，共 14 个 Agents。
+
+### Level 1: Command Layer
 | Agent | 职责 | 模型 |
 |-------|------|------|
-| **Ken (Main)** | 对外通信、统筹 | MiniMax/GLM-5 |
-| **YouTube Agent** 📺 | Trending、内容创作 | M2.5 |
-| **Stock Agent** 💰 | 澳洲股票分析 | M2.5 |
-| **Research Agent** 📚 | Skills扫描、趋势 | GLM-5 |
+| **Ken (Main)** 🐱 | 对外通信、统筹、战略决策 | GLM-5 + MiniMax |
+
+### Level 2: Operations Layer
+| Agent | 职责 | 模型 |
+|-------|------|------|
+| **Operations Agent** 📋 | 日常任务、Heartbeat、系统监控 | MiniMax |
+
+### Level 3: Content Hub
+| Agent | 职责 | 模型 |
+|-------|------|------|
+| **YouTube Agent** 📺 | Trending、腚本、SEO、发布 | GLM-5 + MiniMax |
+| **Newsletter Agent** 📧 | Beehiiv 管理、Issue 生成 | GLM-5 |
+| **Blog Agent** 📝 | WordPress/Ghost、SEO 内容 | GLM-5 + MiniMax |
+| **Affiliate Agent** 💰 | 产品研究、Landing page、Conversion | GLM-5 + MiniMax |
+
+### Level 4: Research & Analysis Hub
+| Agent | 职责 | 模型 |
+|-------|------|------|
+| **Stock Agent** 📈 | 澳股分析、技术指标、信号 | MiniMax |
+| **Crypto Agent** ₿ | BTC/ETH/SOL 追踪、Fear & Greed | MiniMax |
+| **Research Agent** 📚 | Skills 扫描、AI 趋势、学习 | GLM-5 |
+
+### Level 5: Infrastructure Hub
+| Agent | 职责 | 模型 |
+|-------|------|------|
+| **Evolution Agent** 🧬 | 史莱姆演化、Skills 基因、XP | GLM-5 |
+| **MCP Agent** 🔌 | MCP servers、Phase 1-4 整合 | GLM-5 |
+
+### Level 6: Quality Assurance Hub
+| Agent | 职责 | 模型 |
+|-------|------|------|
+| **QA Agent** 🔍 | 品质控制、评分、改进建议 | GLM-5 |
+| **R&D Agent** 💡 | 新工具测试、提案、实验 | GLM-5 |
+| **Integration Agent** 🔗 | Agent 协调、Handoff、API | MiniMax |
 
 ### Skills 位置
 - `skills/youtube-agent/` - YouTube 自动化
 - `skills/stock-agent/` - 股票分析
 - `skills/research-agent/` - 研究扫描
+- `skills/newsletter-agent/` - Newsletter 管理
+- `skills/affiliate-agent/` - 联盟行销
+- `skills/blog-agent/` - 博客内容
+- `skills/crypto-agent/` - 加密货币
+- `skills/mcp-agent/` - MCP 整合
+- `skills/qa-agent/` - 品质控制
+- `skills/rd-agent/` - 研发创新
+- `skills/integration-agent/` - 整合协调
+- `skills/operations-agent/` - 运营管理
+- `skills/slime-evolution/` - 史莱姆演化
+
+### 架构文档
+- 详细架构：`memory/ai-company-architecture.md`
+- 品控机制：`memory/qc-mechanism.md`
+- Handoff 模板：`memory/handoff-template.md`
 
 ---
 
