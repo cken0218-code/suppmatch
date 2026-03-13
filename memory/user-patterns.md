@@ -112,6 +112,8 @@
 7. ✅ **创建自动化脚本库** - check-system-health.sh, generate-daily-summary.sh, track-token-usage.py
 8. ✅ **创建 MCP Phase 2-4 详细计划** - Deadline: Apr 1，3 个 phases 规划完成
 9. ✅ **创建 Multi-Agent 测试计划** - 4 个测试场景，测试 handoff / 品控 / 错误恢复
+10. ✅ **创建用户反馈系统** - 每周自动收集反馈，追踪满意度
+11. ✅ **创建 Skill 推荐系统框架** - 根据用户习惯自动推荐 skills
 5. ✅ **安装 self-improving-agent** - 补充史莱姆系统，自动记录错误
 
 ---
