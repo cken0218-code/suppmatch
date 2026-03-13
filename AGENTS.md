@@ -27,13 +27,22 @@
 
 ## Every Session
 
-**启动时必读（按顺序）：**
+**启动时必读（按顺序）**：
 
-1. `memory/L0-core.md` - 核心认知 ⭐
+1. `memory/identity-compact.md` - 身份 + 灵魂 + 用户偏好 ⭐
 2. `memory/L1-daily/今天.md` - 今日日志
 3. `memory/L1-daily/昨日.md` - 昨日日志
-4. `SOUL.md` - 你的灵魂
-5. `USER.md` - 你的主人
+
+**详细文档（需要时读取）**：
+- Multi-Agent 架构：`memory/ai-company-architecture.md`
+- 品控机制：`memory/qc-mechanism.md`
+- Handoff 模板：`memory/handoff-template.md`
+- 用户习惯：`memory/user-patterns.md`
+
+**精简版（推荐）**：
+- 工作规则：`memory/AGENTS-compact.md`（220 行）
+- 心跳规则：`memory/HEARTBEAT-compact.md`（70 行）
+- 工具清单：`memory/TOOLS-compact.md`（110 行）
 
 **不再读 MEMORY.md**（太大，会被截断）
 
@@ -41,12 +50,12 @@
 
 ## 🤖 Model 切换规则
 
-**核心原则**：70% 用 MiniMax M2.1，30% 用 GLM-5（避免 API 压力）
+**核心原则**：70% 用 GLM-5，30% 用 MiniMax-M2.1（复杂任务优先）
 
-### 默认模型配置（已更新 2026-03-13）
+### 默认模型配置（已更新 2026-03-13 18:27）
 
-- **Primary**: MiniMax-M2.1（稳定、支持）
-- **Fallback**: GLM-5（复杂任务）
+- **Primary**: GLM-5（强大推理）
+- **Fallback**: MiniMax-M2.1（稳定后备）
 
 ### 自动切换表
 
@@ -57,20 +66,20 @@
 | 規劃、設計、workflow | GLM-5 | Multi-step |
 | 寫程式、refactor | GLM-5 | Code 推理 |
 | 研究、學習新技術 | GLM-5 | 深度理解 |
-| 總結、歸檔、整理 | MiniMax M2.1 | 简单整理 |
-| 查天氣、查資料 | MiniMax M2.1 | 单一搜索 |
-| 閒聊、簡單問題 | MiniMax M2.1 | 日常对话 |
-| heartbeat、git status | MiniMax M2.1 | 例行任务 |
-| 記錄、寫日誌 | MiniMax M2.1 | 简单记录 |
-| 數據分析 | MiniMax M2.1 | 快速计算 |
+| 總結、歸檔、整理 | GLM-5 | 简单整理 |
+| 查天氣、查資料 | GLM-5 | 单一搜索 |
+| 閒聊、簡單問題 | GLM-5 | 日常对话 |
+| heartbeat、git status | GLM-5 | 例行任务 |
+| 記錄、寫日誌 | GLM-5 | 简单记录 |
+| 數據分析 | GLM-5 | 快速计算 |
 
 ### ⚠️ 已知问题（2026-03-13）
 
 | 模型 | 状态 | 原因 |
 |------|------|------|
+| **GLM-5** | ⚠️ 偶尔 timeout | API 压力大（已设为 primary）|
+| **MiniMax-M2.1** | ✅ 稳定 | Fallback（备用）|
 | **MiniMax-M2.5** | ❌ 不支持 | 当前计划不支持 |
-| **GLM-5** | ⚠️ 偶尔 timeout | API 压力大 |
-| **MiniMax-M2.1** | ✅ 稳定 | 推荐 |
 
 ### 切换流程
 
@@ -79,11 +88,11 @@
     ↓
 评估复杂度（检查触发词）
     ↓
-需要 GLM-5？ ─Yes→ session_status(model="glm-5")
+需要 MiniMax？ ─Yes→ session_status(model="minimax")
     ↓No
-用 MiniMax M2.1（默认）
+用 GLM-5（默认）
     ↓
-完成后 → 切回 MiniMax M2.1（如果之前切过）
+如果 timeout → 自动切 MiniMax-M2.1
 ```
 
 ### Quota 监控
