@@ -123,6 +123,19 @@
 - [ ] 文件位置：`newsletter/issue-*.md`
 - [ ] 设置指南：`newsletter/beehiiv-setup-guide.md`
 
+### 🔍 每周五 ClawHub Skills 扫描（13:50）
+- [ ] 搜索 ClawHub 新 skills（3 个）
+- [ ] 列出：名称 + 用途 + 建议安装原因
+- [ ] 保存到 `memory/skill-suggestions.md`
+- [ ] **等用户决定**装唔装
+
+### 📊 每周日 L2-Weekly 摘要（晚上）
+- [ ] 翻阅过去 7 日 L1-daily 日志
+- [ ] 找跨日相关话题、想法、未完成的事
+- [ ] 串连成 L2-weekly 摘要
+- [ ] **发现有意思的"跨日链接"→ 主动通知**
+- [ ] 保存到 `memory/L2-weekly/YYYY-WXX.md`
+
 ### 📊 每周五投资机会清单（13:35）
 - [ ] 分析澳股 + BTC/ETH 走势
 - [ ] 生成"下周值得留意"清单
