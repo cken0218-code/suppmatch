@@ -41,7 +41,12 @@
 
 ## 🤖 Model 切换规则
 
-**核心原则**：90% 用 MiniMax，10% 用 GLM-5（慳钱 + 够用）
+**核心原则**：70% 用 MiniMax M2.1，30% 用 GLM-5（避免 API 压力）
+
+### 默认模型配置（已更新 2026-03-13）
+
+- **Primary**: MiniMax-M2.1（稳定、支持）
+- **Fallback**: GLM-5（复杂任务）
 
 ### 自动切换表
 
@@ -52,11 +57,20 @@
 | 規劃、設計、workflow | GLM-5 | Multi-step |
 | 寫程式、refactor | GLM-5 | Code 推理 |
 | 研究、學習新技術 | GLM-5 | 深度理解 |
-| 總結、歸檔、整理 | MiniMax | 简单整理 |
-| 查天氣、查資料 | MiniMax | 单一搜索 |
-| 閒聊、簡單問題 | MiniMax | 日常对话 |
-| heartbeat、git status | MiniMax | 例行任务 |
-| 記錄、寫日誌 | MiniMax | 简单记录 |
+| 總結、歸檔、整理 | MiniMax M2.1 | 简单整理 |
+| 查天氣、查資料 | MiniMax M2.1 | 单一搜索 |
+| 閒聊、簡單問題 | MiniMax M2.1 | 日常对话 |
+| heartbeat、git status | MiniMax M2.1 | 例行任务 |
+| 記錄、寫日誌 | MiniMax M2.1 | 简单记录 |
+| 數據分析 | MiniMax M2.1 | 快速计算 |
+
+### ⚠️ 已知问题（2026-03-13）
+
+| 模型 | 状态 | 原因 |
+|------|------|------|
+| **MiniMax-M2.5** | ❌ 不支持 | 当前计划不支持 |
+| **GLM-5** | ⚠️ 偶尔 timeout | API 压力大 |
+| **MiniMax-M2.1** | ✅ 稳定 | 推荐 |
 
 ### 切换流程
 
@@ -67,9 +81,9 @@
     ↓
 需要 GLM-5？ ─Yes→ session_status(model="glm-5")
     ↓No
-用 MiniMax
+用 MiniMax M2.1（默认）
     ↓
-完成后 → 切回 MiniMax（如果之前切过）
+完成后 → 切回 MiniMax M2.1（如果之前切过）
 ```
 
 ### Quota 监控

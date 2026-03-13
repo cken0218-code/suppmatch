@@ -58,14 +58,20 @@ code ~/.openclaw/openclaw.json
 ## 🤖 Models
 
 ### 主要 Models
-| Model | Provider | 用途 |
-|-------|----------|------|
-| GLM-5 | Zai | 复杂任务 |
-| MiniMax-M2.5 | MiniMax | 日常对话 |
+| Model | Provider | 用途 | 状态 |
+|-------|----------|------|------|
+| MiniMax-M2.1 | MiniMax | 日常对话（推荐）| ✅ 稳定 |
+| GLM-5 | Zai | 复杂任务 | ⚠️ 偶尔 timeout |
+| MiniMax-M2.5 | MiniMax | ❌ 不支持 | 当前计划不支持 |
+
+### 默认配置（已更新 2026-03-13）
+- **Primary**: MiniMax-M2.1
+- **Fallback**: GLM-5
 
 ### Aliases
+- `minimax` → minimax-portal/MiniMax-M2.1（更新）
 - `glm-5` → zai/glm-5
-- `minimax` → minimax-portal/MiniMax-M2.5
+- `minimax-m2.5` → ❌ 不可用
 
 ---
 
