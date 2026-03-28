@@ -1,16 +1,10 @@
 {
   "brave": {
-    "used": 0,
+    "used": 392,
     "total": 2000,
-    "percent": 0,
-    "lastReset": "2026-02-23T00:00:00Z",
-    "note": "No Brave API key configured, using DuckDuckGo fallback"
-  },
-  "duckduckgo": {
-    "used": 25,
-    "lastCheck": "2026-03-12T00:32:00Z",
-    "note": "Fallback search engine (blocked by captcha today)"
-  },
-  "lastCheck": "2026-03-12T12:01:00Z",
-  "lastTask": "Error tracking (20:00) - no critical errors, system stable"
+    "percent": 19.6,
+    "lastCheck": "2026-03-27T10:10:00Z",
+    "status": "rate_limit_exceeded",
+    "fallback": "duckduckgo"
+  }
 }

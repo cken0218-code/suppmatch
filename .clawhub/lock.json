@@ -60,6 +60,66 @@
     "memoclaw": {
       "version": "1.15.0",
       "installedAt": 1772195700635
+    },
+    "agent-team-orchestration": {
+      "version": "1.0.0",
+      "installedAt": 1773748937047
+    },
+    "notion": {
+      "version": "1.0.0",
+      "installedAt": 1774009144654
+    },
+    "api-gateway": {
+      "version": "1.0.69",
+      "installedAt": 1774009213520
+    },
+    "openai-whisper": {
+      "version": "1.0.0",
+      "installedAt": 1774009444908
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1774009501445
+    },
+    "proactive-agent": {
+      "version": "3.1.0",
+      "installedAt": 1774009506258
+    },
+    "ai-humanizer": {
+      "version": "2.1.0",
+      "installedAt": 1774009566292
+    },
+    "gog": {
+      "version": "1.0.0",
+      "installedAt": 1774009742780
+    },
+    "skill-vetter": {
+      "version": "1.0.0",
+      "installedAt": 1774009866537
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1774010165389
+    },
+    "baidu-search": {
+      "version": "1.1.3",
+      "installedAt": 1774011482784
+    },
+    "multi-search-engine": {
+      "version": "2.0.1",
+      "installedAt": 1774012322067
+    },
+    "sonoscli": {
+      "version": "1.0.0",
+      "installedAt": 1774012579588
+    },
+    "obsidian": {
+      "version": "1.0.0",
+      "installedAt": 1774012982754
+    },
+    "adclaw": {
+      "version": "1.0.25",
+      "installedAt": 1774013703600
     }
   }
 }

@@ -281,7 +281,8 @@ QA Agent 自动审阅
 - [ ] Discord MCP Server 官方文档
 - [ ] Discord.js API 文档
 - [ ] Discord Bot 权限配置
-- [ ] 现有 Discord MCP 实现参考
+- [x] 现有 Discord MCP 实现参考 (2026-03-15 发现: KraoESPfan1n/discord-MCP)
+- [x] npm package 参考 (@scarecr0w12/discord-mcp)
 
 ### Phase 3: n8n MCP
 - [ ] n8n API 官方文档
@@ -305,6 +306,39 @@ QA Agent 自动审阅
 ### 下周（3月18-24日）
 - 开始 Phase 2 实施
 - Discord MCP Server 开发
+
+---
+
+## 📚 研究发现 (2026-03-15)
+
+### Discord MCP 参考实现
+
+**1. KraoESPfan1n/discord-MCP** (推荐参考)
+- GitHub: https://github.com/KraoESPfan1n/discord-MCP
+- 特点:
+  - Discord.js + Express + TypeScript
+  - Components v2 支持
+  - Channel/Role 管理
+  - Webhook 系统
+  - 完整测试覆盖
+
+**2. @scarecr0w12/discord-mcp** (npm package)
+- npm: https://www.npmjs.com/package/@scarecr0w12/discord-mcp
+- 特点:
+  - HTTP transport with SSE
+  - STDIO 模式支持
+
+### 技术栈建议
+- **Language**: TypeScript
+- **Framework**: Discord.js v14+
+- **MCP SDK**: @modelcontextprotocol/server
+- **Transport**: STDIO (与 OpenClaw 兼容)
+
+### 实施策略
+1. 先 fork/clone 参考实现
+2. 精简为 MCP STDIO 模式
+3. 保留核心功能: list_channels, send_message, get_messages
+4. 添加 OpenClaw 集成
 
 ---
 

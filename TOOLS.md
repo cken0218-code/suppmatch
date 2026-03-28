@@ -57,16 +57,16 @@ code ~/.openclaw/openclaw.json
 
 ## 🤖 Models
 
-### 主要 Models
-| Model | Provider | 用途 | 状态 |
-|-------|----------|------|------|
-| MiniMax-M2.1 | MiniMax | 日常对话（推荐）| ✅ 稳定 |
-| GLM-5 | Zai | 复杂任务 | ⚠️ 偶尔 timeout |
-| MiniMax-M2.5 | MiniMax | ❌ 不支持 | 当前计划不支持 |
+### Model Routing
 
-### 默认配置（已更新 2026-03-13）
-- **Primary**: MiniMax-M2.1
-- **Fallback**: GLM-5
+| Model | 用途 | 类型 |
+|-------|------|------|
+| **GLM-5** | 思考：planning, debug, analysis, strategy | 思考型 |
+| **MiniMax** | 生成：content, social, 翻译, 文案 | 生成型 |
+
+### 默认配置（已更新 2026-03-15）
+- **默认**: MiniMax（生成）
+- **需要思考**: 切换 GLM-5
 
 ### Aliases
 - `minimax` → minimax-portal/MiniMax-M2.1（更新）

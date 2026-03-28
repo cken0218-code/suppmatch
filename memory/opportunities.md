@@ -1,9 +1,10 @@
-# 每周机会扫描 — 2026-03-13
+# 每周机会扫描 — 2026-03-20
 
 > **Created**: 2026-03-13 13:19
-> **Source**: Reddit r/passive_income + YouTube Trending
+> **Updated**: 2026-03-20 12:35
+> **Source**: Reddit r/passive_income + YouTube Trending + GitHub Trending
 > **Frequency**: 每周五执行
-> **Next Scan**: 2026-03-20
+> **Next Scan**: 2026-03-27
 
 ---
 
@@ -150,7 +151,7 @@
 
 ## 🎯 推荐执行顺序
 
-### 本周（2026-03-13 to 2026-03-20）
+### 本周（2026-03-20 to 2026-03-27）
 **优先级 1**：YouTube 频道
 - 录制第一条视频
 - 建立发布 workflow
@@ -159,13 +160,13 @@
 - 注册 Beehiiv
 - 发布第一期
 
-### 本月（2026-03-13 to 2026-04-13）
+### 本月（2026-03-20 to 2026-04-20）
 **并行执行**：
 1. YouTube：4-8 条视频
 2. Newsletter：4 期
 3. 数字产品：完成第一个产品
 
-### 本季度（2026-03-13 to 2026-06-13）
+### 本季度（2026-03-20 to 2026-06-20）
 **目标**：
 - YouTube：1K subscribers + $500/month
 - Newsletter：500 subscribers + $300/month
@@ -174,50 +175,65 @@
 
 ---
 
-## 📈 Reddit 关键洞察
+## 📈 Reddit 关键洞察（2026-03-20 更新）
 
-### r/passive_income 热门话题（2026-03）
+### r/passive_income 热门话题
 
-**1. 数字资产 > 传统被动收入**
+**1. AI Voice Cloning 成为新热点**
+- "They train a model to your voice and thats all, completely passive"
+- AI 语音模型训练服务需求上升
+- 需要真人声音作为训练数据
+
+**2. "Most realistic passive income" 讨论**
+- 收入曲线前期平坦，需要耐心
+- "The first few months you're probably making close to nothing"
+- 长期坚持的重要性
+
+**3. 数字资产 > 传统被动收入**
 - "创建一次，持续销售"
 - 在线课程、电子书、模板
 - 100% 利润率
 
-**2. Faceless YouTube Channels**
-- 低成本启动
-- AI 生成内容
-- 可以匿名运营
-
-**3. 第一方数据策略**
-- Email list 是王道
-- 不依赖第三方 cookie
-- 直接联系受众
-
-**4. Instagram Theme Pages**
-- 低启动成本（只需手机）
-- 可以匿名运营
-- 联盟营销整合
-
 ---
 
-## 📺 YouTube Trending 观察
+## 📺 YouTube Trending 观察（2026-03-20 更新）
 
 ### AI Automation 相关趋势
 
-**1. AI Tools Review 视频**
-- 高需求、低竞争 niche
-- "AI Tools 2026" 搜索量上升
-- 观众寻找真实评测
+**1. Workflow Automation Platforms 热门**
+- **Zapier, Gumloop, n8n, Make, Jira** - 五大平台
+- 教程视频需求高
+- 联盟营销机会
 
-**2. YouTube 自动化教程**
-- "如何用 AI 做 YouTube"
-- 面向创作者的教育内容
-- 高 CPM（$20-40）
+**2. AI Coding Tools**
+- Base44 等 AI 编码工具崛起
+- 开发者教育内容需求大
+- $20-40 CPM
 
-**3. Faceless Channel 案例**
-- "如何从零开始"
-- 收入分享视频
-- 高互动率
+**3. AI Video Editing**
+- YouTube 创作者需求强劲
+- Adobe Premiere Pro + Sensei AI
+- 自动化编辑工具兴起
+
+---
+
+## 🔥 新发现：GitHub Trending 机会
+
+### Claude HUD（2026-03-19）
+- **描述**：实时监控 Claude Code 上下文与代理进度
+- **作者**：jarrodwatts
+- **亮点**：可视化 AI 编码过程
+- **机会**：可以开发类似监控工具 + 教程
+
+### GPT-5.4 即将推出
+- **功能**：百万 token context window
+- **影响**：长文本处理、AI 记忆能力飞跃
+- **机会**：相关教程 + API 集成服务
+
+### Tech Trends 2026
+1. **Wireless charging** - 电缆级速度
+2. **Next-gen chips** - 解决 AI 功耗问题
+3. **Humanoid robots** - 从演示到工厂
 
 ---
 
@@ -239,12 +255,12 @@
 
 ## 💡 本周行动清单
 
-### 立即执行（今日）
-- [ ] 研究 Vimerse Studio（视频编辑）
-- [ ] 注册 Beehiiv（Newsletter）
-- [ ] 创建第一个数字产品大纲
+### 立即执行（2026-03-20）
+- [x] 研究 GitHub 新工具（Claude HUD）
+- [x] 更新 opportunities.md
+- [ ] 研究 n8n/Gumloop 教程系列
 
-### 本周完成（2026-03-13 to 2026-03-20）
+### 本周完成（2026-03-20 to 2026-03-27）
 - [ ] YouTube：录制 + 发布第一条视频
 - [ ] Newsletter：发布第一期
 - [ ] 数字产品：完成第一个产品草稿
@@ -265,17 +281,37 @@
 
 ---
 
+## 📅 上周机会追踪（2026-03-13 → 2026-03-20）
+
+| 机会 | 目标 | 实际 | 状态 |
+|------|------|------|------|
+| YouTube 频道 | 录制第一条视频 | ❌ 未完成 | 🔴 需跟进 |
+| Newsletter | 发布第一期 | ❌ 未完成 | 🔴 需跟进 |
+| 数字产品 | 完成第一个产品 | ❌ 未完成 | 🔴 需跟进 |
+
+**原因分析**：
+- 需要专门规划时间
+- 可能需要更多资源/准备
+
+---
+
 ## 🔗 相关资源
 
 ### Reddit Threads
 - [Best skills for 2026 passive income](https://www.reddit.com/r/passive_income/comments/1p9a0u3/)
 - [Passive income tier list 2026](https://www.reddit.com/r/passive_income/comments/1pbarx0/)
 - [Side hustles working in 2026](https://www.reddit.com/r/passive_income/comments/1qj28cb/)
+- [What passive income ideas actually work for beginners in 2026](https://www.reddit.com/r/passive_income/comments/1rv4jox/)
 
 ### YouTube Trending
 - AI Tools 2026 reviews
 - YouTube automation tutorials
-- Faceless channel case studies
+- n8n, Gumloop, Make 教程
+
+### GitHub Trending
+- Claude HUD
+- learn-claude-code (33,721 stars)
+- Maestro (12,470 stars)
 
 ### 工具
 - Vimerse Studio（视频编辑）
@@ -286,5 +322,6 @@
 
 **Created by**: Ken AI Assistant
 **Date**: 2026-03-13 13:19
-**Next Scan**: 2026-03-20（每周五）
-**Status**: 3 opportunities identified, ready for execution
+**Last Updated**: 2026-03-20 12:35
+**Next Scan**: 2026-03-27（每周五）
+**Status**: 3 opportunities identified, 3 pending from last week

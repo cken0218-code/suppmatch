@@ -32,6 +32,8 @@
 1. `memory/identity-compact.md` - 身份 + 灵魂 + 用户偏好 ⭐
 2. `memory/L1-daily/今天.md` - 今日日志
 3. `memory/L1-daily/昨日.md` - 昨日日志
+4. `memory/tasks.md` - 任务清单
+5. `memory/knowledge/` - 知识库（需要时查）
 
 **详细文档（需要时读取）**：
 - Multi-Agent 架构：`memory/ai-company-architecture.md`
@@ -50,28 +52,39 @@
 
 ## 🤖 Model 切换规则
 
-**核心原则**：70% 用 GLM-5，30% 用 MiniMax-M2.1（复杂任务优先）
+**核心原则**：
+- **GLM-5** = 思考（分析、规划、debug、策略）
+- **MiniMax** = 生成（内容、社媒、翻译、日常）
 
-### 默认模型配置（已更新 2026-03-13 18:27）
+### Model Routing
 
-- **Primary**: GLM-5（强大推理）
-- **Fallback**: MiniMax-M2.1（稳定后备）
+| 任务类型 | Model | 原因 |
+|----------|-------|------|
+| **思考型** | | |
+| planning | GLM-5 | 需要规划 |
+| debug | GLM-5 | 需要推理 |
+| analysis | GLM-5 | 需要分析 |
+| strategy | GLM-5 | 需要策略 |
+| architect | GLM-5 | 需要架构 |
+| **生成型** | | |
+| content | MiniMax | 内容生成 |
+| social | MiniMax | 社媒文案 |
+| translation | MiniMax | 翻译 |
+|文案、脚本 | MiniMax | 生成内容 |
+| 闲聊 | MiniMax | 日常对话 |
 
-### 自动切换表
+### 切换流程
 
-| 触发词/任务类型 | Model | 原因 |
-|----------------|-------|------|
-| debug、錯誤、唔work | GLM-5 | 需要推理 |
-| 分析、趨勢、策略 | GLM-5 | 需要思考 |
-| 規劃、設計、workflow | GLM-5 | Multi-step |
-| 寫程式、refactor | GLM-5 | Code 推理 |
-| 研究、學習新技術 | GLM-5 | 深度理解 |
-| 總結、歸檔、整理 | GLM-5 | 简单整理 |
-| 查天氣、查資料 | GLM-5 | 单一搜索 |
-| 閒聊、簡單問題 | GLM-5 | 日常对话 |
-| heartbeat、git status | GLM-5 | 例行任务 |
-| 記錄、寫日誌 | GLM-5 | 简单记录 |
-| 數據分析 | GLM-5 | 快速计算 |
+```
+收到任务
+    ↓
+判断：思考型 or 生成型？
+    ↓
+思考型 → GLM-5
+生成型 → MiniMax（默认）
+    ↓
+如果 GLM-5 timeout → 切回 MiniMax
+```
 
 ### ⚠️ 已知问题（2026-03-13）
 
@@ -99,6 +112,110 @@
 
 - 如果 API quota < 20% → 自动切换到另一个 provider
 - 记录 quota 状态到 `memory/quota-state.json`
+
+---
+
+## 🏢 AI Company Architecture
+
+> **核心概念**: Commander → Planner → Workers → Memory
+
+### 完整架构图
+
+```
+USER
+   │
+   ▼
+Telegram / Discord
+   │
+   ▼
+Clawdbot → OpenClaw Gateway
+   │
+   ▼
+┌─────────────────────────────────┐
+│      COMMANDER AGENT            │
+│  - 接收命令 (/task, /work)     │
+│  - 解析输入                    │
+│  - 分配给 Agent                │
+│  - 整合回报                    │
+└───────────────┬─────────────────┘
+                │
+                ▼
+      任務分派系統
+                │
+      ┌─────────┼─────────┐
+      │         │         │
+      ▼         ▼         ▼
+  PLANNER   RESEARCH   BUILDER
+   AGENT      AGENT     AGENT
+      │         │         │
+      └─────────┼─────────┘
+                │
+                ▼
+          CONTENT
+           AGENT
+                │
+                ▼
+          REVIEW
+           AGENT
+                │
+                ▼
+          MEMORY
+          (tasks.md / knowledge / L1-daily)
+                │
+                ▼
+           回报 USER
+```
+│  - 回报用户                     │
+└─────────────────────────────────┘
+```
+
+### Commander 职责
+
+1. **接收** - 收用户既 input
+2. **分类** - 判断任务类型
+3. **分配** - 畀啱既 agent
+4. **回报** - 整好 reply 用户
+
+### 执行流程
+
+```
+用户 input
+    ↓
+Commander 分类
+    ↓
+Planner 拆解
+    ↓
+Workers 执行
+    ↓
+Commander 整合
+    ↓
+回报用户
+```
+
+### 调用 Sub-agents
+
+用 `sessions_spawn` 启动：
+```python
+# Planner
+sessions_spawn(runtime="subagent", task="分析...", label="planner")
+
+# Research  
+sessions_spawn(runtime="subagent", task="搜集...", label="research")
+
+# Builder
+sessions_spawn(runtime="subagent", task="写...", label="builder")
+
+# Content
+sessions_spawn(runtime="subagent", task="创作...", label="content")
+```
+
+### 对比
+
+| | 普通 AI | AI Company |
+|---|---------|------------|
+| 模式 | 回答问题 | 主动做事 |
+| 能力 | 单兵作战 | 团队协作 |
+| 效率 | 一般 | 高 |
 
 ---
 
