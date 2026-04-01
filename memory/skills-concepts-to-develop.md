@@ -543,14 +543,210 @@ agent.on("task", async (task) => {
 
 ---
 
-## 📊 概念统计
+---
 
-**总计概念**: 15 个
-**学习价值 ⭐⭐⭐⭐⭐**: 8 个
-**学习价值 ⭐⭐⭐⭐**: 6 个
-**学习价值 ⭐⭐⭐**: 1 个
+### 16. AI Content Automation Pipeline (AI 內容自動化管道)
+
+**來源:** 2026-03-29 ClawHub 掃描（content-generation, automated-content-machine）
+
+**核心理念:**
+- 端到端內容生產線
+- 模板化內容生成
+- 自動發布與調度
+- 多平台適配
+
+**架構:**
+```
+Trend Monitor → Content Ideation → AI Generation 
+                                            ↓
+                                    Platform Adapter
+                                            ↓
+                                    Auto Publisher
+```
+
+**關鍵技術:**
+1. **Trending Detection:** 監控熱門話題
+2. **Content Templates:** 可復用的內容模板
+3. **Platform Formatters:** 適配不同平台格式
+4. **Scheduler:** 智能發布時間選擇
+
+**相關 Skills:**
+- `content-generation`
+- `automated-content-machine`
+- `ai-content-pipeline`
+
+**學習價值:** ⭐⭐⭐⭐⭐
 
 ---
 
-**文档版本:** 1.2  
-**更新日期:** 2026-03-10 10:00
+### 17. Affiliate Marketing Automation (聯盟營銷自動化)
+
+**來源:** 2026-03-29 ClawHub 掃描（affiliate-marketing-channels, affiliate-page-generator）
+
+**核心理念:**
+- 自動化營銷頁面生成
+- ROI 實時追蹤
+- 多渠道整合
+- A/B 測試自動化
+
+**工作流程:**
+```
+Product Discovery → Page Generation → Multi-channel Distribution
+                                            ↓
+                                    Performance Tracking
+                                            ↓
+                                    Optimization Loop
+```
+
+**關鍵組件:**
+1. **Product Database:** 產品信息庫
+2. **Page Builder:** 動態頁面生成
+3. **Channel Manager:** 多渠道發布
+4. **Analytics:** 效果分析
+
+**相關 Skills:**
+- `tiktok-affiliate-roi-calculator`
+- `affiliate-marketing-channels`
+- `affiliate-page-generator`
+- `affiliate-offer-angle-tester`
+
+**學習價值:** ⭐⭐⭐⭐⭐
+
+---
+
+### 18. SEO Intelligence Engine (SEO 智能引擎)
+
+**來源:** 2026-03-29 ClawHub 掃描（seo, seo-competitor-analysis）
+
+**核心理念:**
+- 競爭對手自動分析
+- 關鍵詞智能推薦
+- 內容優化建議
+- 排名追蹤
+
+**技術架構:**
+```python
+# SEO 分析流程
+def analyze_seo(target_site):
+    # 1. 競爭對手識別
+    competitors = find_competitors(target_site)
+    
+    # 2. 關鍵詞差距分析
+    keyword_gaps = analyze_keyword_gaps(target_site, competitors)
+    
+    # 3. 內容優化建議
+    content_suggestions = optimize_content(keyword_gaps)
+    
+    # 4. 生成行動計劃
+    return generate_action_plan(content_suggestions)
+```
+
+**核心功能:**
+1. **Site Audit:** 網站技術 SEO 檢查
+2. **Content Writer:** SEO 優化內容生成
+3. **Competitor Analysis:** 競爭對手分析
+4. **Ranking Tracker:** 排名監控
+
+**相關 Skills:**
+- `seo` (全功能)
+- `seo-competitor-analysis`
+- `seo-content-writer`
+- `seo-optimizer`
+
+**學習價值:** ⭐⭐⭐⭐⭐
+
+---
+
+### 19. Social Media Orchestration (社交媒體編排)
+
+**來源:** 2026-03-29 ClawHub 掃描（social-media-automation, x-post-automation）
+
+**核心理念:**
+- 統一管理多個平台
+- 內容日曆與調度
+- 自動化發布
+- 效果分析
+
+**平台支持:**
+- Twitter/X
+- LinkedIn
+- Instagram
+- Facebook
+- TikTok
+
+**自動化流程:**
+```
+Content Creation → Platform Formatting → Scheduling
+                                            ↓
+                                    Auto Publishing
+                                            ↓
+                                    Analytics Dashboard
+```
+
+**關鍵特性:**
+1. **Multi-platform Adapter:** 適配不同平台格式
+2. **Smart Scheduler:** 最佳發布時間預測
+3. **Content Repurposer:** 一鍵轉換格式
+4. **Performance Tracker:** 跨平台效果追蹤
+
+**相關 Skills:**
+- `social-media-automation`
+- `x-post-automation`
+- `social-media-scheduler`
+- `afrexai-social-repurposer`
+
+**學習價值:** ⭐⭐⭐⭐⭐
+
+---
+
+### 20. Crypto Trading Automation (加密貨幣交易自動化)
+
+**來源:** 2026-03-29 ClawHub 掃描（crypto-trading-bot, binance-pro）
+
+**核心理念:**
+- 自動化交易策略執行
+- 風險管理
+- 多交易所整合
+- 實時市場監控
+
+**⚠️ 安全警告:**
+- 必須使用沙盒環境測試
+- 實盤交易需要嚴格風控
+- API Key 必須限制權限
+
+**架構設計:**
+```
+Market Data Feed → Strategy Engine → Order Execution
+                                            ↓
+                                    Risk Management
+                                            ↓
+                                    Portfolio Tracker
+```
+
+**關鍵組件:**
+1. **Data Aggregator:** 多交易所數據聚合
+2. **Strategy Engine:** 策略執行引擎
+3. **Risk Manager:** 止損、倉位控制
+4. **Order Executor:** 訂單執行管理
+
+**相關 Skills:**
+- `crypto-trading-bot`
+- `binance-pro`
+- `binance-spot-trader`
+- `portfolio-watcher`
+
+**學習價值:** ⭐⭐⭐⭐（技術層面）⚠️（風險層面）
+
+---
+
+## 📊 概念統計
+
+**總計概念**: 20 個
+**學習價值 ⭐⭐⭐⭐⭐**: 11 個
+**學習價值 ⭐⭐⭐⭐**: 8 個
+**學習價值 ⭐⭐⭐**: 1 個
+
+---
+
+**文檔版本:** 1.3  
+**更新日期:** 2026-03-29 12:48

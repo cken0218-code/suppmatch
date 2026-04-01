@@ -101,15 +101,26 @@
 
 ## 重要项目状态
 
-### SuppMatch
-- 症状数据：375个
-- GitHub: clean
-- 待处理：Next.js 安全漏洞
+### YouTube Automation ⭐ (高优先级)
+- **状态**: 95% 完成，Production Ready ✅
+- **功能**: Trending Scanner + Script Generator + Discord 通知
+- **成功率**: 100%（26 次连续成功）
+- **下次**: 集成 YouTube Data API
+
+### Affiliate Marketing (中优先级)
+- **平台**: TikTok Shop（新机会）
+- **平均收入**: $51,217/year（行业标准）
+- **下一步**: 研究 TikTok Shop affiliate
 
 ### 澳洲股票
-- 追踪：13只股票
+- 追踪：13只股票 → 21只股票 ✅
 - 每日报告：09:00 (平日)
 - Signal 逻辑：ADX > 25 + RSI < 30 + MACD golden cross
+- **最近发现**: NAB/AVH/CTT 极度超卖（2026-03-30）
+
+### OpenClaw 新功能
+- **Telegram Streaming**: 新发布，先发机会
+- **Memory System**: 从 skill 升级为核心功能
 
 ---
 

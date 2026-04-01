@@ -102,64 +102,68 @@ Send Telegram 通知
 
 ## 自動化腳本
 
-### 1. trending-search.py
+### 📁 文件結構
 
-```python
-#!/usr/bin/env python3
-"""
-搜尋 trending 話題
-"""
-import json
-from datetime import datetime
-
-def search_trending():
-    topics = [
-        "AI tools trending",
-        "productivity hacks 2026",
-        "health supplements research",
-        "tech news today"
-    ]
-
-    # TODO: 用 web_search API
-    # TODO: 過濾相關主題
-    # TODO: 評估潛力
-
-    return {
-        "date": datetime.now().isoformat(),
-        "topics": topics
-    }
-
-if __name__ == "__main__":
-    result = search_trending()
-    print(json.dumps(result, indent=2))
+```
+youtube-workflow-local/
+├── run.py                  # 主執行腳本（完整流程）
+├── trending_search.py      # Trending 搜尋模組
+├── script_generator.py     # 腳本生成模組
+├── SKILL.md               # 說明文檔
+└── youtube-scripts/       # 輸出目錄
+    ├── trending-YYYY-MM-DD.json
+    ├── script-YYYY-MM-DD-HHMM.md
+    └── notification-YYYY-MM-DD-HHMM.txt
 ```
 
-### 2. script-generator.py
+### 🚀 使用方式
 
-```python
-#!/usr/bin/env python3
-"""
-生成 YouTube 腳本
-"""
-import json
-from datetime import datetime
-
-def generate_script(topic, persona_path):
-    # TODO: 讀取 persona
-    # TODO: 生成標題
-    # TODO: 生成腳本
-    # TODO: 整合 affiliate
-
-    return {
-        "title": f"Generated: {topic}",
-        "script": "...",
-        "monetization": "CustomGPT affiliate"
-    }
-
-if __name__ == "__main__":
-    # TODO: 實現
-    pass
+#### 方法 1：完整流程（推薦）
+```bash
+cd /Users/cken0218/.openclaw/workspace
+python3 skills/youtube-workflow-local/run.py
 ```
+
+**輸出**：
+- Trending 話題 JSON
+- 完整腳本 Markdown
+- 通知訊息 TXT
+
+#### 方法 2：單獨執行模組
+```bash
+# 只搜尋 trending
+python3 skills/youtube-workflow-local/trending_search.py
+
+# 只生成腳本（需要先有 trending 結果）
+python3 skills/youtube-workflow-local/script_generator.py
+```
+
+### ⚙️ Cron 設置（自動化）
+
+```bash
+# 編輯 crontab
+crontab -e
+
+# 每週一、三、五 10:00 執行
+0 10 * * 1,3,5 cd /Users/cken0218/.openclaw/workspace && /usr/bin/python3 skills/youtube-workflow-local/run.py >> logs/youtube-workflow.log 2>&1
+```
+
+### 📊 效果追蹤
+
+**產出統計**：
+```bash
+# 查看生成的腳本
+ls -lht youtube-scripts/*.md | head -5
+
+# 查看最近的 trending 結果
+cat youtube-scripts/trending-$(date +%Y-%m-%d).json | jq '.selected'
+```
+
+**預期效果**：
+- 每週 3 個腳本
+- 每月 12-13 個腳本
+- 假設拍攝率 50% → 6-7 條影片/月
+- 收入預測：$900-4200/月
 
 ---
 

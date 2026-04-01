@@ -54,47 +54,94 @@ def assess_topic_potential(topic, description=""):
 def search_trending_topics():
     """
     搜尋 trending 話題
-    注意：這是一個框架，實際需要整合 web_search API
+    使用 web_search API（通過 OpenClaw）或降級到本地模擬
     """
-    # 模擬搜尋結果（實際應該用 web_search API）
-    mock_results = [
-        {
-            "topic": "15 AI Tools Trending March 2026",
-            "description": "Explore trending AI tools including ChatGPT, Claude, Gemini",
-            "potential_score": 95
-        },
-        {
-            "topic": "Productivity Hacks Using AI in 2026",
-            "description": "How AI can boost your productivity",
-            "potential_score": 85
-        },
-        {
-            "topic": "Best Health Supplements for Sleep 2026",
-            "description": "Science-backed supplements for better sleep",
-            "potential_score": 80
-        },
-        {
-            "topic": "AI Automation for Small Business",
-            "description": "How to automate your business with AI",
-            "potential_score": 88
-        }
+    import subprocess
+    import json
+    
+    # 嘗試用 OpenClaw web_search
+    search_queries = [
+        "AI tools trending 2026",
+        "productivity hacks AI March 2026",
+        "health supplements research 2026",
+        "YouTube automation tools 2026"
     ]
-
+    
+    results = []
+    
+    for query in search_queries:
+        try:
+            # 使用 OpenClaw web_search（通過 subprocess）
+            # 注意：這需要 OpenClaw 支持 CLI 調用
+            cmd = f'openclaw search "{query}" --count 3 --format json'
+            process = subprocess.run(
+                cmd,
+                shell=True,
+                capture_output=True,
+                text=True,
+                timeout=10
+            )
+            
+            if process.returncode == 0:
+                search_results = json.loads(process.stdout)
+                for item in search_results.get('results', []):
+                    results.append({
+                        "topic": item.get('title', query),
+                        "description": item.get('description', ''),
+                        "url": item.get('url', ''),
+                        "source": "web_search"
+                    })
+        except (subprocess.TimeoutExpired, json.JSONDecodeError, FileNotFoundError):
+            # 降級：使用模擬數據
+            pass
+    
+    # 如果沒有真實結果，使用本地模擬
+    if not results:
+        print("⚠️  使用本地模擬數據（web_search 不可用）")
+        mock_results = [
+            {
+                "topic": "15 AI Tools Trending March 2026",
+                "description": "Explore trending AI tools including ChatGPT, Claude, Gemini, and productivity boosters",
+                "source": "mock"
+            },
+            {
+                "topic": "Productivity Hacks Using AI in 2026",
+                "description": "How AI can boost your productivity with automation workflows",
+                "source": "mock"
+            },
+            {
+                "topic": "Best Health Supplements for Sleep 2026",
+                "description": "Science-backed supplements for better sleep: Magnesium, Melatonin, Ashwagandha",
+                "source": "mock"
+            },
+            {
+                "topic": "AI Automation for Small Business",
+                "description": "How to automate your business with AI tools and workflows",
+                "source": "mock"
+            },
+            {
+                "topic": "YouTube Automation Tools 2026",
+                "description": "Best tools for YouTube content automation: vidIQ, Descript, Canva AI",
+                "source": "mock"
+            }
+        ]
+        results = mock_results
+    
     # 評分排序
-    for result in mock_results:
+    for result in results:
         result["potential_score"] = assess_topic_potential(
             result["topic"],
-            result["description"]
+            result.get("description", "")
         )
-
+    
     # 按分數排序
     sorted_results = sorted(
-        mock_results,
+        results,
         key=lambda x: x["potential_score"],
         reverse=True
     )
-
-    return sorted_results
+    
+    return sorted_results[:5]  # 返回前 5 個
 
 def select_best_topic(topics):
     """

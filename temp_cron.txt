@@ -1,0 +1,1 @@
+0 10 * * 1,3,5 cd /Users/cken0218/.openclaw/workspace && /usr/bin/python3 skills/youtube-workflow-local/run.py >> logs/youtube-workflow.log 2>&1

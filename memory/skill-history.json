@@ -1,0 +1,25 @@
+{
+  "scans": [
+    {
+      "date": "2026-03-30T16:05:00+08:00",
+      "model": "glm-5",
+      "focus": ["YouTube automation", "AI tools", "Content creation"],
+      "totalFound": 30,
+      "highPriority": 8,
+      "installed": 30,
+      "recommendations": [
+        "youtube-shorts-automation",
+        "youtube-publisher",
+        "youtube-transcript",
+        "content-writer",
+        "content-generation",
+        "ai-web-automation",
+        "ai-writing-agent",
+        "video-translator"
+      ],
+      "reportPath": "memory/skill-scans/clawhub-scan-2026-03-30.md"
+    }
+  ],
+  "lastScan": "2026-03-30T16:05:00+08:00",
+  "nextScan": "2026-04-06T10:00:00+08:00"
+}

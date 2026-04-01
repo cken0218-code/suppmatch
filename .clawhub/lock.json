@@ -120,6 +120,18 @@
     "adclaw": {
       "version": "1.0.25",
       "installedAt": 1774013703600
+    },
+    "youtube-shorts-automation": {
+      "version": "1.0.0",
+      "installedAt": 1774946320477
+    },
+    "content-writer": {
+      "version": "1.0.0",
+      "installedAt": 1774951802711
+    },
+    "ai-workflow-automation": {
+      "version": "1.0.0",
+      "installedAt": 1775009290773
     }
   }
 }

@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-03-29T12:50:58.788394",
+  "topics": [
+    {
+      "topic": "15 AI Tools Trending March 2026",
+      "description": "Explore trending AI tools including ChatGPT, Claude, Gemini, and productivity boosters",
+      "source": "mock",
+      "potential_score": 32
+    },
+    {
+      "topic": "Best Health Supplements for Sleep 2026",
+      "description": "Science-backed supplements for better sleep: Magnesium, Melatonin, Ashwagandha",
+      "source": "mock",
+      "potential_score": 21
+    },
+    {
+      "topic": "Productivity Hacks Using AI in 2026",
+      "description": "How AI can boost your productivity with automation workflows",
+      "source": "mock",
+      "potential_score": 20
+    },
+    {
+      "topic": "YouTube Automation Tools 2026",
+      "description": "Best tools for YouTube content automation: vidIQ, Descript, Canva AI",
+      "source": "mock",
+      "potential_score": 20
+    },
+    {
+      "topic": "AI Automation for Small Business",
+      "description": "How to automate your business with AI tools and workflows",
+      "source": "mock",
+      "potential_score": 14
+    }
+  ],
+  "selected": {
+    "topic": "15 AI Tools Trending March 2026",
+    "description": "Explore trending AI tools including ChatGPT, Claude, Gemini, and productivity boosters",
+    "potential_score": 32,
+    "reason": "最高潛力分數：32/100"
+  }
+}

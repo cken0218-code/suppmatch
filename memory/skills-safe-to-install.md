@@ -1,8 +1,59 @@
-# 安全 Skills 列表 - 2026-03-26 更新
+# 安全 Skills 列表 - 2026-03-30 更新
 
 > **來源**: ClawHub 官方 + Felo 團隊測試
 > **測試日期**: 2026-03-26
-> **安全標準**: 已通過 Snyk 安全審計
+> **最後掃描**: 2026-03-30 16:05（輕量掃描）
+> **安全標準**: 已通過 Snyk 安全審議
+
+---
+
+## 🆕 2026-03-30 新發現
+
+### ai-topic-scout ⭐⭐⭐⭐⭐（推薦安裝）
+- **用途**: AI 短視頻選題追蹤系統
+- **評分**: 3.303
+- **發布者**: agegr
+- **創建**: 2026-03-11
+- **最後更新**: 2026-03-30（今天更新！）🔥
+- **功能**:
+  - 自動抓取 YouTube 和 Twitter 博主內容
+  - 分析內容，聚合跨平台熱點主題
+  - 生成熱度評分和選題建議
+  - 結果寫入釘釘 AI 表格
+- **語言**: 中文
+- **觸發詞**: "抓取選題"、"分析選題"、"選題scout"
+- **安全**: ⚠️ 需要配置 API（YouTube, Twitter, 釘釘）
+- **安裝**: `clawhub install ai-topic-scout`
+- **理由**: 填補選題研究空白，今天更新，功能實用
+
+### content-writer ⭐⭐⭐⭐
+- **用途**: 多平台內容生成器（中文）
+- **評分**: 3.561
+- **發布者**: alexandrali1989-cell
+- **創建**: 2026-03-05
+- **功能**:
+  - 支持：小紅書、知乎、公眾號、抖音
+  - 平台原生格式
+  - 自動生成吸引人的開頭
+- **語言**: 中文
+- **安全**: ⚠️ 需要檢查 API 依賴
+- **安裝**: `clawhub install content-writer`
+- **理由**: 擴展內容生成能力，支持更多平台
+
+### youtube-shorts-automation ⭐⭐⭐
+- **用途**: YouTube Shorts 自動生成和上傳
+- **評分**: 3.411
+- **發布者**: kangjjang
+- **創建**: 2026-02-13
+- **最後更新**: 2026-03-01
+- **功能**:
+  - 使用 Deevid AI Agent 生成圖片→視頻（含 BGM + 語音）
+  - 自動上傳到 YouTube
+  - 支持每日定時執行（cron job）
+- **語言**: 韓文（但功能通用）
+- **安全**: ⚠️ 需要配置 Deevid AI API
+- **安裝**: `clawhub install youtube-shorts-automation`
+- **理由**: 完整的短視頻生成流程，適合 YouTube automation
 
 ---
 
@@ -302,13 +353,114 @@ npx clawhub@latest install home-assistant
 
 ---
 
+## 🆕 2026-03-29 新發現（待審查）
+
+### 高潛力 Skills（需要深度安全審查）
+
+#### AI Automation 核心
+1. **ai-automation-workflows** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：批量處理、自動化流程、內容自動化
+   - 狀態：待安全審查
+   
+2. **agentic-workflow-automation** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：多 Agent 協作、自動化編排
+   - 狀態：待安全審查
+
+3. **agent-autonomy-kit** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：自主 Agent、減少人工干預
+   - 狀態：待安全審查
+
+#### 內容創作核心
+4. **x-post-automation** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：自動發推、trending 監控、內容生成
+   - 狀態：待安全審查
+
+5. **social-media-automation** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：多平台自動發布、內容調度
+   - 狀態：待安全審查
+
+6. **content-generation** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：AI 內容生成、批量生產
+   - 狀態：待安全審查
+
+7. **automated-content-machine** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：全自動內容生產線
+   - 狀態：待安全審查
+
+#### 網賺核心
+8. **tiktok-affiliate-roi-calculator** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：TikTok 聯盟營銷 ROI 計算
+   - 狀態：待安全審查
+
+9. **affiliate-marketing-channels** ⚠️
+   - 潛力：⭐⭐⭐⭐⭐
+   - 用途：聯盟營銷渠道管理
+   - 狀態：待安全審查
+
+10. **affiliate-page-generator** ⚠️
+    - 潛力：⭐⭐⭐⭐⭐
+    - 用途：自動生成聯盟營銷頁面
+    - 狀態：待安全審查
+
+#### SEO 核心
+11. **seo** ⚠️
+    - 潛力：⭐⭐⭐⭐⭐
+    - 用途：全功能 SEO 優化（Site Audit + Content Writer + Competitor Analysis）
+    - 狀態：待安全審查
+
+12. **seo-competitor-analysis** ⚠️
+    - 潛力：⭐⭐⭐⭐⭐
+    - 用途：競爭對手分析
+    - 狀態：待安全審查
+
+13. **seo-content-writer** ⚠️
+    - 潛力：⭐⭐⭐⭐⭐
+    - 用途：SEO 優化內容生成
+    - 狀態：待安全審查
+
+#### 交易核心
+14. **crypto-trading-bot** ⚠️
+    - 潛力：⭐⭐⭐⭐⭐
+    - 用途：加密貨幣自動交易
+    - 狀態：待安全審查
+
+15. **binance-pro** ⚠️
+    - 潛力：⭐⭐⭐⭐⭐
+    - 用途：Binance 專業交易
+    - 狀態：待安全審查
+
+### 審查優先級
+**立即審查（今天晚上）**:
+1. ai-automation-workflows
+2. x-post-automation
+3. social-media-automation
+4. content-generation
+5. affiliate-marketing-channels
+
+**本週審查**:
+6. agentic-workflow-automation
+7. agent-autonomy-kit
+8. seo
+9. binance-pro
+
+---
+
 ## 🔄 更新記錄
 
+- **2026-03-29**: 新增 15 個高潛力待審查 skills（AI automation、內容創作、網賺、SEO、交易）
 - **2026-03-26**: 初始版本，基於 Felo 團隊測試
-- **下次更新**: 每週掃描新 skills
+- **下次更新**: 今晚 23:00 深度安全審查
 
 ---
 
 **重要**: 這個列表會持續更新。定期回來查看最新安全建議。
 
-**最後更新**: 2026-03-26 18:15 (Asia/Taipei)
+**最後更新**: 2026-03-29 12:45 (Asia/Taipei)

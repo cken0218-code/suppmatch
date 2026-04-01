@@ -1,0 +1,165 @@
+{
+  "date": "2026-04-01",
+  "stocks": {
+    "NAB": {
+      "price": 41.55,
+      "rsi": 18.38,
+      "adx": 54.4,
+      "ema20": 44.23,
+      "macd": -1.26,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "WES": {
+      "price": 72.82,
+      "rsi": 30.24,
+      "adx": 32.72,
+      "ema20": 74.85,
+      "macd": -1.88,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "LLC": {
+      "price": 3.31,
+      "rsi": 37.35,
+      "adx": 62.34,
+      "ema20": 3.5,
+      "macd": -0.23,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "SGP": {
+      "price": 4.24,
+      "rsi": 19.2,
+      "adx": 66.94,
+      "ema20": 4.47,
+      "macd": -0.2,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "RHC": {
+      "price": 38.47,
+      "rsi": 22.75,
+      "adx": 54.13,
+      "ema20": 40.08,
+      "macd": -0.06,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "WTC": {
+      "price": 39.29,
+      "rsi": 25.88,
+      "adx": 35.55,
+      "ema20": 42.34,
+      "macd": -3.2,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "NST": {
+      "price": 21.82,
+      "rsi": 33.94,
+      "adx": 66.27,
+      "ema20": 21.64,
+      "macd": -2.0,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "WHC": {
+      "price": 9.12,
+      "rsi": 47.81,
+      "adx": 32.93,
+      "ema20": 9.01,
+      "macd": 0.21,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "DMP": {
+      "price": 16.66,
+      "rsi": 27.05,
+      "adx": 46.88,
+      "ema20": 17.74,
+      "macd": -0.99,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "DXS": {
+      "price": 5.91,
+      "rsi": 29.17,
+      "adx": 51.22,
+      "ema20": 6.1,
+      "macd": -0.15,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "ECH": {
+      "price": 0.4,
+      "rsi": 58.82,
+      "adx": 41.49,
+      "ema20": 0.39,
+      "macd": 0.01,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "KMD": {
+      "price": 0.16,
+      "rsi": 11.11,
+      "adx": 79.26,
+      "ema20": 0.17,
+      "macd": -0.01,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "MGR": {
+      "price": 1.72,
+      "rsi": 23.61,
+      "adx": 53.92,
+      "ema20": 1.82,
+      "macd": -0.05,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "QUB": {
+      "price": 4.89,
+      "rsi": 37.25,
+      "adx": 28.42,
+      "ema20": 4.91,
+      "macd": -0.01,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "SKC": {
+      "price": 0.58,
+      "rsi": 34.21,
+      "adx": 27.21,
+      "ema20": 0.63,
+      "macd": -0.03,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "TWE": {
+      "price": 3.74,
+      "rsi": 37.66,
+      "adx": 78.05,
+      "ema20": 3.86,
+      "macd": -0.27,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "AIA": {
+      "price": 6.61,
+      "rsi": 32.29,
+      "adx": 69.59,
+      "ema20": 6.82,
+      "macd": -0.16,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "APC": {
+      "price": 0.01,
+      "rsi": 33.33,
+      "adx": 43.13,
+      "ema20": 0.01,
+      "macd": -0.0,
+      "signal": "\ud83d\udfe2 BUY"
+    },
+    "AVH": {
+      "price": 1.09,
+      "rsi": 17.19,
+      "adx": 50.93,
+      "ema20": 1.17,
+      "macd": -0.05,
+      "signal": "\ud83d\udfe1 HOLD"
+    },
+    "CTT": {
+      "price": 0.24,
+      "rsi": 30.43,
+      "adx": 56.75,
+      "ema20": 0.28,
+      "macd": -0.05,
+      "signal": "\ud83d\udfe2 BUY"
+    }
+  }
+}
