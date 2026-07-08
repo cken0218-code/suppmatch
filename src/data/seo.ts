@@ -158,19 +158,88 @@ export function generateHowToSchema(steps: Array<{ name: string; text: string }>
   };
 }
 
-// Generate all structured data as JSON-LD script tags
-export function generateAllSchemaScripts(): string {
-  const schemas = [
+// Generate all structured data as JSON-LD objects (render with JsonLd component)
+export function getHomeSchemas() {
+  return [
     generateWebsiteSchema(),
     generateWebApplicationSchema(),
     generateFAQSchema(),
-    generateMedicalWebPageSchema()
+    generateMedicalWebPageSchema(),
   ];
+}
 
-  return schemas
-    .map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`)
+/** @deprecated use getHomeSchemas + JsonLd */
+export function generateAllSchemaScripts(): string {
+  return getHomeSchemas()
+    .map((schema) => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`)
     .join('\n');
 }
 
-// Export site config for use in components
-// (already exported at line 7)
+export function generateSymptomMedicalWebPageSchema(opts: {
+  locale: string;
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: opts.name,
+    url: opts.url,
+    inLanguage: opts.locale,
+    description: opts.description,
+    about: {
+      '@type': 'MedicalSymptom',
+      name: opts.name,
+    },
+    audience: {
+      '@type': 'Audience',
+      audienceType: 'health consumers',
+    },
+    specialty: {
+      '@type': 'MedicalSpecialty',
+      name: 'Nutrition',
+    },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    lastReviewed: new Date().toISOString().slice(0, 10),
+  };
+}
+
+export function generateSymptomFAQSchema(
+  faqs: Array<{ question: string; answer: string }>,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer,
+      },
+    })),
+  };
+}
+
+export function generateSymptomItemListSchema(opts: {
+  name: string;
+  url: string;
+  items: Array<{ name: string; position: number }>;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: opts.name,
+    url: opts.url,
+    itemListElement: opts.items.map((item) => ({
+      '@type': 'ListItem',
+      position: item.position,
+      name: item.name,
+    })),
+  };
+}
